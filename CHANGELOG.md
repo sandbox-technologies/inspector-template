@@ -4,6 +4,34 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
+### v10.2.0
+
+- 🎉 Electron version upgraded `v35.x.x`
+- 📦 Upgraded dependencies to latest versions:
+
+| Package                            | Version    |
+| ---------------------------------- | ---------- |
+| @electron-toolkit/preload          | `^3.0.2`   |
+| @electron-toolkit/eslint-config    | `^2.1.0`   |
+| @electron-toolkit/eslint-config-ts | `^3.1.0`   |
+| @rushstack/eslint-patch            | `^1.11.0`  |
+| @tailwindcss/vite                  | `^4.1.4`   |
+| @vitejs/plugin-react               | `^4.4.1`   |
+| electron                           | `^35.2.0`  |
+| electron-builder                   | `^26.0.12` |
+| electron-vite                      | `^3.1.0`   |
+| eslint                             | `^9.25.1`  |
+| eslint-plugin-react                | `^7.37.5`  |
+| framer-motion                      | `^12.7.4`  |
+| prettier                           | `^3.5.3`   |
+| react                              | `^19.1.0`  |
+| react-dom                          | `^19.1.0`  |
+| tailwindcss                        | `^4.1.4`   |
+| typescript                         | `^5.8.3`   |
+| vite                               | `^6.3.2`   |
+
+<br>
+
 ### v10.1.0
 
 - Add pnpm configuration for only built dependencies
@@ -589,16 +617,4 @@ Upgraded outdated packages:
 - Added new style & color changes to boilerplate layout
 - Added prettier configuration files `.prettierrc` `.prettierignore`
 - `contextIsolation` is enabled by default
-- `nodeIntegration` `enableRemoteModule` `nodeIntegrationInWorker` `nodeIntegrationInSubFrames` are disabled default
-
-<br>
-
-### v1.0.0
-
-- Upgrade package dependencies to latest
-- Add hot module replacement (live reload)
-- Add linting via ESLint
-- Custom webpack configuration
-- Custom forge configuration for package/bundle
-- Add aliases for project paths
-- Image loader to display images
+- `nodeIntegration` `enableRemoteModule`
