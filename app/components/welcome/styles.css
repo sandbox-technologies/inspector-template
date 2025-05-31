@@ -2,7 +2,7 @@
   --welcome-c-variant: #8aa6cf;
 }
 
-:root.light {
+:root:not(.dark) {
   --welcome-c-variant: #43679d;
 }
 
