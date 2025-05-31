@@ -1,6 +1,6 @@
 {
   "name": "era",
-  "version": "10.2.0",
+  "version": "11.0.0",
   "description": "A modern Electron application template with React, Vite, TypeScript, and TailwindCSS",
   "main": "./out/main/main.js",
   "license": "MIT",
