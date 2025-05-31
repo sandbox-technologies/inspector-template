@@ -5,7 +5,7 @@ const pathTypes = [
   { name: 'Electron' },
   { name: 'React' },
   { name: 'Vite' },
-  { name: 'TypeScript' },
+  { name: 'Shadcn' },
   { name: 'Tailwind' },
   { name: 'ERA' },
 ]

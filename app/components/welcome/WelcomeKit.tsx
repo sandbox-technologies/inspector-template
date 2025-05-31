@@ -4,7 +4,7 @@ import EraContent from './contents/EraContent'
 import ElectronContent from './contents/ElectronContent'
 import ReactContent from './contents/ReactContent'
 import ViteContent from './contents/ViteContent'
-import TypescriptContent from './contents/TypescriptContent'
+import ShadContent from './contents/ShadContent'
 import TailwindContent from './contents/TailwindContent'
 import { motion, AnimatePresence } from 'framer-motion'
 import './styles.css'
@@ -29,7 +29,7 @@ export default function WelcomeKit() {
       case 2:
         return <ViteContent />
       case 3:
-        return <TypescriptContent />
+        return <ShadContent />
       case 4:
         return <TailwindContent />
       case 5:

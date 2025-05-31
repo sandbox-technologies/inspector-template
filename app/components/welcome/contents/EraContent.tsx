@@ -7,7 +7,12 @@ import AsterikIcon from '../icons/AsterikIcon'
 const EraContent = () => {
   return (
     <div>
-      <h2>Electron React App</h2>
+      <h2 className="flex items-center gap-4">
+        Electron React App
+        <div className="p-1 rounded-md bg-primary/10">
+          <img src="/assets/icons/era.svg" className="w-4 h-4" />
+        </div>
+      </h2>
       <p>
         Welcome to the Electron React App! This is a prebuilt template that provides a solid foundation for developing
         desktop applications with Electron and React.
