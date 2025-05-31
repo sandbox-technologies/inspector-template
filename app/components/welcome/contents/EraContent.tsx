@@ -42,8 +42,8 @@ const EraContent = () => {
         />
 
         <ContentStep
-          title="Improved Project Structure"
-          description="Organized project with a better folder structure to get you started"
+          title="Shadcn UI + Tailwind"
+          description="A collection of re-usable components built with Shadcn UI"
           icon={AsterikIcon}
         />
       </div>
