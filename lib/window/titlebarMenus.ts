@@ -121,7 +121,7 @@ export const menuItems: TitlebarMenu[] = [
         action: 'window-darkmode-toggle',
         shortcut: 'Toggle',
         actionCallback: () => {
-          document.documentElement.classList.toggle('light')
+          document.documentElement.classList.toggle('dark')
         },
       },
       {

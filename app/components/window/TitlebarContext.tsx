@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from 'react'
 
 interface TitlebarContextProps {
   activeMenuIndex: number | null
-  setActiveMenuIndex: (index: number | null) => void
   menusVisible: boolean
+  setActiveMenuIndex: (index: number | null) => void
   setMenusVisible: (visible: boolean) => void
   closeActiveMenu: () => void
 }
@@ -16,9 +16,11 @@ export const TitlebarContextProvider = ({ children }: { children: React.ReactNod
   const closeActiveMenu = () => setActiveMenuIndex(null)
 
   return (
-    <TitlebarContext value={{ activeMenuIndex, setActiveMenuIndex, menusVisible, setMenusVisible, closeActiveMenu }}>
+    <TitlebarContext.Provider
+      value={{ activeMenuIndex, setActiveMenuIndex, menusVisible, setMenusVisible, closeActiveMenu }}
+    >
       {children}
-    </TitlebarContext>
+    </TitlebarContext.Provider>
   )
 }
 
