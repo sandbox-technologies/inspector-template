@@ -7,9 +7,8 @@ import ViteContent from './contents/ViteContent'
 import ShadContent from './contents/ShadContent'
 import TailwindContent from './contents/TailwindContent'
 import { motion, AnimatePresence } from 'framer-motion'
-import './styles.css'
 import { Badge } from '../ui/badge'
-import { Switch } from '../ui/switch'
+import './styles.css'
 
 export default function WelcomeKit() {
   const [activePath, setActivePath] = useState<number>(5)
