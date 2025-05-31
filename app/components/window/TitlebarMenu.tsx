@@ -52,22 +52,22 @@ const TitlebarMenuItem = ({ menu, index }: { menu: TitlebarMenu; index: number }
     }
   }
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      menuItemRef.current &&
-      !menuItemRef.current.contains(event.target as Node) &&
-      menuItemRef.current.classList.contains('active')
-    ) {
-      setActiveMenuIndex(null)
-    }
-  }
-
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuItemRef.current &&
+        !menuItemRef.current.contains(event.target as Node) &&
+        menuItemRef.current.classList.contains('active')
+      ) {
+        setActiveMenuIndex(null)
+      }
+    }
+
     document.addEventListener('mousedown', handleClickOutside)
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [])
+  }, [setActiveMenuIndex])
 
   useEffect(() => {
     if (activeMenuIndex !== index) {
@@ -75,7 +75,7 @@ const TitlebarMenuItem = ({ menu, index }: { menu: TitlebarMenu; index: number }
     } else {
       menuItemRef.current?.classList.add('active')
     }
-  }, [activeMenuIndex])
+  }, [activeMenuIndex, index])
 
   return (
     <div className="titlebar-menuItem" ref={menuItemRef}>
