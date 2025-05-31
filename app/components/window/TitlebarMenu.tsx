@@ -2,20 +2,10 @@ import { useEffect, useRef } from 'react'
 import { useWindowContext } from '@/lib/window'
 import { useTitlebarContext } from './TitlebarContext'
 
-interface TitlebarMenuItem {
-  name: string
-  action?: string
-  actionParams?: (string | number | object)[]
-  shortcut?: string
-  items?: TitlebarMenuItem[]
-  actionCallback?: () => void
-}
-
-interface TitlebarMenu {
-  name: string
-  items: TitlebarMenuItem[]
-}
-
+/**
+ * Renders the titlebar menu component.
+ * Displays a list of menu items in the titlebar.
+ */
 const TitlebarMenu = () => {
   const { menuItems } = useWindowContext().titlebar
 
@@ -29,6 +19,13 @@ const TitlebarMenu = () => {
   )
 }
 
+/**
+ * Renders a single menu item within the titlebar.
+ * Handles menu activation, popup toggling, and mouse events.
+ *
+ * @param menu - The menu configuration
+ * @param index - The index of the menu item
+ */
 const TitlebarMenuItem = ({ menu, index }: { menu: TitlebarMenu; index: number }) => {
   const { activeMenuIndex, setActiveMenuIndex } = useTitlebarContext()
   const menuItemRef = useRef<HTMLDivElement | null>(null)
@@ -95,6 +92,12 @@ const TitlebarMenuItem = ({ menu, index }: { menu: TitlebarMenu; index: number }
   )
 }
 
+/**
+ * Renders a popup menu containing a list of menu items.
+ * Each menu item can have an action, shortcut, and optional parameters.
+ *
+ * @param menu - The menu configuration containing items to display
+ */
 const TitlebarMenuPopup = ({ menu }: { menu: TitlebarMenu }) => {
   return (
     <div className="menuItem-popup">
@@ -105,6 +108,12 @@ const TitlebarMenuPopup = ({ menu }: { menu: TitlebarMenu }) => {
   )
 }
 
+/**
+ * Renders a single menu item within a popup menu.
+ * Handles actions, shortcuts, and separators.
+ *
+ * @param item - The menu item configuration
+ */
 const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
   const { setActiveMenuIndex } = useTitlebarContext()
 
@@ -131,6 +140,20 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
       {item.shortcut && <div className="menuItem-shortcut">{item.shortcut}</div>}
     </div>
   )
+}
+
+interface TitlebarMenuItem {
+  name: string
+  action?: string
+  actionParams?: (string | number | object)[]
+  shortcut?: string
+  items?: TitlebarMenuItem[]
+  actionCallback?: () => void
+}
+
+interface TitlebarMenu {
+  name: string
+  items: TitlebarMenuItem[]
 }
 
 export { TitlebarMenu, TitlebarMenuItem, TitlebarMenuPopup, TitlebarMenuPopupItem }

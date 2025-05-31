@@ -1,32 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { Titlebar } from './Titlebar'
-import type { TitlebarMenu } from '../../../lib/window/titlebarMenus'
+import { Titlebar, TitlebarProps } from './Titlebar'
 import { TitlebarContextProvider } from './TitlebarContext'
-
-interface WindowContextProps {
-  titlebar: TitlebarProps
-  readonly window: WindowInitProps
-}
-
-interface WindowInitProps {
-  width: number
-  height: number
-  maximizable: boolean
-  minimizable: boolean
-  platform: string
-}
-
-interface WindowContextProviderProps {
-  children: React.ReactNode
-  titlebar?: TitlebarProps
-}
-
-export interface TitlebarProps {
-  title: string
-  titleCentered?: boolean
-  icon?: string
-  menuItems?: TitlebarMenu[]
-}
 
 const WindowContext = createContext<WindowContextProps | undefined>(undefined)
 
@@ -74,4 +48,22 @@ export const useWindowContext = () => {
     throw new Error('useWindowContext must be used within a WindowContextProvider')
   }
   return context
+}
+
+interface WindowContextProps {
+  titlebar: TitlebarProps
+  readonly window: WindowInitProps
+}
+
+interface WindowInitProps {
+  width: number
+  height: number
+  maximizable: boolean
+  minimizable: boolean
+  platform: string
+}
+
+interface WindowContextProviderProps {
+  children: React.ReactNode
+  titlebar?: TitlebarProps
 }

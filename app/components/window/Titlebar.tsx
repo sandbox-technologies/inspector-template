@@ -89,3 +89,10 @@ const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: str
     </div>
   )
 }
+
+export interface TitlebarProps {
+  title: string
+  titleCentered?: boolean
+  icon?: string
+  menuItems?: TitlebarMenu[]
+}

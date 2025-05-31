@@ -1,13 +1,5 @@
 import { createContext, useContext, useState } from 'react'
 
-interface TitlebarContextProps {
-  activeMenuIndex: number | null
-  menusVisible: boolean
-  setActiveMenuIndex: (index: number | null) => void
-  setMenusVisible: (visible: boolean) => void
-  closeActiveMenu: () => void
-}
-
 const TitlebarContext = createContext<TitlebarContextProps | undefined>(undefined)
 
 export const TitlebarContextProvider = ({ children }: { children: React.ReactNode }) => {
@@ -30,4 +22,12 @@ export const useTitlebarContext = () => {
     throw new Error('useTitlebarContext must be used within a TitlebarContext')
   }
   return context
+}
+
+interface TitlebarContextProps {
+  activeMenuIndex: number | null
+  menusVisible: boolean
+  setActiveMenuIndex: (index: number | null) => void
+  setMenusVisible: (visible: boolean) => void
+  closeActiveMenu: () => void
 }
