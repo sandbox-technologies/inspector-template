@@ -14,7 +14,7 @@ const ViteContent = () => {
       <p>Combine Electron's desktop capabilities with Vite's lightning-fast development experience.</p>
       <p>
         This powerful combination delivers exceptional developer experience with instant HMR, while allowing you to
-        build feature-rich desktop applications using web technologies.
+        build feature-rich desktop applications.
       </p>
 
       <div className="welcome-content-steps">

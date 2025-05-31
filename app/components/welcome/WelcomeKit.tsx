@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import EraShape from './EraShape'
 import EraContent from './contents/EraContent'
 import ElectronContent from './contents/ElectronContent'
@@ -8,6 +8,8 @@ import ShadContent from './contents/ShadContent'
 import TailwindContent from './contents/TailwindContent'
 import { motion, AnimatePresence } from 'framer-motion'
 import './styles.css'
+import { Badge } from '../ui/badge'
+import { Switch } from '../ui/switch'
 
 export default function WelcomeKit() {
   const [activePath, setActivePath] = useState<number>(5)
@@ -40,23 +42,49 @@ export default function WelcomeKit() {
   }
 
   return (
-    <div className="welcome-content">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={'content-' + activePath}
-          style={{ zIndex: 2, flex: 1 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            duration: 0.2,
-            ease: 'easeInOut',
-          }}
-        >
-          {content()}
-        </motion.div>
-      </AnimatePresence>
-      <EraShape onPathHover={handlePathHover} onPathReset={handlePathReset} />
+    <div className="welcome-content flex flex-col gap-5">
+      <div className="flex gap-5 items-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={'content-' + activePath}
+            style={{ zIndex: 2, flex: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.2,
+              ease: 'easeInOut',
+            }}
+          >
+            {content()}
+          </motion.div>
+        </AnimatePresence>
+        <EraShape onPathHover={handlePathHover} onPathReset={handlePathReset} />
+      </div>
+      <div className="flex justify-center items-center gap-4 opacity-50 hover:opacity-80 transition-opacity">
+        <DarkModeToggle />
+      </div>
+    </div>
+  )
+}
+
+const DarkModeToggle = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  useEffect(() => {
+    setIsDarkMode(document.documentElement.classList.contains('dark'))
+  }, [])
+
+  const toggleDarkMode = () => {
+    document.documentElement.classList.toggle('dark')
+    setIsDarkMode(!isDarkMode)
+  }
+
+  return (
+    <div className="flex justify-center items-center gap-2 text-sm cursor-pointer">
+      <Badge variant="secondary" onClick={toggleDarkMode}>
+        {isDarkMode ? 'Dark Mode' : 'Light Mode'}
+      </Badge>
     </div>
   )
 }
