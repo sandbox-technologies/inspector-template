@@ -4,6 +4,67 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
+### v11.0.0
+
+- 🎉 Electron version upgraded `v36`
+- 🎨 Integrated Shadcn UI Component System
+
+  - Added new component library with Radix UI primitives
+  - Implemented accessible and customizable components
+  - Added TypeScript support for better developer experience
+  - Integrated with Tailwind CSS for consistent styling
+  - Added new component showcase in welcome kit
+
+- 🎨 Enhanced Design System
+
+  - Implemented new color system with CSS variables
+  - Added new design tokens for consistent theming
+  - Improved dark/light mode implementation
+  - Added new radius system for consistent border radius
+  - Enhanced typography system
+  - Added new chart color palette
+
+- 🎨 Welcome Kit Improvements
+
+  - Added Shadcn UI showcase section
+  - Enhanced dark mode toggle
+  - Added new icons and updated welcome component content
+  - Updated welcome component styles to support light mode without dark class
+  - Integrated dark mode toggle in WelcomeKit using Badge component
+
+- 🎨 Developer Experience
+
+  - Added new component configuration system
+  - Improved TypeScript support
+  - Enhanced component documentation
+  - Added new development utilities
+  - Fixed ESLint configuration issues
+  - Implemented res:// protocol for app resources
+
+- 📦 Dependencies
+  - Upgraded dependencies to latest versions:
+
+| Package                   | Version    |
+| ------------------------- | ---------- |
+| @electron-toolkit/preload | `^3.0.2`   |
+| @electron-toolkit/utils   | `^4.0.0`   |
+| @tailwindcss/vite         | `^4.1.8`   |
+| @vitejs/plugin-react      | `^4.5.0`   |
+| electron                  | `^36.3.2`  |
+| electron-builder          | `^26.0.12` |
+| electron-vite             | `^3.1.0`   |
+| eslint                    | `^9.28.0`  |
+| eslint-plugin-react       | `^7.37.5`  |
+| framer-motion             | `^12.15.0` |
+| prettier                  | `^3.5.3`   |
+| react                     | `^19.1.0`  |
+| react-dom                 | `^19.1.0`  |
+| tailwindcss               | `^4.1.8`   |
+| typescript                | `^5.8.3`   |
+| vite                      | `^6.3.5`   |
+
+<br>
+
 ### v10.2.0
 
 - 🎉 Electron version upgraded `v35.x.x`
@@ -573,48 +634,4 @@ Upgraded outdated packages:
   - `less-loader` upgraded to `7.3.0`
   - `ts-loader` upgraded to `8.0.18`
   - `typescript` upgraded to `4.2.3`
-  - `webpack` upgraded to `5.27.1`
-
-<br>
-
-### v2.1.0
-
-- New Year 2021 🎉🎊
-- Upgraded outdated dependencies
-  - `electron` version upgraded to `11.1.1`
-  - `react` version upgraded to `17.0.1`
-  - `hot-loader` version upgraded to `17.0.1`
-  - `webpack` version upgraded to `5.13.0`
-  - `typescript` version upgraded to `4.1.3`
-  - `ts-loader` version upgraded to `8.0.14`
-  - `css-loader` version upgraded to `5.0.1`
-  - `style-loader` version upgraded to `2.0.0`
-  - `less` version upgraded to `4.1.0`
-
-<br>
-
-### v2.0.2
-
-- Upgraded outdated dependencies
-- `electron` version upgraded to `10.x`
-- `typescript` version upgraded to `4.x`
-- `less-loader` version upgraded to `7.x`
-
-<br>
-
-### v2.0.1
-
-- Upgraded outdated dependencies
-
-<br>
-
-### v2.0.0
-
-- Added electron window background color
-- Devtools opening on startup is disabled
-- Added `preload` script usage (preload.ts) 👍
-- Moved webpack `aliases` to separate file
-- Added new style & color changes to boilerplate layout
-- Added prettier configuration files `.prettierrc` `.prettierignore`
-- `contextIsolation` is enabled by default
-- `nodeIntegration` `enableRemoteModule`
+  - `webpack`
