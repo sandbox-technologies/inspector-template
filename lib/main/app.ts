@@ -57,7 +57,8 @@ function registerResourcesProtocol() {
       const filePath = join(__dirname, '../../resources', fullPath)
       return net.fetch(pathToFileURL(filePath).toString())
     } catch (error) {
-      throw error
+      console.error('Protocol error:', error)
+      return new Response('Resource not found', { status: 404 })
     }
   })
 }
