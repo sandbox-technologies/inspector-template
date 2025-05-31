@@ -24,13 +24,14 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 - 🚀 Electron - Cross-platform desktop application framework
 - ⚛️ React - Component-based UI library
 - 📦 TypeScript - Type-safe JavaScript
+- 🎨 Shadcn UI - Beautiful and accessible component library
 - 🎨 TailwindCSS - Utility-first CSS framework
 - ⚡ Vite - Lightning-fast build tool
 - 🔥 Fast HMR - Hot Module Replacement
 - 🎨 Dark/Light Mode - Built-in theme switching
-- 🪟 Custom Window & Titlebar - Professional-looking window with custom titlebar & file menus.
+- 🪟 Custom Window & Titlebar - Professional-looking window with custom titlebar & file menus
 - 📐 Clean Project Structure - Separation of main and renderer processes
-- 🧩 Path Aliases – Keep your code organized.
+- 🧩 Path Aliases – Keep your code organized
 - 🛠️ Electron Builder - Configured for packaging applications
 
 <br />
