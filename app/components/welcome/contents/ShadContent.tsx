@@ -8,7 +8,7 @@ const ShadContent = () => {
       <h2 className="flex items-center gap-4">
         Shadcn UI
         <div className="p-1 rounded-md bg-primary/10">
-          <img src="/assets/icons/shadcn.png" className="w-4 h-4" />
+          <img src="res://icons/shadcn.png" className="w-4 h-4" />
         </div>
       </h2>
       <p>A collection of re-usable components built with Radix UI and Tailwind CSS.</p>

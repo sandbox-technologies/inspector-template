@@ -10,7 +10,7 @@ const EraContent = () => {
       <h2 className="flex items-center gap-4">
         Electron React App
         <div className="p-1 rounded-md bg-primary/10">
-          <img src="/assets/icons/era.svg" className="w-4 h-4" />
+          <img src="res://icons/era.svg" className="w-4 h-4" />
         </div>
       </h2>
       <p>

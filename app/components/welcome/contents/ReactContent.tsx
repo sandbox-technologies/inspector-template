@@ -8,7 +8,7 @@ const ReactContent = () => {
       <h2 className="flex items-center gap-4">
         React
         <div className="p-1 rounded-md bg-primary/10">
-          <img src="/assets/icons/react.png" className="w-4 h-4" />
+          <img src="res://icons/react.png" className="w-4 h-4" />
         </div>
       </h2>
       <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces.</p>

@@ -8,7 +8,7 @@ const ElectronContent = () => {
       <h2 className="flex items-center gap-4">
         Electron
         <div className="p-1 rounded-md bg-primary/10">
-          <img src="/assets/icons/electron.png" className="w-4 h-4" />
+          <img src="res://icons/electron.png" className="w-4 h-4" />
         </div>
       </h2>
       <p>With the power of modern Chromium, Electron gives you an unopinionated blank slate to build your app.</p>
