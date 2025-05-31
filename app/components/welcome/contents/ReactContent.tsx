@@ -11,10 +11,10 @@ const ReactContent = () => {
           <img src="/assets/icons/react.png" className="w-4 h-4" />
         </div>
       </h2>
-      <p>A JavaScript library for building user interfaces with a component-based architecture.</p>
+      <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces.</p>
       <p>
-        React lets you build user interfaces out of individual pieces called components, creating reusable and
-        maintainable code for your applications.
+        It lets you build user interfaces out of individual pieces called components, creating reusable and maintainable
+        code for your applications.
       </p>
 
       <div className="welcome-content-steps">
