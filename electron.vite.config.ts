@@ -3,6 +3,13 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 
+// Shared alias configuration
+const aliases = {
+  '@/app': resolve(__dirname, 'app'),
+  '@/lib': resolve(__dirname, 'lib'),
+  '@/resources': resolve(__dirname, 'resources'),
+}
+
 export default defineConfig({
   main: {
     build: {
@@ -13,11 +20,7 @@ export default defineConfig({
       },
     },
     resolve: {
-      alias: {
-        '@/app': resolve(__dirname, 'app'),
-        '@/lib': resolve(__dirname, 'lib'),
-        '@/resources': resolve(__dirname, 'resources'),
-      },
+      alias: aliases,
     },
     plugins: [externalizeDepsPlugin()],
   },
@@ -30,11 +33,7 @@ export default defineConfig({
       },
     },
     resolve: {
-      alias: {
-        '@/app': resolve(__dirname, 'app'),
-        '@/lib': resolve(__dirname, 'lib'),
-        '@/resources': resolve(__dirname, 'resources'),
-      },
+      alias: aliases,
     },
     plugins: [externalizeDepsPlugin()],
   },
@@ -48,11 +47,7 @@ export default defineConfig({
       },
     },
     resolve: {
-      alias: {
-        '@/app': resolve(__dirname, 'app'),
-        '@/lib': resolve(__dirname, 'lib'),
-        '@/resources': resolve(__dirname, 'resources'),
-      },
+      alias: aliases,
     },
     plugins: [tailwindcss(), react()],
   },
