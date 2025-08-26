@@ -4,6 +4,71 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
+### v12.0.0
+
+- 🎉 Electron version upgraded to `v37`
+- ⛓️ **Conveyor System** - Type-safe Inter-Process Communication
+  - Implemented comprehensive type-safe IPC system with Zod validation
+  - Added modular API architecture for clean separation of concerns
+  - Integrated global type declarations for seamless TypeScript support
+  - Created React hook `useConveyor()` for easy component integration
+  - Added comprehensive documentation and usage examples
+  - Implemented runtime validation for enhanced security and reliability
+
+- 🎨 Enhanced UI Components and Design System
+  - Improved component accessibility and performance
+  - Enhanced dark/light mode transitions
+  - Updated design tokens for better consistency
+  - Optimized component bundle sizes
+
+- 🚀 Performance Improvements
+  - Reduced initial load time with optimized builds
+  - Improved hot reload performance in development
+  - Enhanced memory usage and garbage collection
+  - Optimized asset loading and caching
+
+- 🛠️ Developer Experience
+  - Updated TypeScript configuration for better type safety
+  - Enhanced ESLint rules and code quality checks
+  - Improved build process and error reporting
+  - Added better development tooling integration
+  - Enhanced project structure with better separation of concerns
+
+- 📦 Dependencies
+  - Upgraded dependencies to latest versions:
+
+<details>
+<summary><strong>📋 View Dependency Updates</strong></summary>
+
+```bash
+↑ @eslint/js                   9.28.0 → 9.34.0
+↑ @rushstack/eslint-patch      1.11.0 → 1.12.0
+↑ @tailwindcss/vite            4.1.8  → 4.1.12
+↑ @types/node                  22.15.29 → 24.3.0
+↑ @types/react                 19.1.6  → 19.1.11
+↑ @types/react-dom             19.1.5  → 19.1.8
+↑ @vitejs/plugin-react         4.5.0   → 5.0.1
+↑ electron                     36.3.2  → 37.3.1
+↑ electron-vite                3.1.0   → 4.0.0
+↑ eslint                       9.28.0  → 9.34.0
+↑ framer-motion                12.15.0 → 12.23.12
+↑ prettier                     3.5.3   → 3.6.2
+↑ react                        19.1.0  → 19.1.1
+↑ react-dom                    19.1.0  → 19.1.1
+↑ tailwindcss                  4.1.8   → 4.1.12
+↑ typescript                   5.8.3   → 5.9.2
+↑ typescript-eslint            8.33.0  → 8.41.0
+↑ vite                         6.3.5   → 7.1.3
+↑ @radix-ui/react-switch       1.2.5   → 1.2.6
+↑ lucide-react                 0.511.0 → 0.541.0
+↑ tailwind-merge               3.3.0   → 3.3.1
+↑ tw-animate-css               1.3.2   → 1.3.7
+```
+
+</details>
+
+<br>
+
 ### v11.0.0
 
 - 🎉 Electron version upgraded `v36`
