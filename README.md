@@ -33,6 +33,7 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 - 📐 Clean Project Structure - Separation of main and renderer processes
 - 🧩 Path Aliases – Keep your code organized
 - 🛠️ Electron Builder - Configured for packaging applications
+- 🔒 Type-Safe IPC - Secure inter-process communication with Zod validation
 
 <br />
 
@@ -95,19 +96,162 @@ Distribution files will be located in the `dist` directory.
 
 ## IPC Communication
 
-The app uses a secure IPC (Inter-Process Communication) system to communicate between the renderer and main processes:
+This project implements a **type-safe IPC (Inter-Process Communication)** system using Zod schemas for runtime validation. The system is organized into modular APIs that provide a clean interface between the renderer and main processes.
+
+### Quick Start
+
+```tsx
+// In your React component
+import { useEffect, useState } from 'react'
+
+function AppInfo() {
+  const [version, setVersion] = useState<string>('')
+  const { app, window } = useApi()
+
+  useEffect(() => {
+    // Get app version from main process
+    app.version().then(setVersion)
+  }, [])
+
+  const handleMinimize = () => {
+    window.windowMinimize()
+  }
+
+  const handleOpenUrl = (url: string) => {
+    window.webOpenUrl(url)
+  }
+
+  return (
+    <div>
+      <p>App Version: {version}</p>
+      <button onClick={handleMinimize}>Minimize</button>
+      <button onClick={() => handleOpenUrl('https://github.com')}>Open GitHub</button>
+    </div>
+  )
+}
+```
+
+### Available APIs
+
+The IPC system exposes several APIs through:
+
+- global window object `window.api`
+- react hook `useApi()`
+
+### Adding New IPC Channels
+
+To add a new IPC channel, follow these steps:
+
+#### 1. Define the Schema
+
+Create or update a schema file in `lib/ipc/schemas/`:
 
 ```ts
-// Renderer process (send message to main)
-window.api.send('channel-name', ...args)
+// lib/ipc/schemas/app-schema.ts
+import { z } from 'zod'
 
-// Renderer process (receive message from main)
-window.api.receive('channel-name', (data) => {
-  console.log(data)
-})
+export const appIpcSchema = {
+  version: {
+    args: z.tuple([]),
+    return: z.string(),
+  },
+  'get-user-data': {
+    args: z.tuple([z.string()]), // userId parameter
+    return: z.object({
+      id: z.string(),
+      name: z.string(),
+      email: z.string().email(),
+    }),
+  },
+  'save-data': {
+    args: z.tuple([
+      z.object({
+        key: z.string(),
+        value: z.unknown(),
+      }),
+    ]),
+    return: z.boolean(),
+  },
+} as const
+```
 
-// Renderer process (invoke a method in main and get a response)
-const result = await window.api.invoke('channel-name', ...args)
+#### 2. Add API Methods
+
+Update the corresponding API class in `lib/ipc/api/`:
+
+```ts
+// lib/ipc/api/app-api.ts
+import { BaseApi } from '@/lib/preload/shared'
+
+export class AppApi extends BaseApi {
+  version = () => this.invoke('version')
+  getUserData = (userId: string) => this.invoke('get-user-data', userId)
+  saveData = (key: string, value: unknown) => this.invoke('save-data', { key, value })
+}
+```
+
+#### 3. Implement the Handler
+
+Add the handler in `lib/ipc/handlers/`:
+
+```ts
+// lib/ipc/handlers/app-handler.ts
+import { handle } from '@/lib/main/shared'
+import { app } from 'electron'
+
+export const registerAppHandlers = () => {
+  handle('version', () => app.getVersion())
+
+  handle('get-user-data', async (userId: string) => {
+    // Your logic here
+    return {
+      id: userId,
+      name: 'John Doe',
+      email: 'john@example.com',
+    }
+  })
+
+  handle('save-data', async ({ key, value }) => {
+    // Your logic here
+    console.log(`Saving ${key}:`, value)
+    return true
+  })
+}
+```
+
+#### 4. Register the Handler
+
+Update `lib/main/app.ts` to register your handlers:
+
+```ts
+import { registerAppHandlers } from '@/lib/ipc/handlers/app-handler'
+
+// In your app initialization
+registerAppHandlers()
+```
+
+### Type Safety
+
+The IPC system provides full TypeScript support with runtime validation:
+
+```tsx
+// TypeScript will enforce correct types
+const userData = await window.api.app.getUserData('123') // ✅ Correct
+const userData = await window.api.app.getUserData(123) // ❌ Type error
+
+// Runtime validation ensures data integrity
+const result = await window.api.app.saveData('config', { theme: 'dark' })
+```
+
+### Error Handling
+
+```tsx
+try {
+  const data = await window.api.app.getUserData('invalid-id')
+} catch (error) {
+  console.error('IPC call failed:', error)
+  // Handle validation errors, network issues, etc.
+}
 ```
 
 <br />
@@ -141,18 +285,20 @@ When you press the toggle key:
 
 ### Customizing Menu Items
 
-To add, remove or modify menu items, update the `lib/window/titlebarMenus.ts` file.
+To add, remove or modify menu items, update the following file:
+
+- `app/components/window/menus.ts`
 
 <br />
 
-## Tailwind Styling
+## Tailwind CSS
 
-The project supports **TailwindCSS** for styling:
+The project supports **Tailwind** for styling:
 
 ```ts
 // Example component with Tailwind classes
 const Button = () => (
-  <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+  <button className="px-4 py-2 text-white rounded-md">
     Click me
   </button>
 );
@@ -160,42 +306,61 @@ const Button = () => (
 
 <br />
 
-## Contributing
+## Key Directories Explained
 
-Contributions are welcome! Feel free to submit a Pull Request.
+#### `app/` - Renderer Process
 
-<br />
+- **React application** that runs in the browser window
+- Contains all UI components, styles, and client-side logic
+- Uses Vite for fast development and building
 
-## Project Structure
+#### `lib/ipc/` - IPC Communication
 
-<!-- prettier-ignore-start -->
-```markdown
-├── app/                        # Renderer process files
-│   ├── assets/                 # Static assets (images, fonts, etc)
-│   ├── components/             # React components
-│   │   ├── App.tsx             # Application component
-│   ├── styles/                 # CSS and Tailwind files
-│   │   ├── app.css             # App stylesheet
-│   │   └── tailwind.css        # Tailwind stylesheet
-│   ├── index.html              # Entry HTML file
-│   └── renderer.tsx            # Renderer process entry
-├── lib/                        # Shared library code
-│   ├── main/                   # Main process code
-│   │   ├── index.ts            # Main entry point for Electron
-│   │   └── ...                 # Other main process modules
-│   ├── preload/                # Preload scripts for IPC
-│   │   ├── index.ts            # Preload script entry
-│   │   └── api.ts              # Exposed API for renderer
-│   ├── welcome/                # Welcome kit components
-│   └── window/                 # Custom window implementation
-├── resources/                  # Build resources
-├── .eslintrc                   # ESLint configuration
-├── .prettierrc                 # Prettier format configuration
-├── electron-builder.yml        # Electron builder configuration
-├── electron.vite.config.ts     # Vite configuration for Electron
-├── package.json                # Project dependencies and scripts
-└── tsconfig.node.json          # Main process tsconfig
-└── tsconfig.web.json           # Renderer process tsconfig
+- **Type-safe communication** between renderer and main processes
+- **API classes** provide clean interfaces for IPC calls
+- **Handlers** implement the actual logic in the main process
+- **Schemas** define data contracts with Zod validation
 
+#### `lib/main/` - Main Process
+
+- **Electron main process** code
+- Handles window creation, app lifecycle, and system integration
+- Registers IPC handlers and manages app state
+
+#### `lib/preload/` - Preload Scripts
+
+- **Security bridge** between renderer and main processes
+- Exposes safe APIs to the renderer process
+- Implements context isolation for security
+
+#### `lib/window/` - Window Management
+
+- **Custom window implementation** with titlebar and menus
+- Cross-platform window controls and styling
+- Menu system with keyboard shortcuts
+
+### Development Workflow
+
+1. **UI Development**: Work in `app/` directory with React components
+2. **IPC Communication**: Define schemas, add API methods, implement handlers
+3. **Window Features**: Customize window behavior in `lib/window/`
+4. **Build & Test**: Use `npm run dev` for development, `npm run build:*` for production
+
+### Path Aliases
+
+The project uses TypeScript path aliases for clean imports:
+
+```ts
+// Instead of relative paths like:
+import { Button } from '../../../components/ui/button'
+
+// Use clean aliases:
+import { Button } from '@/components/ui/button'
+import { api } from '@/lib/ipc/api'
 ```
-<!-- prettier-ignore-end -->
+
+Configured aliases:
+
+- `@/` → `app/` (renderer process)
+- `@/lib/` → `lib/` (shared library code)
+- `@/resources/` → `resources/` (build resources)
