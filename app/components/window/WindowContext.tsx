@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { Titlebar, TitlebarProps } from './Titlebar'
 import { TitlebarContextProvider } from './TitlebarContext'
+import { api } from '@/lib/utils'
 
 const WindowContext = createContext<WindowContextProps | undefined>(undefined)
 
@@ -19,7 +20,7 @@ export const WindowContextProvider = ({ children, titlebar }: WindowContextProvi
 
   useEffect(() => {
     // Load window init props
-    window.api.invoke<WindowInitProps>('window-init').then(setInitProps)
+    api.window.windowInit().then(setInitProps)
 
     // Add class to parent element
     const parent = document.querySelector('.window-content')?.parentElement

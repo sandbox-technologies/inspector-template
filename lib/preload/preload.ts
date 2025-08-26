@@ -1,6 +1,6 @@
 import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-import { PreloadAPI } from './api'
+import { WindowAPI } from '@/lib/ipc/api/window.api'
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
@@ -8,11 +8,15 @@ import { PreloadAPI } from './api'
 if (process.contextIsolated) {
   try {
     contextBridge.exposeInMainWorld('electron', electronAPI)
-    contextBridge.exposeInMainWorld('api', new PreloadAPI(electronAPI))
+    contextBridge.exposeInMainWorld('api', {
+      window: new WindowAPI(electronAPI),
+    })
   } catch (error) {
     console.error(error)
   }
 } else {
   window.electron = electronAPI
-  window.api = new PreloadAPI(electronAPI)
+  window.api = {
+    window: new WindowAPI(electronAPI),
+  }
 }
