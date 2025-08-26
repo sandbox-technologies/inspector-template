@@ -1,7 +1,7 @@
 import type { ElectronAPI, IpcRenderer } from '@electron-toolkit/preload'
 import type { ChannelName, ChannelArgs, ChannelReturn } from '@/lib/ipc/schemas'
 
-export abstract class ApiContract {
+export abstract class BaseApi {
   protected renderer: IpcRenderer
 
   constructor(electronApi: ElectronAPI) {

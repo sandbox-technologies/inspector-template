@@ -1,8 +1,8 @@
 import { electronAPI } from '@electron-toolkit/preload'
-import { AppAPI } from './app-api'
-import { WindowAPI } from './window-api'
+import { AppApi } from './app-api'
+import { WindowApi } from './window-api'
 
 export const api = {
-  app: new AppAPI(electronAPI),
-  window: new WindowAPI(electronAPI),
+  app: new AppApi(electronAPI),
+  window: new WindowApi(electronAPI),
 }

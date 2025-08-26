@@ -1,5 +1,5 @@
-import { ApiContract } from '@/lib/preload/shared'
+import { BaseApi } from '@/lib/preload/shared'
 
-export class AppAPI extends ApiContract {
+export class AppApi extends BaseApi {
   version = () => this.invoke('version')
 }

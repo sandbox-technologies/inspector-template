@@ -1,6 +1,6 @@
-import { ApiContract } from '@/lib/preload/shared'
+import { BaseApi } from '@/lib/preload/shared'
 
-export class WindowAPI extends ApiContract {
+export class WindowApi extends BaseApi {
   // Generate window methods
   windowInit = () => this.invoke('window-init')
   windowIsMinimizable = () => this.invoke('window-is-minimizable')
