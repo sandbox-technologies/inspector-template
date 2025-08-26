@@ -66,18 +66,18 @@ const TitlebarControls = () => {
 }
 
 const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: string }) => {
-  const conveyor = useConveyor()
+  const windowApi = useConveyor('window')
 
   const handleAction = () => {
     switch (label) {
       case 'minimize':
-        conveyor.window.windowMinimize()
+        windowApi.windowMinimize()
         break
       case 'maximize':
-        conveyor.window.windowMaximizeToggle()
+        windowApi.windowMaximizeToggle()
         break
       case 'close':
-        conveyor.window.windowClose()
+        windowApi.windowClose()
         break
       default:
         console.warn(`Unhandled action for label: ${label}`)

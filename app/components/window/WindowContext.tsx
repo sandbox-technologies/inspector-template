@@ -20,7 +20,7 @@ const WindowContext = createContext<WindowContextProps | undefined>(undefined)
 
 export const WindowContextProvider = ({ children, titlebar }: WindowContextProviderProps) => {
   const [initProps, setInitProps] = useState<WindowInitProps | undefined>()
-  const conveyor = useConveyor()
+  const { windowInit } = useConveyor('window')
 
   const defaultTitlebar: TitlebarProps = {
     title: 'Electron React App',
@@ -34,14 +34,14 @@ export const WindowContextProvider = ({ children, titlebar }: WindowContextProvi
 
   useEffect(() => {
     // Load window init props
-    conveyor.window.windowInit().then(setInitProps)
+    windowInit().then(setInitProps)
 
     // Add class to parent element
     const parent = document.querySelector('.window-content')?.parentElement
     if (parent) {
       parent.classList.add('window-frame')
     }
-  }, [conveyor.window])
+  }, [windowInit])
 
   return (
     <WindowContext.Provider value={{ titlebar, window: initProps! }}>
