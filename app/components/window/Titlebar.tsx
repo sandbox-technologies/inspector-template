@@ -4,28 +4,27 @@ import { useTitlebarContext } from './TitlebarContext'
 import { TitlebarMenu } from './TitlebarMenu'
 import { useConveyor } from '@/app/hooks/use-conveyor'
 
+const SVG_PATHS = {
+  close: 'M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z',
+  maximize: 'M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z',
+  minimize: 'M 0,5 10,5 10,6 0,6 Z',
+} as const
+
 export const Titlebar = () => {
   const { title, icon, titleCentered, menuItems } = useWindowContext().titlebar
   const { menusVisible, setMenusVisible, closeActiveMenu } = useTitlebarContext()
-  const wcontext = useWindowContext().window
+  const { window: wcontext } = useWindowContext()
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.altKey && menuItems?.length) {
-        // Ignore repeated keydown events
-        if (e.repeat) return
-        // Close active menu if it's open
+      if (e.altKey && menuItems?.length && !e.repeat) {
         if (menusVisible) closeActiveMenu()
         setMenusVisible(!menusVisible)
       }
     }
 
-    // Add event listener for Alt key
     document.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
+    return () => document.removeEventListener('keydown', handleKeyDown)
   }, [menusVisible, closeActiveMenu, setMenusVisible, menuItems])
 
   return (
@@ -50,38 +49,27 @@ export const Titlebar = () => {
 }
 
 const TitlebarControls = () => {
-  const closePath =
-    'M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z'
-  const maximizePath = 'M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z'
-  const minimizePath = 'M 0,5 10,5 10,6 0,6 Z'
-  const wcontext = useWindowContext().window
+  const { window: wcontext } = useWindowContext()
 
   return (
     <div className="window-titlebar-controls">
-      {wcontext?.minimizable && <TitlebarControlButton label="minimize" svgPath={minimizePath} />}
-      {wcontext?.maximizable && <TitlebarControlButton label="maximize" svgPath={maximizePath} />}
-      <TitlebarControlButton label="close" svgPath={closePath} />
+      {wcontext?.minimizable && <TitlebarControlButton label="minimize" svgPath={SVG_PATHS.minimize} />}
+      {wcontext?.maximizable && <TitlebarControlButton label="maximize" svgPath={SVG_PATHS.maximize} />}
+      <TitlebarControlButton label="close" svgPath={SVG_PATHS.close} />
     </div>
   )
 }
 
 const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: string }) => {
-  const windowApi = useConveyor('window')
+  const { windowMinimize, windowMaximizeToggle, windowClose } = useConveyor('window')
 
   const handleAction = () => {
-    switch (label) {
-      case 'minimize':
-        windowApi.windowMinimize()
-        break
-      case 'maximize':
-        windowApi.windowMaximizeToggle()
-        break
-      case 'close':
-        windowApi.windowClose()
-        break
-      default:
-        console.warn(`Unhandled action for label: ${label}`)
+    const actions = {
+      minimize: windowMinimize,
+      maximize: windowMaximizeToggle,
+      close: windowClose,
     }
+    actions[label as keyof typeof actions]?.()
   }
 
   return (
