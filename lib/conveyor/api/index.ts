@@ -7,3 +7,5 @@ export const conveyor = {
   window: new WindowApi(electronAPI),
   electron: electronAPI,
 }
+
+export type ConveyorApi = typeof conveyor

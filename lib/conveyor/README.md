@@ -90,28 +90,26 @@ export const conveyor = {
   file: new FileApi(electronAPI), // Add your new API
   electron: electronAPI,
 }
+
+export type ConveyorApi = typeof conveyor
 ```
+
+The `ConveyorApi` type is automatically derived from the conveyor object structure, ensuring type safety and eliminating the need for manual type maintenance.
 
 3. **Update global types**:
 
 ```typescript
 // lib/conveyor/conveyor.d.ts
-import type { ElectronAPI } from '@electron-toolkit/preload'
-import type { AppApi } from '@/lib/conveyor/api/app-api'
-import type { WindowApi } from '@/lib/conveyor/api/window-api'
-import type { FileApi } from '@/lib/conveyor/api/file-api'
+import type { ConveyorApi } from '@/lib/conveyor/api'
 
 declare global {
   interface Window {
-    electron: ElectronAPI
-    conveyor: {
-      app: AppApi
-      window: WindowApi
-      file: FileApi // Add your new API
-    }
+    conveyor: ConveyorApi
   }
 }
 ```
+
+The global type automatically includes all APIs from the conveyor export, so no manual updates are needed when adding new APIs.
 
 ## How to Define New Handler
 
@@ -200,17 +198,16 @@ The system uses global type declarations in `lib/conveyor/conveyor.d.ts`:
 
 ```typescript
 // Global types for window.conveyor access
+import type { ConveyorApi } from '@/lib/conveyor/api'
+
 declare global {
   interface Window {
-    conveyor: {
-      app: AppApi
-      window: WindowApi
-      electron: ElectronAPI
-      // Add your new APIs here
-    }
+    conveyor: ConveyorApi
   }
 }
 ```
+
+This approach automatically stays in sync with the actual API structure - when you add new APIs to the conveyor export, the global types are automatically updated.
 
 ### Preload Integration
 
