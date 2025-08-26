@@ -1,8 +1,8 @@
-import { BrowserWindow, shell, app, protocol, net } from 'electron'
+import { BrowserWindow, shell, app } from 'electron'
 import { join } from 'path'
 import { registerWindowIPC } from '@/lib/window/ipcEvents'
 import appIcon from '@/resources/build/icon.png?asset'
-import { pathToFileURL } from 'url'
+import { registerResourcesProtocol } from './protocols'
 
 export function createAppWindow(): void {
   // Register custom protocol for resources
@@ -45,20 +45,4 @@ export function createAppWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
-}
-
-// Register custom protocol for assets
-function registerResourcesProtocol() {
-  protocol.handle('res', async (request) => {
-    try {
-      const url = new URL(request.url)
-      // Combine hostname and pathname to get the full path
-      const fullPath = join(url.hostname, url.pathname.slice(1))
-      const filePath = join(__dirname, '../../resources', fullPath)
-      return net.fetch(pathToFileURL(filePath).toString())
-    } catch (error) {
-      console.error('Protocol error:', error)
-      return new Response('Resource not found', { status: 404 })
-    }
-  })
 }
