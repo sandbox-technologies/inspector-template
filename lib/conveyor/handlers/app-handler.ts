@@ -3,7 +3,5 @@ import { handle } from '@/lib/main/shared'
 
 export const registerAppHandlers = (_window: BrowserWindow) => {
   // App operations
-  handle('version', () => {
-    return app.getVersion()
-  })
+  handle('version', () => app.getVersion())
 }

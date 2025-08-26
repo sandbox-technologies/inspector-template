@@ -3,8 +3,21 @@ import CodeWindowIcon from '../icons/CodeWindowIcon'
 import FanIcon from '../icons/FanIcon'
 import ColorSchemeIcon from '../icons/ColorSchemeIcon'
 import AsterikIcon from '../icons/AsterikIcon'
+import { useConveyor } from '@/app/hooks/use-conveyor'
+import { useEffect, useState } from 'react'
 
 const EraContent = () => {
+  const { version } = useConveyor('app')
+  const [appVersion, setAppVersion] = useState('')
+
+  useEffect(() => {
+    const fetchVersion = async () => {
+      const appVersion = await version()
+      setAppVersion(appVersion)
+    }
+    fetchVersion()
+  }, [version])
+
   return (
     <div>
       <h2 className="flex items-center gap-4">
@@ -14,8 +27,8 @@ const EraContent = () => {
         </div>
       </h2>
       <p>
-        Welcome to the Electron React App! This is a prebuilt template that provides a solid foundation for developing
-        desktop applications with Electron and React.
+        Welcome to the Electron React App (v{appVersion})! A prebuilt starter kit that provides a solid foundation for
+        developing desktop applications.
       </p>
       <p>
         This project is built with Electron, React, Vite, TypeScript, and Tailwind CSS to provide a modern development
