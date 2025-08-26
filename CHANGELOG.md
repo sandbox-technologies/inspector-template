@@ -4,7 +4,7 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v12.0.0
+## v12.0.0
 
 - 🎉 Electron version upgraded to `v37`
 - ⛓️ **Conveyor System** - Type-safe Inter-Process Communication
@@ -69,7 +69,7 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v11.0.0
+## v11.0.0
 
 - 🎉 Electron version upgraded `v36`
 - 🎨 Integrated Shadcn UI Component System
@@ -126,7 +126,7 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v10.2.0
+## v10.2.0
 
 - 🎉 Electron version upgraded `v35.x.x`
 - 📦 Upgraded dependencies to latest versions:
@@ -154,14 +154,14 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v10.1.0
+## v10.1.0
 
 - Add pnpm configuration for only built dependencies
 - Prevent app from quitting on macOS when all windows are closed
 
 <br>
 
-### v10.0.0
+## v10.0.0
 
 - 🚀 Major overhaul: Complete migration from Webpack to Vite
 - ⚡ Significantly improved build times and development experience
@@ -194,7 +194,7 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v8.1.0
+## v8.1.0
 
 - 🎉 Electron version upgraded `v23.0.0`.
 - Using `eslint.config.json` as eslint configuration.
@@ -222,7 +222,7 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v8.0.0
+## v8.0.0
 
 - 🎉 Application UI and Themes (light/dark).
 - Using latest Electron version `v28`
@@ -239,7 +239,7 @@ All notable changes to the electron-react-app (ERA) are listed here.
 
 <br>
 
-### v7.8.0
+## v7.8.0
 
 Upgraded outdated packages:
 
@@ -260,7 +260,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.7.0
+## v7.7.0
 
 Upgraded outdated packages:
 
@@ -280,7 +280,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.6.0
+## v7.6.0
 
 Upgraded outdated packages:
 
@@ -299,7 +299,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.5.0
+## v7.5.0
 
 Upgraded outdated packages:
 
@@ -319,7 +319,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.3.3
+## v7.3.3
 
 Upgraded outdated packages:
 
@@ -336,7 +336,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.3.2
+## v7.3.2
 
 Upgraded outdated packages:
 
@@ -356,7 +356,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.3.1
+## v7.3.1
 
 Upgraded outdated packages:
 
@@ -372,7 +372,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.3.0
+## v7.3.0
 
 - 🎉 Electron version upgraded `v23.0.0`
 - Upgraded outdated packages:
@@ -389,7 +389,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.2.0
+## v7.2.0
 
 - 🎉 Electron version upgraded `v22.0.0`
 - Upgraded outdated packages:
@@ -406,7 +406,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.1.0
+## v7.1.0
 
 - 🎉 Electron version upgraded to `v21.2.0`
 - Fixed Devtools Console warning message caused by content policy.
@@ -428,7 +428,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v7.0.0
+## v7.0.0
 
 - 🥳 New layout for default application.
 - 🤖 Overhaul for dark/light themes with new colors.
@@ -446,7 +446,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v6.2.0
+## v6.2.0
 
 - Upgraded outdated deps:
   - `electron` upgraded to `^19.0.9`.
@@ -459,7 +459,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v6.1.0
+## v6.1.0
 
 - 🎉 Electron version upgraded to `v19.0.6`
 - Using `misc/window` for custom window without git submodule.
@@ -483,7 +483,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v6.0.0
+## v6.0.0
 
 - 🙌🏻 New Layout for default application.
 - 🌑 Dark mode & 💡 Light Mode colors.
@@ -503,7 +503,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v5.5.0
+## v5.5.0
 
 - Upgraded outdated deps:
   - `electron` upgraded to `v17.2.0`
@@ -517,7 +517,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v5.4.0
+## v5.4.0
 
 - 🎉 Electron core upgraded `v17.0.1`
 - Upgraded outdated deps:
@@ -531,7 +531,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v5.3.0
+## v5.3.0
 
 - Electron Window : File menu visible by default
 - Upgraded outdated deps:
@@ -545,7 +545,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v5.2.0
+## v5.2.0
 
 - 🎉 Electron core upgraded `v16`
 - Upgraded outdated deps:
@@ -557,7 +557,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v5.1.0
+## v5.1.0
 
 - Fix: CSS/LESS `background-image` corrupted image file output.
 - Updated: Webpack Rules to load assets using [Webpack v5 Asset Modules](https://webpack.js.org/guides/asset-modules/) instead of `file-loader`
@@ -567,7 +567,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v5.0.0
+## v5.0.0
 
 - Overhauled: Application default layout and styling.
 - Overhauled: Project files structure to separate 'main' & 'renderer' modules.
@@ -584,7 +584,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v4.2.0
+## v4.2.0
 
 - 🎉 Electron core upgraded to version `v15`
 - Application colors updated for vue environment
@@ -599,7 +599,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v4.1.0
+## v4.1.0
 
 - 🎉 Electron core upgraded to version `v14`
 - Update application style properties
@@ -619,7 +619,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v4.0.1
+## v4.0.1
 
 - Update file-loader configuration for `assets` files
 - Add packager configuration for app executable file details
@@ -627,7 +627,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v4.0.0
+## v4.0.0
 
 - Overhaul for Application default layout and styling.
 - Default window background color updated.
@@ -647,7 +647,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v3.1.0
+## v3.1.0
 
 - Electron core 🚀 upgraded to version 13.
 - Expose Webpack Ports settings in forge configuration.
@@ -663,7 +663,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v3.0.1
+## v3.0.1
 
 - Upgraded outdated packages
   - `electron'` upgraded to `^12.0.6`
@@ -678,7 +678,7 @@ Upgraded outdated packages:
 
 <br>
 
-### v3.0.0
+## v3.0.0
 
 - Overhaul for Application component layout and styling.
 - Project Files structure updated.
