@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { windowIpcSchema } from './schemas/window-schema'
-import { appIpcSchema } from './schemas/app-schema'
+import { windowIpcSchema } from './window-schema'
+import { appIpcSchema } from './app-schema'
 
 // Define all IPC channel schemas in one place
 export const ipcSchemas = {

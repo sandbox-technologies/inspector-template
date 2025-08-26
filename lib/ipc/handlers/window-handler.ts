@@ -1,9 +1,9 @@
 import type { BrowserWindow } from 'electron'
 import { shell } from 'electron'
-import { handle } from '../main/shared'
+import { handle } from '@/lib/main/shared'
 import { electronAPI } from '@electron-toolkit/preload'
 
-export const WindowIpcRegistrar = (window: BrowserWindow) => {
+export const registerWindowHandlers = (window: BrowserWindow) => {
   // Window operations
   handle('window-init', () => {
     const { width, height } = window.getBounds()
