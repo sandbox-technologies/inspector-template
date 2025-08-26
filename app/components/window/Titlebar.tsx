@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useWindowContext } from './WindowContext'
 import { useTitlebarContext } from './TitlebarContext'
 import { TitlebarMenu } from './TitlebarMenu'
+import { useApi } from '@/app/hooks/useApi'
 
 export const Titlebar = () => {
   const { title, icon, titleCentered, menuItems } = useWindowContext().titlebar
@@ -65,16 +66,18 @@ const TitlebarControls = () => {
 }
 
 const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: string }) => {
+  const api = useApi()
+
   const handleAction = () => {
     switch (label) {
       case 'minimize':
-        window.api.invoke('window-minimize')
+        api.window.windowMinimize()
         break
       case 'maximize':
-        window.api.invoke('window-maximize-toggle')
+        api.window.windowMaximizeToggle()
         break
       case 'close':
-        window.api.invoke('window-close')
+        api.window.windowClose()
         break
       default:
         console.warn(`Unhandled action for label: ${label}`)
