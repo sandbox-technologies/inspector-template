@@ -5,4 +5,5 @@ import { WindowApi } from './window-api'
 export const api = {
   app: new AppApi(electronAPI),
   window: new WindowApi(electronAPI),
+  electron: electronAPI,
 }
