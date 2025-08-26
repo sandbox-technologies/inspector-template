@@ -33,13 +33,13 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 - 📐 Clean Project Structure - Separation of main and renderer processes
 - 🧩 Path Aliases – Keep your code organized
 - 🛠️ Electron Builder - Configured for packaging applications
-- 🔒 Type-Safe IPC - Secure inter-process communication with Zod validation
+- ⛓️ Conveyor - Type-safe inter-process communication with Zod validation ([📖 docs](lib/conveyor/README.md))
 
 <br />
 
 ## Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js (v20 or higher)
 - npm, yarn, pnpm, or bun
 
 <br />
@@ -97,6 +97,8 @@ Distribution files will be located in the `dist` directory.
 ## Conveyor - Inter-Process Communication
 
 This project implements **Conveyor**, a **type-safe IPC (Inter-Process Communication)** system using Zod schemas for runtime validation. Conveyor provides a clean, modular API interface between the renderer and main processes with full TypeScript support.
+
+📖 **For detailed Conveyor documentation and advanced usage instructions, see [lib/conveyor/README.md](lib/conveyor/README.md)**
 
 ### Quick Start
 
