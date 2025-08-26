@@ -10,7 +10,7 @@ export const registerWindowIPC = (mainWindow: BrowserWindow) => {
   mainWindow.setMenuBarVisibility(false)
 
   // Register window IPC
-  handleIPC('init-window', () => {
+  handleIPC('window-init', () => {
     const { width, height } = mainWindow.getBounds()
     const minimizable = mainWindow.isMinimizable()
     const maximizable = mainWindow.isMaximizable()
