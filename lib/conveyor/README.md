@@ -202,10 +202,10 @@ The system uses global type declarations in `lib/conveyor/conveyor.d.ts`:
 // Global types for window.conveyor access
 declare global {
   interface Window {
-    electron: ElectronAPI
     conveyor: {
       app: AppApi
       window: WindowApi
+      electron: ElectronAPI
       // Add your new APIs here
     }
   }

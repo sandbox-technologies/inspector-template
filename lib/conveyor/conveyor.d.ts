@@ -4,10 +4,10 @@ import type { WindowApi } from '@/lib/conveyor/api/window-api'
 
 declare global {
   interface Window {
-    electron: ElectronAPI
     conveyor: {
       app: AppApi
       window: WindowApi
+      electron: ElectronAPI
     }
   }
 }
