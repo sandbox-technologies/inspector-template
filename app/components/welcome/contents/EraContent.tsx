@@ -42,8 +42,8 @@ const EraContent = () => {
         />
 
         <ContentStep
-          title="Shadcn UI + Tailwind"
-          description="A collection of re-usable components built with Shadcn UI"
+          title="IPC Communication Handlers"
+          description="API handlers for communication between main and renderer processes"
           icon={AsterikIcon}
         />
       </div>
