@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useWindowContext } from '@/lib/window'
+import { useWindowContext } from '@/app/components/window'
 import { useTitlebarContext } from './TitlebarContext'
 import { useApi } from '@/app/hooks/api'
 

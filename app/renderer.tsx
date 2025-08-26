@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import appIcon from '@/resources/build/icon.png'
-import { WindowContextProvider, menuItems } from '@/lib/window'
+import { WindowContextProvider, menuItems } from '@/app/components/window'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import App from './app'
 
