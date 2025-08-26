@@ -41,7 +41,7 @@ export const WindowContextProvider = ({ children, titlebar }: WindowContextProvi
     if (parent) {
       parent.classList.add('window-frame')
     }
-  }, [])
+  }, [api.window])
 
   return (
     <WindowContext.Provider value={{ titlebar, window: initProps! }}>
