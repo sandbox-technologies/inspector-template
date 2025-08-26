@@ -2,7 +2,12 @@
 @import './window.css';
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Arial,
+    Helvetica,
+    sans-serif;
   font-size: 14px;
   margin: 0;
   overflow: hidden;
