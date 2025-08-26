@@ -2,7 +2,8 @@ import { BrowserWindow, shell, app } from 'electron'
 import { join } from 'path'
 import appIcon from '@/resources/build/icon.png?asset'
 import { registerResourcesProtocol } from './protocols'
-import { WindowIPC } from '../ipc/window.ipc'
+import { WindowIpcRegistrar } from '../ipc/window-ipc'
+import { AppIpcRegistrar } from '../ipc/app-ipc'
 
 export function createAppWindow(): void {
   // Register custom protocol for resources
@@ -27,7 +28,8 @@ export function createAppWindow(): void {
   })
 
   // Register IPC events for the main window.
-  WindowIPC.register(mainWindow)
+  WindowIpcRegistrar(mainWindow)
+  AppIpcRegistrar(mainWindow)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useWindowContext } from './WindowContext'
 import { useTitlebarContext } from './TitlebarContext'
 import { TitlebarMenu } from './TitlebarMenu'
-import { useApi } from '@/app/hooks/useApi'
+import { useApi } from '@/app/hooks/api'
 
 export const Titlebar = () => {
   const { title, icon, titleCentered, menuItems } = useWindowContext().titlebar

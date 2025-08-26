@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useWindowContext } from '@/lib/window'
 import { useTitlebarContext } from './TitlebarContext'
+import { useApi } from '@/app/hooks/api'
 
 /**
  * Renders the titlebar menu component.
@@ -14,7 +15,9 @@ const TitlebarMenu = () => {
 
   return (
     <div className="window-titlebar-menu">
-      {menuItems?.map((menu, index) => <TitlebarMenuItem key={index} menu={menu} index={index} />)}
+      {menuItems?.map((menu, index) => (
+        <TitlebarMenuItem key={index} menu={menu} index={index} />
+      ))}
     </div>
   )
 }
@@ -116,6 +119,7 @@ const TitlebarMenuPopup = ({ menu }: { menu: TitlebarMenu }) => {
  */
 const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
   const { setActiveMenuIndex } = useTitlebarContext()
+  const api = useApi()
 
   function handleAction() {
     // Check if the item has a valid action callback
@@ -125,8 +129,11 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
       return
     }
 
-    // Invoke the action with the provided parameters
-    window.api.invoke(item.action!, ...(item.actionParams ? item.actionParams : []))
+    // Invoke the action directly using the invoke method
+    if (item.action) {
+      api.window.invoke(item.action as any, ...(item.actionParams ? item.actionParams : []))
+    }
+
     setActiveMenuIndex(null)
   }
 

@@ -7,7 +7,7 @@ import { ipcSchemas, validateArgs, validateReturn, type ChannelArgs, type Channe
  * @param handler - The handler function to register
  * @returns void
  */
-export const handleIPC = <T extends keyof typeof ipcSchemas>(
+export const handle = <T extends keyof typeof ipcSchemas>(
   channel: T,
   handler: (...args: ChannelArgs<T>) => ChannelReturn<T>
 ) => {

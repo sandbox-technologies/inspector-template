@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { Titlebar, TitlebarProps } from './Titlebar'
 import { TitlebarContextProvider } from './TitlebarContext'
 import type { ChannelReturn } from '@/lib/ipc/schemas'
-import { useApi } from '@/app/hooks/useApi'
+import { useApi } from '@/app/hooks/api'
 
 type WindowInitProps = ChannelReturn<'window-init'>
 
