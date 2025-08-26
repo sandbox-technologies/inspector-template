@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron'
-import { ipcSchemas, validateArgs, validateReturn, type ChannelArgs, type ChannelReturn } from '@/lib/ipc/schemas'
+import { ipcSchemas, validateArgs, validateReturn, type ChannelArgs, type ChannelReturn } from '@/lib/conveyor/schemas'
 
 /**
  * Helper to register IPC handlers

@@ -1,6 +1,6 @@
-import { BaseApi } from '@/lib/preload/shared'
+import { ConveyorApi } from '@/lib/preload/shared'
 
-export class WindowApi extends BaseApi {
+export class WindowApi extends ConveyorApi {
   // Generate window methods
   windowInit = () => this.invoke('window-init')
   windowIsMinimizable = () => this.invoke('window-is-minimizable')

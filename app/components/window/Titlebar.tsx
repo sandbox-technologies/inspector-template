@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useWindowContext } from './WindowContext'
 import { useTitlebarContext } from './TitlebarContext'
 import { TitlebarMenu } from './TitlebarMenu'
-import { useApi } from '@/app/hooks/api'
+import { useConveyor } from '@/app/hooks/use-conveyor'
 
 export const Titlebar = () => {
   const { title, icon, titleCentered, menuItems } = useWindowContext().titlebar
@@ -66,18 +66,18 @@ const TitlebarControls = () => {
 }
 
 const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: string }) => {
-  const api = useApi()
+  const conveyor = useConveyor()
 
   const handleAction = () => {
     switch (label) {
       case 'minimize':
-        api.window.windowMinimize()
+        conveyor.window.windowMinimize()
         break
       case 'maximize':
-        api.window.windowMaximizeToggle()
+        conveyor.window.windowMaximizeToggle()
         break
       case 'close':
-        api.window.windowClose()
+        conveyor.window.windowClose()
         break
       default:
         console.warn(`Unhandled action for label: ${label}`)

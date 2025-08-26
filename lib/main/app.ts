@@ -2,8 +2,8 @@ import { BrowserWindow, shell, app } from 'electron'
 import { join } from 'path'
 import appIcon from '@/resources/build/icon.png?asset'
 import { registerResourcesProtocol } from './protocols'
-import { registerWindowHandlers } from '@/lib/ipc/handlers/window-handler'
-import { registerAppHandlers } from '@/lib/ipc/handlers/app-handler'
+import { registerWindowHandlers } from '@/lib/conveyor/handlers/window-handler'
+import { registerAppHandlers } from '@/lib/conveyor/handlers/app-handler'
 
 export function createAppWindow(): void {
   // Register custom protocol for resources

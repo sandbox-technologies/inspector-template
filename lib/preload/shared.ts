@@ -1,7 +1,7 @@
 import type { ElectronAPI, IpcRenderer } from '@electron-toolkit/preload'
-import type { ChannelName, ChannelArgs, ChannelReturn } from '@/lib/ipc/schemas'
+import type { ChannelName, ChannelArgs, ChannelReturn } from '@/lib/conveyor/schemas'
 
-export abstract class BaseApi {
+export abstract class ConveyorApi {
   protected renderer: IpcRenderer
 
   constructor(electronApi: ElectronAPI) {

@@ -1,10 +1,12 @@
 import type { ElectronAPI } from '@electron-toolkit/preload'
-import type { WindowApi } from '@/lib/ipc/api/window-api'
+import type { AppApi } from '@/lib/conveyor/api/app-api'
+import type { WindowApi } from '@/lib/conveyor/api/window-api'
 
 declare global {
   interface Window {
     electron: ElectronAPI
-    api: {
+    conveyor: {
+      app: AppApi
       window: WindowApi
     }
   }

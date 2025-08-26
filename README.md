@@ -94,31 +94,32 @@ Distribution files will be located in the `dist` directory.
 
 <br />
 
-## IPC Communication
+## Conveyor - Inter-Process Communication
 
-This project implements a **type-safe IPC (Inter-Process Communication)** system using Zod schemas for runtime validation. The system is organized into modular APIs that provide a clean interface between the renderer and main processes.
+This project implements **Conveyor**, a **type-safe IPC (Inter-Process Communication)** system using Zod schemas for runtime validation. Conveyor provides a clean, modular API interface between the renderer and main processes with full TypeScript support.
 
 ### Quick Start
 
 ```tsx
 // In your React component
 import { useEffect, useState } from 'react'
+import { useConveyor } from '@/app/hooks/use-conveyor'
 
 function AppInfo() {
   const [version, setVersion] = useState<string>('')
-  const { app, window } = useApi()
+  const conveyor = useConveyor()
 
   useEffect(() => {
     // Get app version from main process
-    app.version().then(setVersion)
+    conveyor.app.version().then(setVersion)
   }, [])
 
   const handleMinimize = () => {
-    window.windowMinimize()
+    conveyor.window.windowMinimize()
   }
 
   const handleOpenUrl = (url: string) => {
-    window.webOpenUrl(url)
+    conveyor.window.webOpenUrl(url)
   }
 
   return (
@@ -135,8 +136,8 @@ function AppInfo() {
 
 The IPC system exposes several APIs through:
 
-- global window object `window.api`
-- react hook `useApi()`
+- global window object `window.conveyor`
+- react hook `useConveyor()`
 
 ### Adding New IPC Channels
 
@@ -177,13 +178,13 @@ export const appIpcSchema = {
 
 #### 2. Add API Methods
 
-Update the corresponding API class in `lib/ipc/api/`:
+Update the corresponding API class in `lib/conveyor/api/`:
 
 ```ts
-// lib/ipc/api/app-api.ts
-import { BaseApi } from '@/lib/preload/shared'
+// lib/conveyor/api/app-api.ts
+import { ConveyorApi } from '@/lib/preload/shared'
 
-export class AppApi extends BaseApi {
+export class AppApi extends ConveyorApi {
   version = () => this.invoke('version')
   getUserData = (userId: string) => this.invoke('get-user-data', userId)
   saveData = (key: string, value: unknown) => this.invoke('save-data', { key, value })
@@ -192,10 +193,10 @@ export class AppApi extends BaseApi {
 
 #### 3. Implement the Handler
 
-Add the handler in `lib/ipc/handlers/`:
+Add the handler in `lib/conveyor/handlers/`:
 
 ```ts
-// lib/ipc/handlers/app-handler.ts
+// lib/conveyor/handlers/app-handler.ts
 import { handle } from '@/lib/main/shared'
 import { app } from 'electron'
 
@@ -224,7 +225,7 @@ export const registerAppHandlers = () => {
 Update `lib/main/app.ts` to register your handlers:
 
 ```ts
-import { registerAppHandlers } from '@/lib/ipc/handlers/app-handler'
+import { registerAppHandlers } from '@/lib/conveyor/handlers/app-handler'
 
 // In your app initialization
 registerAppHandlers()
@@ -236,18 +237,18 @@ The IPC system provides full TypeScript support with runtime validation:
 
 ```tsx
 // TypeScript will enforce correct types
-const userData = await window.api.app.getUserData('123') // ✅ Correct
-const userData = await window.api.app.getUserData(123) // ❌ Type error
+const userData = await conveyor.app.getUserData('123') // ✅ Correct
+const userData = await conveyor.app.getUserData(123) // ❌ Type error
 
 // Runtime validation ensures data integrity
-const result = await window.api.app.saveData('config', { theme: 'dark' })
+const result = await conveyor.app.saveData('config', { theme: 'dark' })
 ```
 
 ### Error Handling
 
 ```tsx
 try {
-  const data = await window.api.app.getUserData('invalid-id')
+  const data = await conveyor.app.getUserData('invalid-id')
 } catch (error) {
   console.error('IPC call failed:', error)
   // Handle validation errors, network issues, etc.
@@ -314,7 +315,7 @@ const Button = () => (
 - Contains all UI components, styles, and client-side logic
 - Uses Vite for fast development and building
 
-#### `lib/ipc/` - IPC Communication
+#### `lib/conveyor/` - Conveyor - Inter-Process Communication
 
 - **Type-safe communication** between renderer and main processes
 - **API classes** provide clean interfaces for IPC calls
@@ -356,7 +357,7 @@ import { Button } from '../../../components/ui/button'
 
 // Use clean aliases:
 import { Button } from '@/components/ui/button'
-import { api } from '@/lib/ipc/api'
+import { conveyor } from '@/lib/conveyor/api'
 ```
 
 Configured aliases:

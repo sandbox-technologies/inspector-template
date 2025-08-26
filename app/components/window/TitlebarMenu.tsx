@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useWindowContext } from '@/app/components/window'
 import { useTitlebarContext } from './TitlebarContext'
-import { useApi } from '@/app/hooks/api'
+import { useConveyor } from '@/app/hooks/use-conveyor'
 
 /**
  * Renders the titlebar menu component.
@@ -119,7 +119,7 @@ const TitlebarMenuPopup = ({ menu }: { menu: TitlebarMenu }) => {
  */
 const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
   const { setActiveMenuIndex } = useTitlebarContext()
-  const api = useApi()
+  const conveyor = useConveyor()
 
   function handleAction() {
     // Check if the item has a valid action callback
@@ -131,7 +131,7 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
 
     // Invoke the action directly using the invoke method
     if (item.action) {
-      api.window.invoke(item.action as any, ...(item.actionParams ? item.actionParams : []))
+      conveyor.window.invoke(item.action as any, ...(item.actionParams ? item.actionParams : []))
     }
 
     setActiveMenuIndex(null)
