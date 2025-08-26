@@ -9,7 +9,7 @@
     "url": "https://github.com/guasam"
   },
   "scripts": {
-    "dev": "electron-vite dev -w",
+    "dev": "cross-env ELECTRON_DISABLE_SANDBOX=1 electron-vite dev -w",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "start": "electron-vite preview",
