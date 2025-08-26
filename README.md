@@ -52,14 +52,8 @@ Clone the repository and install dependencies:
 git clone https://github.com/guasam/electron-react-app
 cd electron-react-app
 
-# Install dependencies
+# Install dependencies (use any package manager)
 npm install
-# or
-yarn
-# or
-pnpm install
-# or
-bun install
 ```
 
 <br />
@@ -69,13 +63,8 @@ bun install
 Start the development server:
 
 ```bash
+# Can use any package manager (npm, yarn, pnpm, bun)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun run dev
 ```
 
 This will start Electron with hot-reload enabled so you can see changes in real time.
