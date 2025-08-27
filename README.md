@@ -38,7 +38,7 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 🔹 Theme Switcher - Built-in theme switching for dark and light mode.<br />
 🔹 Window Titlebar & Menus - Style the window titlebar and menus as you want.<br />
 🔹 Import path aliases – Keep your imports organized and clean.<br />
-🔹 Resources Protocol - Use the resources protocol `res://` to access the resources folder in the renderer process.<br />
+🔹 Resources Protocol - Access resources folder via `res://` protocol.<br />
 
 <br />
 
