@@ -19,21 +19,26 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 <br />
 
-## Features
+## Stack
 
-- 🚀 Electron - Cross-platform desktop application framework
-- ⚛️ React - Component-based UI library
-- 📦 TypeScript - Type-safe JavaScript
-- 🎨 Shadcn UI - Beautiful and accessible component library
-- 🎨 TailwindCSS - Utility-first CSS framework
-- ⚡ Vite - Lightning-fast build tool
-- 🔥 Fast HMR - Hot Module Replacement
-- 🎨 Dark/Light Mode - Built-in theme switching
-- 🪟 Custom Window & Titlebar - Professional-looking window with custom titlebar & file menus
-- 📐 Clean Project Structure - Separation of main and renderer processes
-- 🧩 Path Aliases – Keep your code organized
-- 🛠️ Electron Builder - Configured for packaging applications
-- ⛓️ Conveyor - Type-safe inter-process communication with Zod validation ([📖 docs](lib/conveyor/README.md))
+🔹 [Electron](https://www.electronjs.org/) - Cross-platform desktop application framework.<br />
+🔹 [React](https://react.dev/) - Component-based UI library.<br />
+🔹 [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript.<br />
+🔹 [Shadcn UI](https://ui.shadcn.com/) - Beautiful and accessible component library.<br />
+🔹 [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework.<br />
+🔹 [Electron Vite](https://electron-vite.org/) - Lightning-fast build tool based on [Vite](https://vite.dev/) for fastest hot-reload.<br />
+🔹 [Electron Builder](https://www.electron.build/index.html) - Configured for packaging applications.<br />
+
+<br />
+
+## In-Built Features
+
+🔹 Clean Project Structure - Separation of main and renderer processes.<br />
+🔹 [Conveyor](lib/conveyor/README.md) - Type-safe inter-process communication with Zod validation.<br />
+🔹 Theme Switcher - Built-in theme switching for dark and light mode.<br />
+🔹 Window Titlebar & Menus - Style the window titlebar and menus as you want.<br />
+🔹 Import path aliases – Keep your imports organized and clean.<br />
+🔹 Resources Protocol - Use the resources protocol `res://` to access the resources folder in the renderer process.<br />
 
 <br />
 
@@ -336,20 +341,19 @@ const Button = () => (
 - Exposes safe APIs to the renderer process
 - Implements context isolation for security
 
-#### `lib/window/` - Window Management
+<br />
 
-- **Custom window implementation** with titlebar and menus
-- Cross-platform window controls and styling
-- Menu system with keyboard shortcuts
-
-### Development Workflow
+## Development Workflow
 
 1. **UI Development**: Work in `app/` directory with React components
 2. **IPC Communication**: Define schemas, add API methods, implement handlers
-3. **Window Features**: Customize window behavior in `lib/window/`
-4. **Build & Test**: Use `npm run dev` for development, `npm run build:*` for production
+3. **Window Features**: Customize window behavior in `app/components/window/`
+4. **Prettier Formatting**: Use `npm run format` to format the code.
+5. **ESLint**: Use `npm run lint` to lint the code.
 
-### Path Aliases
+<br />
+
+## Path Aliases
 
 The project uses TypeScript path aliases for clean imports:
 
@@ -358,12 +362,12 @@ The project uses TypeScript path aliases for clean imports:
 import { Button } from '../../../components/ui/button'
 
 // Use clean aliases:
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/ui/button'
 import { conveyor } from '@/lib/conveyor/api'
 ```
 
-Configured aliases:
+Configured aliases by default, customise as you want:
 
-- `@/` → `app/` (renderer process)
-- `@/lib/` → `lib/` (shared library code)
-- `@/resources/` → `resources/` (build resources)
+- `@/` → `app/` (application code - renderer process)
+- `@/lib/` → `lib/` (shared library code containing conveyor, main, preload, etc.)
+- `@/resources/` → `resources/` (build resources for the application)
