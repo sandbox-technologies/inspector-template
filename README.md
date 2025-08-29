@@ -9,6 +9,15 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 <br />
 
+![Electron](https://img.shields.io/badge/v37.3.1-Electron-blue) &nbsp;
+![React](https://img.shields.io/badge/v19.1.1-React-lightgreen) &nbsp;
+![TypeScript](https://img.shields.io/badge/v5.9.2-TypeScript-blue) &nbsp;
+![Vite](https://img.shields.io/badge/v7.1.3-Vite-skyblue) &nbsp;
+![Shadcn](https://img.shields.io/badge/Shadcn-UI-blue) &nbsp;
+![Tailwind](https://img.shields.io/badge/v4.1.12-Tailwind-blue)
+
+<br />
+
 <p align="center">
     <img src="app/assets/era-preview.png" target="_blank" />
 </p>
