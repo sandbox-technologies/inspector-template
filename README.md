@@ -42,12 +42,17 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 ## In-Built Features
 
-🔹 Clean Project Structure - Separation of main and renderer processes.<br />
 🔹 [Conveyor](lib/conveyor/README.md) - Type-safe inter-process communication with Zod validation.<br />
-🔹 Theme Switcher - Built-in theme switching for dark and light mode.<br />
-🔹 Window Titlebar & Menus - Style the window titlebar and menus as you want.<br />
-🔹 Import path aliases – Keep your imports organized and clean.<br />
+🔹 Custom Window Titlebar & Menus - Style the window titlebar and menus as you want.<br />
+🔹 Clean Project Structure - Separation of main and renderer processes.<br />
 🔹 Resources Protocol - Access resources folder via `res://` protocol.<br />
+🔹 Import path aliases – Keep your imports organized and clean.<br />
+🔹 Theme Switcher - Built-in theme switching for dark and light mode.<br />
+🔹 Error Boundary - Built-in React error boundary with detailed error reporting.<br />
+🔹 Welcome Kit - Interactive showcase with Framer Motion animations.<br />
+🔹 Code Formatting - Prettier and ESLint pre-configured for code quality.<br />
+🔹 Hot Reload - Lightning-fast development with Vite's HMR.<br />
+🔹 VS Code Debugging - Pre-configured launch configurations for debugging main and renderer processes.<br />
 
 <br />
 
@@ -112,7 +117,7 @@ Distribution files will be located in the `dist` directory.
 
 This project implements **Conveyor**, a **type-safe IPC (Inter-Process Communication)** system using Zod schemas for runtime validation. Conveyor provides a clean, modular API interface between the renderer and main processes with full TypeScript support.
 
-📖 **For detailed Conveyor documentation and advanced usage instructions, see [lib/conveyor/README.md](lib/conveyor/README.md)**
+📖 **For detailed Conveyor documentation and advanced usage instructions, see its [README](lib/conveyor/README.md)**
 
 ### Quick Start
 
@@ -161,7 +166,7 @@ To add a new IPC channel, follow these steps:
 
 #### 1. Define the Schema
 
-Create or update a schema file in `lib/ipc/schemas/`:
+Create or update a schema file in `lib/conveyor/schemas/`:
 
 ```ts
 // lib/ipc/schemas/app-schema.ts

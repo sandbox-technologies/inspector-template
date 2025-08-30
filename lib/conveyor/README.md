@@ -38,15 +38,26 @@ await window.conveyor.window.webOpenUrl('https://example.com')
 ```typescript
 import { useConveyor } from '@/app/hooks/use-conveyor'
 
+// Use specific API (recommended for components)
+const appApi = useConveyor('app')
+const windowApi = useConveyor('window')
+
+// Or use all APIs
 const conveyor = useConveyor()
 
-const appVersion = await conveyor.app.version()
-const windowInfo = await conveyor.window.windowInit()
+// Examples with specific APIs
+const appVersion = await appApi.version()
+const windowInfo = await windowApi.windowInit()
 
 // Window operations
-await conveyor.window.windowMinimize()
-await conveyor.window.windowMaximize()
-await conveyor.window.windowClose()
+await windowApi.windowMinimize()
+await windowApi.windowMaximize()
+await windowApi.windowClose()
+
+// Web content operations
+await windowApi.webCopy()
+await windowApi.webPaste()
+await windowApi.webOpenUrl('https://example.com')
 ```
 
 ### In Main Process
@@ -85,10 +96,10 @@ export class FileApi extends ConveyorApi {
 import { FileApi } from './file-api'
 
 export const conveyor = {
+  electron: electronAPI,
   app: new AppApi(electronAPI),
   window: new WindowApi(electronAPI),
   file: new FileApi(electronAPI), // Add your new API
-  electron: electronAPI,
 }
 
 export type ConveyorApi = typeof conveyor
@@ -182,36 +193,16 @@ export const ipcSchemas = {
 } as const
 ```
 
-## How to Integrate with Global Types
-
-The Conveyor system provides type safety through global type declarations and preload integration:
-
-### Type Safety Features
+## Type Safety Features
 
 - **Compile-time validation**: TypeScript ensures correct method calls
 - **Runtime validation**: Zod schemas validate arguments and return values
 - **Auto-completion**: Full IntelliSense support in your IDE
+- **Automatic type inference**: Types are derived from schemas automatically
 
-### Global Type Integration
+## Preload Integration
 
-The system uses global type declarations in `lib/conveyor/conveyor.d.ts`:
-
-```typescript
-// Global types for window.conveyor access
-import type { ConveyorApi } from '@/lib/conveyor/api'
-
-declare global {
-  interface Window {
-    conveyor: ConveyorApi
-  }
-}
-```
-
-This approach automatically stays in sync with the actual API structure - when you add new APIs to the conveyor export, the global types are automatically updated.
-
-### Preload Integration
-
-The preload script exposes the conveyor APIs to the renderer:
+The preload script exposes the conveyor APIs to the renderer with proper error handling:
 
 ```typescript
 // lib/preload/preload.ts
@@ -219,20 +210,14 @@ import { contextBridge } from 'electron'
 import { conveyor } from '@/lib/conveyor/api'
 
 if (process.contextIsolated) {
-  contextBridge.exposeInMainWorld('conveyor', conveyor)
+  try {
+    contextBridge.exposeInMainWorld('conveyor', conveyor)
+  } catch (error) {
+    console.error(error)
+  }
 } else {
   window.conveyor = conveyor
 }
-```
-
-### Global Window Access
-
-After setup, your APIs are available globally with full type safety:
-
-```typescript
-// TypeScript knows the exact types
-const result = await window.conveyor.file.readFile('/path/to/file.txt')
-// result is typed as string based on the schema
 ```
 
 ## Best Practices
@@ -242,3 +227,4 @@ const result = await window.conveyor.file.readFile('/path/to/file.txt')
 3. **Error Handling**: The system automatically logs errors, but you can add custom error handling in handlers
 4. **Type Safety**: Leverage TypeScript's type inference - don't use `any` types
 5. **Modular Design**: Keep related functionality in separate api/handler/schema files
+6. **Consistent Structure**: Follow the existing pattern of api/handler/schema files for new features
