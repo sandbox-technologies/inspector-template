@@ -29,7 +29,7 @@ export function createAppWindow(): void {
 
   // Register IPC events for the main window.
   registerWindowHandlers(mainWindow)
-  registerAppHandlers(mainWindow)
+  registerAppHandlers(app)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()

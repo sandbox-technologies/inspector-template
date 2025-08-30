@@ -69,7 +69,7 @@ Handlers are registered by importing their registrar modules in the main process
 import { registerAppHandlers } from '@/lib/conveyor/handlers/app-handler'
 
 // In your app initialization
-registerAppHandlers()
+registerAppHandlers(app)
 ```
 
 <br />
@@ -141,7 +141,6 @@ export class FileApi extends ConveyorApi {
 import { FileApi } from './file-api'
 
 export const conveyor = {
-  electron: electronAPI,
   app: new AppApi(electronAPI),
   window: new WindowApi(electronAPI),
   file: new FileApi(electronAPI), // Add your new API

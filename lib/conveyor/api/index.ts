@@ -3,7 +3,6 @@ import { AppApi } from './app-api'
 import { WindowApi } from './window-api'
 
 export const conveyor = {
-  electron: electronAPI,
   app: new AppApi(electronAPI),
   window: new WindowApi(electronAPI),
 }

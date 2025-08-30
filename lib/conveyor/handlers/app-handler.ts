@@ -1,7 +1,7 @@
-import { app, type BrowserWindow } from 'electron'
+import { type App } from 'electron'
 import { handle } from '@/lib/main/shared'
 
-export const registerAppHandlers = (_window: BrowserWindow) => {
+export const registerAppHandlers = (app: App) => {
   // App operations
   handle('version', () => app.getVersion())
 }
