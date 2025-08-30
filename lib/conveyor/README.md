@@ -74,91 +74,13 @@ registerAppHandlers()
 
 <br />
 
-## How to Define New API
+## How to Add New IPC Channel
 
-1. **Create a new API class** in `lib/conveyor/api/`:
+To add a new IPC channel, follow these steps in order:
 
-```typescript
-// lib/conveyor/api/file-api.ts
-import { ConveyorApi } from '@/lib/preload/shared'
+### 1. Define the Schema
 
-export class FileApi extends ConveyorApi {
-  readFile = (path: string) => this.invoke('file-read', path)
-  writeFile = (path: string, content: string) => this.invoke('file-write', path, content)
-  deleteFile = (path: string) => this.invoke('file-delete', path)
-}
-```
-
-2. **Add to the main conveyor export**:
-
-```typescript
-// lib/conveyor/api/index.ts
-import { FileApi } from './file-api'
-
-export const conveyor = {
-  electron: electronAPI,
-  app: new AppApi(electronAPI),
-  window: new WindowApi(electronAPI),
-  file: new FileApi(electronAPI), // Add your new API
-}
-
-export type ConveyorApi = typeof conveyor
-```
-
-The `ConveyorApi` type is automatically derived from the conveyor object structure, ensuring type safety and eliminating the need for manual type maintenance.
-
-3. **Update global types**:
-
-```typescript
-// lib/conveyor/conveyor.d.ts
-import type { ConveyorApi } from '@/lib/conveyor/api'
-
-declare global {
-  interface Window {
-    conveyor: ConveyorApi
-  }
-}
-```
-
-The global type automatically includes all APIs from the conveyor export, so no manual updates are needed when adding new APIs.
-
-## How to Define New Handler
-
-1. **Create a handler file** in `lib/conveyor/handlers/`:
-
-```typescript
-// lib/conveyor/handlers/file-handler.ts
-import { handle } from '@/lib/main/shared'
-import { readFileSync, writeFileSync, unlinkSync } from 'fs'
-
-export const registerFileHandlers = () => {
-  handle('file-read', (path: string) => {
-    return readFileSync(path, 'utf-8')
-  })
-
-  handle('file-write', (path: string, content: string) => {
-    writeFileSync(path, content, 'utf-8')
-  })
-
-  handle('file-delete', (path: string) => {
-    unlinkSync(path)
-  })
-}
-```
-
-2. **Register handlers in main process**:
-
-```typescript
-// lib/main/app.ts
-import { registerFileHandlers } from '@/lib/conveyor/handlers/file-handler'
-
-// In your app initialization
-registerFileHandlers()
-```
-
-## How to Add New Schema
-
-1. **Create a schema file** in `lib/conveyor/schemas/`:
+Create a schema file in `lib/conveyor/schemas/`:
 
 ```typescript
 // lib/conveyor/schemas/file-schema.ts
@@ -180,7 +102,11 @@ export const fileIpcSchema = {
 }
 ```
 
-2. **Add to the main schemas export**:
+**Schema Purpose:**
+- **`args`**: Defines the expected arguments that will be passed from the renderer to the main process. These are validated at runtime using Zod.
+- **`return`**: Defines the expected return type from the main process back to the renderer. This ensures type safety and runtime validation of the response.
+
+### 2. Add to the main schemas export
 
 ```typescript
 // lib/conveyor/schemas/index.ts
@@ -192,6 +118,77 @@ export const ipcSchemas = {
   ...fileIpcSchema, // Add your new schema
 } as const
 ```
+
+### 3. Create the API class
+
+Create a new API class in `lib/conveyor/api/`:
+
+```typescript
+// lib/conveyor/api/file-api.ts
+import { ConveyorApi } from '@/lib/preload/shared'
+
+export class FileApi extends ConveyorApi {
+  readFile = (path: string) => this.invoke('file-read', path)
+  writeFile = (path: string, content: string) => this.invoke('file-write', path, content)
+  deleteFile = (path: string) => this.invoke('file-delete', path)
+}
+```
+
+### 4. Add to the main conveyor export
+
+```typescript
+// lib/conveyor/api/index.ts
+import { FileApi } from './file-api'
+
+export const conveyor = {
+  electron: electronAPI,
+  app: new AppApi(electronAPI),
+  window: new WindowApi(electronAPI),
+  file: new FileApi(electronAPI), // Add your new API
+}
+
+export type ConveyorApi = typeof conveyor
+```
+
+The `ConveyorApi` type is automatically derived from the conveyor object structure, ensuring type safety and eliminating the need for manual type maintenance.
+
+### 5. Create the handler
+
+Create a handler file in `lib/conveyor/handlers/`:
+
+```typescript
+// lib/conveyor/handlers/file-handler.ts
+import { handle } from '@/lib/main/shared'
+import { readFileSync, writeFileSync, unlinkSync } from 'fs'
+
+export const registerFileHandlers = () => {
+  handle('file-read', (path: string) => {
+    return readFileSync(path, 'utf-8')
+  })
+
+  handle('file-write', (path: string, content: string) => {
+    writeFileSync(path, content, 'utf-8')
+  })
+
+  handle('file-delete', (path: string) => {
+    unlinkSync(path)
+  })
+}
+```
+
+### 6. Register handlers in main process
+
+```typescript
+// lib/main/app.ts
+import { registerFileHandlers } from '@/lib/conveyor/handlers/file-handler'
+
+// In your app initialization
+registerFileHandlers()
+```
+
+**Note**: Global types are automatically updated when you add new APIs to the conveyor export, so no manual updates are needed!
+
+
 
 ## Type Safety Features
 
