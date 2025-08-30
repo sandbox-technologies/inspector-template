@@ -56,6 +56,25 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 <br />
 
+## Quick Start with create-era-app
+
+The easiest way to get started is using the `create-era-app` CLI:
+
+```bash
+# Create a new Electron React App project
+npx create-era-app@latest my-app
+
+# Navigate to your project
+cd my-app
+
+# Start development
+npm run dev
+```
+
+This will scaffold a new project with all the features and configurations pre-setup.
+
+<br />
+
 ## Prerequisites
 
 - Node.js (v20 or higher)
@@ -63,9 +82,9 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 <br />
 
-## Installation
+## Manual Installation
 
-Clone the repository and install dependencies:
+If you prefer to clone the repository manually:
 
 ```bash
 # Clone the repository
