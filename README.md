@@ -10,9 +10,9 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 <br />
 
 ![Electron](https://img.shields.io/badge/v37.3.1-Electron-blue) &nbsp;
-![React](https://img.shields.io/badge/v19.1.1-React-lightgreen) &nbsp;
+![React](https://img.shields.io/badge/v19.1.1-React-blue) &nbsp;
 ![TypeScript](https://img.shields.io/badge/v5.9.2-TypeScript-blue) &nbsp;
-![Vite](https://img.shields.io/badge/v7.1.3-Vite-skyblue) &nbsp;
+![Vite](https://img.shields.io/badge/v7.1.3-Vite-blue) &nbsp;
 ![Shadcn](https://img.shields.io/badge/Shadcn-UI-blue) &nbsp;
 ![Tailwind](https://img.shields.io/badge/v4.1.12-Tailwind-blue)
 
@@ -56,42 +56,18 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 <br />
 
-## Quick Start with create-era-app
+## Installation
 
-The easiest way to get started is using the `create-era-app` CLI:
-
-```bash
-# Create a new Electron React App project
-npx create-era-app@latest my-app
-
-# Navigate to your project
-cd my-app
-
-# Start development
-npm run dev
-```
-
-This will scaffold a new project with all the features and configurations pre-setup.
-
-<br />
-
-## Prerequisites
-
-- Node.js (v20 or higher)
-- npm, yarn, pnpm, or bun
-
-<br />
-
-## Manual Installation
-
-If you prefer to clone the repository manually:
+Clone the repository:
 
 ```bash
 # Clone the repository
 git clone https://github.com/guasam/electron-react-app
+
+# Change directory
 cd electron-react-app
 
-# Install dependencies (use any package manager)
+# Install dependencies (use any package manager: npm, yarn, pnpm, bun)
 npm install
 ```
 
@@ -102,7 +78,6 @@ npm install
 Start the development server:
 
 ```bash
-# Can use any package manager (npm, yarn, pnpm, bun)
 npm run dev
 ```
 
