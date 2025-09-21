@@ -1,10 +1,5 @@
 # Electron React App
 
-<br />
-<p align="center">
-    <img src="resources/build/icon.svg" width="64" />
-</p>
-
 A modern Electron application template with React, Vite, TypeScript, and TailwindCSS. This project provides a solid foundation for developing cross-platform desktop applications.
 
 <br />
