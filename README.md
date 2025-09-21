@@ -91,10 +91,10 @@ This will start Electron with hot-reload enabled so you can see changes in real 
 
 **Conveyor** is a type-safe IPC system that enables secure communication between your React frontend and Electron's main process. It uses Zod schemas for runtime validation and provides full TypeScript support.
 
-🔹 **Type-safe** - Full TypeScript support with compile-time and runtime validation
-🔹 **Secure** - Validates all data using Zod schemas
-🔹 **Modular** - Clean API structure with organized handlers
-🔹 **Simple** - Easy-to-use React hooks and global APIs
+🔹 **Type-safe** - Full TypeScript support with compile-time and runtime validation<br />
+🔹 **Secure** - Validates all data using Zod schemas<br />
+🔹 **Modular** - Clean API structure with organized handlers<br />
+🔹 **Simple** - Easy-to-use React hooks and global APIs<br />
 
 <br />
 
