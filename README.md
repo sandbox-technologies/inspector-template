@@ -30,29 +30,31 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 ## Stack
 
-🔹 [Electron](https://www.electronjs.org/) - Cross-platform desktop application framework.<br />
-🔹 [React](https://react.dev/) - Component-based UI library.<br />
-🔹 [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript.<br />
-🔹 [Shadcn UI](https://ui.shadcn.com/) - Beautiful and accessible component library.<br />
-🔹 [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework.<br />
-🔹 [Electron Vite](https://electron-vite.org/) - Lightning-fast build tool based on [Vite](https://vite.dev/) for fastest hot-reload.<br />
-🔹 [Electron Builder](https://www.electron.build/index.html) - Configured for packaging applications.<br />
+🔹 **Electron** [↗](https://www.electronjs.org/) - Cross-platform desktop application framework.<br />
+🔹 **React** [↗](https://react.dev/) - The library for web and native user interfaces.<br />
+🔹 **TypeScript** [↗](https://www.typescriptlang.org/) - Type-safe JavaScript.<br />
+🔹 **Shadcn UI** [↗](https://ui.shadcn.com/) - Beautiful and accessible component library.<br />
+🔹 **TailwindCSS** [↗](https://tailwindcss.com/) - Utility-first CSS framework.<br />
+🔹 **Electron Vite** [↗](https://electron-vite.org/) - Lightning-fast build tool based on **Vite** for fastest hot-reload.<br />
+🔹 **Electron Builder** [↗](https://www.electron.build/index.html) - Configured for packaging applications.<br />
 
 <br />
 
 ## In-Built Features
 
-🔹 [Conveyor](lib/conveyor/README.md) - Type-safe inter-process communication with Zod validation.<br />
-🔹 Custom Window Titlebar & Menus - Style the window titlebar and menus as you want.<br />
-🔹 Clean Project Structure - Separation of main and renderer processes.<br />
-🔹 Resources Protocol - Access local file resources via `res://` protocol.<br />
-🔹 Import path aliases – Keep your imports organized and clean.<br />
-🔹 Theme Switcher - Built-in theme switching for dark and light mode.<br />
-🔹 Error Boundary - Built-in React error boundary with detailed error reporting.<br />
-🔹 Welcome Kit - Interactive showcase with Framer Motion animations.<br />
-🔹 Code Formatting - Prettier and ESLint pre-configured for code quality.<br />
-🔹 Hot Reload - Lightning-fast development with Vite's HMR.<br />
-🔹 VS Code Debugging - Pre-configured launch configurations for debugging main and renderer processes.<br />
+| Feature                     | Description                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| **Conveyor**                | Type-safe inter-process communication with Zod validation                      |
+| **Custom Titlebar & Menus** | Style the window titlebar and menus as you want                                |
+| **Clean Project Structure** | Separation of main and renderer processes                                      |
+| **Resources Protocol**      | Access local file resources via `res://` protocol                              |
+| **Import Path Aliases**     | Keep your imports organized and clean                                          |
+| **Theme Switcher**          | Built-in theme switching for dark and light mode                               |
+| **Error Boundary**          | Built-in React error boundary with detailed error reporting                    |
+| **Welcome Kit**             | Interactive showcase with Framer Motion animations                             |
+| **Code Formatting**         | Prettier and ESLint pre-configured for code quality                            |
+| **Hot Reload**              | Lightning-fast development with Vite's HMR                                     |
+| **VS Code Debugging**       | Pre-configured launch configurations for debugging main and renderer processes |
 
 <br />
 
@@ -89,10 +91,10 @@ This will start Electron with hot-reload enabled so you can see changes in real 
 
 **Conveyor** is a type-safe IPC system that enables secure communication between your React frontend and Electron's main process. It uses Zod schemas for runtime validation and provides full TypeScript support.
 
-- 🔹 **Type-safe** - Full TypeScript support with compile-time and runtime validation
-- 🔹 **Secure** - Validates all data using Zod schemas
-- 🔹 **Modular** - Clean API structure with organized handlers
-- 🔹 **Simple** - Easy-to-use React hooks and global APIs
+🔹 **Type-safe** - Full TypeScript support with compile-time and runtime validation
+🔹 **Secure** - Validates all data using Zod schemas
+🔹 **Modular** - Clean API structure with organized handlers
+🔹 **Simple** - Easy-to-use React hooks and global APIs
 
 <br />
 
@@ -396,7 +398,6 @@ Configured aliases by default, customise as you want:
 - `@/` → `app/` (application code - renderer process)
 - `@/lib/` → `lib/` (shared library code containing conveyor, main, preload, etc.)
 - `@/resources/` → `resources/` (build resources for the application)
-
 
 <br />
 
