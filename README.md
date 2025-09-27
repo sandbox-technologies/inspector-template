@@ -25,13 +25,13 @@ A modern Electron application template with React, Vite, TypeScript, and Tailwin
 
 ## Stack
 
-🔹 **Electron** - Cross-platform desktop application framework. [[Link](https://www.electronjs.org/)]<br />
-🔹 **React** - The library for web and native user interfaces. [[Link](https://react.dev/)]<br />
-🔹 **TypeScript** - Type-safe JavaScript. [[Link](https://www.typescriptlang.org/)]<br />
-🔹 **Shadcn UI** - Beautiful and accessible component library. [[Link](https://ui.shadcn.com/)]<br />
-🔹 **TailwindCSS** - Utility-first CSS framework. [[Link](https://tailwindcss.com/)]<br />
-🔹 **Electron Vite** - Lightning-fast build tool based on **Vite** for fastest hot-reload. [[Link](https://electron-vite.org/)]<br />
-🔹 **Electron Builder** - Configured for packaging applications. [[Link](https://www.electron.build/index.html)]<br />
+🔹 **[Electron](https://www.electronjs.org)** - Cross-platform desktop application framework.<br />
+🔹 **[React](https://react.dev)** - The library for web and native user interfaces.<br />
+🔹 **[TypeScript](https://www.typescriptlang.org)** - Type-safe JavaScript.<br />
+🔹 **[Shadcn UI](https://ui.shadcn.com)** - Beautiful and accessible component library.<br />
+🔹 **[TailwindCSS](https://tailwindcss.com)** - Utility-first CSS framework.<br />
+🔹 **[Electron Vite](https://electron-vite.org)** - Lightning-fast build tool based on **Vite** for fastest hot-reload.<br />
+🔹 **[Electron Builder](https://www.electron.build/index.html)** - Configured for packaging applications.<br />
 
 <br />
 
