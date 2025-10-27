@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { Titlebar, TitlebarProps } from './Titlebar'
 import { TitlebarContextProvider } from './TitlebarContext'
+import { TabsContextProvider } from './TabsContext'
 import type { ChannelReturn } from '@/lib/conveyor/schemas'
 import { useConveyor } from '@/app/hooks/use-conveyor'
 
@@ -38,9 +39,11 @@ export const WindowContextProvider = ({
 
   return (
     <WindowContext.Provider value={{ titlebar, window: initProps }}>
-      <TitlebarContextProvider>
-        <Titlebar />
-      </TitlebarContextProvider>
+      <TabsContextProvider>
+        <TitlebarContextProvider>
+          <Titlebar />
+        </TitlebarContextProvider>
+      </TabsContextProvider>
       <div className="window-content">{children}</div>
     </WindowContext.Provider>
   )

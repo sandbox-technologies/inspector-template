@@ -225,3 +225,120 @@
 .platform-darwin .window-titlebar-menu {
   left: var(--window-mac-titlebar-controls-margin);
 }
+
+/* Tab styles */
+.tab {
+  position: relative;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--window-c-titlebar-background);
+  color: var(--window-c-text);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  flex: 1 1 1px;
+  min-width: 0;
+  max-width: 200px;
+  overflow: hidden;
+}
+
+.tab[data-active='true'] {
+  background: #fff;
+  color: #000;
+}
+
+.tab:hover:not([data-active='true']) {
+  background: var(--window-c-hover);
+}
+
+.tab-add {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  background: transparent;
+  color: var(--window-c-text);
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.tab-add:hover {
+  background: var(--window-c-hover);
+}
+
+/* Active tab background animation */
+.tab-active-bg {
+  background: #fff;
+}
+
+/* Tab favicon */
+.tab-favicon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  background: var(--window-c-hover);
+}
+
+.tab[data-active='true'] .tab-favicon {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Tab title */
+.tab-title {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  min-width: 0;
+  padding-right: 16px;
+}
+
+/* Tab close button */
+.tab-close {
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 3px;
+  color: var(--window-c-text);
+  opacity: 0.6;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.tab-close:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.tab[data-active='true'] .tab-close {
+  color: #000;
+}
+
+.tab[data-active='true'] .tab-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
