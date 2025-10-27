@@ -24,6 +24,12 @@
   --window-c-scrollbar-thumb: #88888863;
   --window-c-scrollbar-thumb-hover: #555;
   --window-c-text-shadow: #000000a8;
+  
+  /* Tab-specific colors for dark mode */
+  --window-c-tab-active-bg: #fff;
+  --window-c-tab-active-text: #000;
+  --window-c-tab-favicon-bg: #3c3c3c;
+  --window-c-tab-active-favicon-bg: rgba(0, 0, 0, 0.1);
 }
 
 :root:not(.dark) {
@@ -47,6 +53,12 @@
   --window-c-scrollbar-thumb: #b0b0b0;
   --window-c-scrollbar-thumb-hover: #888888cf;
   --window-c-text-shadow: transparent;
+  
+  /* Tab-specific colors for light mode */
+  --window-c-tab-active-bg: #e6e6e6;
+  --window-c-tab-active-text: #000;
+  --window-c-tab-favicon-bg: #d0d0d0;
+  --window-c-tab-active-favicon-bg: rgba(0, 0, 0, 0.08);
 }
 
 .window-frame {
@@ -247,8 +259,8 @@
 }
 
 .tab[data-active='true'] {
-  background: #fff;
-  color: #000;
+  background: var(--window-c-tab-active-bg);
+  color: var(--window-c-tab-active-text);
 }
 
 .tab:hover:not([data-active='true']) {
@@ -267,7 +279,10 @@
   background: transparent;
   color: var(--window-c-text);
   border: none;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  padding-bottom: 2px;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
 }
@@ -278,7 +293,7 @@
 
 /* Active tab background animation */
 .tab-active-bg {
-  background: #fff;
+  background: var(--window-c-tab-active-bg);
 }
 
 /* Tab favicon */
@@ -290,11 +305,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 2px;
-  background: var(--window-c-hover);
+  background: var(--window-c-tab-favicon-bg);
 }
 
 .tab[data-active='true'] .tab-favicon {
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--window-c-tab-active-favicon-bg);
 }
 
 /* Tab title */
@@ -332,13 +347,13 @@
 
 .tab-close:hover {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--window-c-control-hover);
 }
 
 .tab[data-active='true'] .tab-close {
-  color: #000;
+  color: var(--window-c-tab-active-text);
 }
 
 .tab[data-active='true'] .tab-close:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--window-c-tab-active-favicon-bg);
 }
