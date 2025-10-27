@@ -133,6 +133,70 @@ export const menuItems: TitlebarMenu[] = [
     ],
   },
   {
+    name: 'Development',
+    items: [
+      {
+        name: 'Welcome Screen',
+        action: 'navigate-screen',
+        actionParams: ['welcome'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'welcome' }))
+        },
+      },
+      {
+        name: '---',
+      },
+      {
+        name: 'Electron Screen',
+        action: 'navigate-screen',
+        actionParams: ['electron'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'electron' }))
+        },
+      },
+      {
+        name: 'React Screen',
+        action: 'navigate-screen',
+        actionParams: ['react'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'react' }))
+        },
+      },
+      {
+        name: 'Vite Screen',
+        action: 'navigate-screen',
+        actionParams: ['vite'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'vite' }))
+        },
+      },
+      {
+        name: 'Shadcn Screen',
+        action: 'navigate-screen',
+        actionParams: ['shadcn'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'shadcn' }))
+        },
+      },
+      {
+        name: 'Tailwind Screen',
+        action: 'navigate-screen',
+        actionParams: ['tailwind'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'tailwind' }))
+        },
+      },
+      {
+        name: 'Era Screen',
+        action: 'navigate-screen',
+        actionParams: ['era'],
+        actionCallback: () => {
+          window.dispatchEvent(new CustomEvent('navigate-screen', { detail: 'era' }))
+        },
+      },
+    ],
+  },
+  {
     name: 'Credits',
     items: [
       {

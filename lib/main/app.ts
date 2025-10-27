@@ -18,7 +18,7 @@ export function createAppWindow(): void {
     icon: appIcon,
     frame: false,
     titleBarStyle: 'hiddenInset',
-    title: 'Electron React App',
+    title: 'Inspector',
     maximizable: false,
     resizable: false,
     webPreferences: {
