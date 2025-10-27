@@ -18,6 +18,7 @@ export function createAppWindow(): void {
     icon: appIcon,
     frame: false,
     titleBarStyle: 'hiddenInset',
+    trafficLightPosition: { x: 18, y: 14 }, // Customize traffic light position
     title: 'Inspector',
     maximizable: false,
     resizable: false,
