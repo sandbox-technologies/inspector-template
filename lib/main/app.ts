@@ -20,8 +20,8 @@ export function createAppWindow(): void {
     titleBarStyle: 'hiddenInset',
     trafficLightPosition: { x: 18, y: 14 }, // Customize traffic light position
     title: 'Inspector',
-    maximizable: false,
-    resizable: false,
+    maximizable: true,
+    resizable: true,
     webPreferences: {
       preload: join(__dirname, '../preload/preload.js'),
       sandbox: false,
