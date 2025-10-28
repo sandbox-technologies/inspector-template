@@ -1,12 +1,15 @@
 import React from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface AddressBarProps {
   url: string
+  isLoading?: boolean
+  progress?: number
   onSubmit?: (value: string) => void
   onChange?: (value: string) => void
 }
 
-export default function AddressBar({ url, onSubmit, onChange }: AddressBarProps) {
+export default function AddressBar({ url, isLoading = false, progress = 0, onSubmit, onChange }: AddressBarProps) {
   const [isEditing, setIsEditing] = React.useState(false)
   const [value, setValue] = React.useState<string>(url)
 
@@ -57,7 +60,7 @@ export default function AddressBar({ url, onSubmit, onChange }: AddressBarProps)
   }
 
   return (
-    <div className="relative w-full h-7 flex items-center rounded-md bg-[var(--window-c-surface-elevated)] hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors">
+    <div className="relative w-full h-7 flex items-center rounded-md bg-[var(--window-c-surface-elevated)] hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors overflow-hidden">
       {!isEditing && (
         <div className="absolute inset-0 flex items-center px-3 select-none pointer-events-none text-sm">
           {segments.scheme && (
@@ -92,6 +95,35 @@ export default function AddressBar({ url, onSubmit, onChange }: AddressBarProps)
         autoCorrect="off"
         autoCapitalize="none"
       />
+
+      {/* Loading visuals */}
+      <AnimatePresence initial={false} mode="wait">
+        {isLoading && !isEditing && (
+          <motion.div
+            key="loading"
+            className="pointer-events-none absolute inset-x-0 bottom-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Fading gradient from the progress line upward that grows leftwards */}
+            <motion.div
+              className="absolute left-0 bottom-0 h-5"
+              style={{
+                background:
+                  'linear-gradient(to top, rgba(37, 99, 235, 0.35), rgba(37, 99, 235, 0.0))',
+                WebkitMaskImage:
+                  'linear-gradient(90deg, rgba(0,0,0,1) 0, rgba(0,0,0,1) calc(100% - 18px), rgba(0,0,0,0) 100%)',
+                maskImage:
+                  'linear-gradient(90deg, rgba(0,0,0,1) 0, rgba(0,0,0,1) calc(100% - 18px), rgba(0,0,0,0) 100%)'
+              }}
+              initial={false}
+              animate={{ width: `${Math.round(progress * 100)}%` }}
+              transition={{ type: 'tween', ease: 'linear', duration: 0.15 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
