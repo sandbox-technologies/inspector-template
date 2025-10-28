@@ -1,10 +1,9 @@
-import { useEffect } from 'react'
 import { useWindowContext } from './WindowContext'
 import { useTitlebarContext } from './TitlebarContext'
 import { TitlebarMenu } from './TitlebarMenu'
 import { TabsBar } from '../ui/tabs/TabsBar'
-import { useTabs } from './TabsContext'
 import { useConveyor } from '@/app/hooks/use-conveyor'
+import { useTitlebarShortcuts } from '@/app/hooks/use-titlebar-shortcuts'
 
 const SVG_PATHS = {
   close: 'M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z',
@@ -14,52 +13,10 @@ const SVG_PATHS = {
 
 export const Titlebar = () => {
   const { title, icon, titleCentered, menuItems } = useWindowContext().titlebar
-  const { menusVisible, setMenusVisible, closeActiveMenu } = useTitlebarContext()
+  const { menusVisible } = useTitlebarContext()
   const { window: wcontext } = useWindowContext()
-  const { nextTab, prevTab, removeTab, activeTabId, tabs, addTab } = useTabs()
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.altKey && menuItems?.length && !e.repeat) {
-        if (menusVisible) closeActiveMenu()
-        setMenusVisible(!menusVisible)
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [menusVisible, closeActiveMenu, setMenusVisible, menuItems])
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Tab switching with Ctrl+Tab
-      if (e.ctrlKey && e.key === 'Tab' && !e.repeat) {
-        e.preventDefault()
-        if (e.shiftKey) {
-          prevTab()
-        } else {
-          nextTab()
-        }
-      }
-      
-      // Close tab with Cmd+W (Mac) or Ctrl+W (Windows/Linux)
-      const isCloseShortcut = (e.metaKey || e.ctrlKey) && e.key === 'w'
-      if (isCloseShortcut && !e.repeat && tabs.length > 1) {
-        e.preventDefault()
-        removeTab(activeTabId)
-      }
-      
-      // New tab with Cmd+T (Mac) or Ctrl+T (Windows/Linux)
-      const isNewTabShortcut = (e.metaKey || e.ctrlKey) && e.key === 't'
-      if (isNewTabShortcut && !e.repeat) {
-        e.preventDefault()
-        addTab()
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [nextTab, prevTab, removeTab, activeTabId, tabs.length, addTab])
+  useTitlebarShortcuts(menuItems)
 
   return (
     <div className={`window-titlebar ${wcontext?.platform ? `platform-${wcontext.platform}` : ''}`}>
