@@ -23,13 +23,16 @@ export default function BrowserTopBar({ url = 'http://localhost:3000', onBack, o
             <ChevronLeft className="size-5" />
           </button>
         </Tooltip>
-        <button className="size-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800/70" onClick={onForward} aria-label="Forward">
-          <ChevronRight className="size-5" />
-        </button>
-        <button className="size-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800/70" onClick={onReload} aria-label="Reload">
-          <RotateCcw className="size-4" />
-        </button>
-
+        <Tooltip title="Click to go forward" description="hold to view history" shortcut="⌘ ]">
+          <button className="size-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800/70" onClick={onForward} aria-label="Forward">
+            <ChevronRight className="size-5" />
+          </button>
+        </Tooltip>
+        <Tooltip title="Reload this page" description="" shortcut="⌘ r">
+          <button className="size-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800/70" onClick={onReload} aria-label="Reload">
+            <RotateCcw className="size-4" />
+          </button>
+        </Tooltip>
         {/* Address bar */}
         <div className="flex-1 min-w-0">
           <AddressBar url={url} onSubmit={onSubmit} onChange={onChange} />
