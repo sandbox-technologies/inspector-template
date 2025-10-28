@@ -20,6 +20,11 @@ export function Tooltip({ title, description, shortcut, children }: TooltipProps
   const [coords, setCoords] = React.useState<{ top: number; left: number } | null>(null)
   const delayRef = React.useRef<number | null>(null)
 
+  function isCommandKey(part: string) {
+    const lower = part.toLowerCase()
+    return part === '⌘' || lower === 'cmd' || lower === 'command'
+  }
+
   React.useLayoutEffect(() => {
     function updatePosition() {
       if (!triggerRef.current) return
@@ -40,7 +45,7 @@ export function Tooltip({ title, description, shortcut, children }: TooltipProps
 
   function beginOpenDelay() {
     if (delayRef.current) window.clearTimeout(delayRef.current)
-    delayRef.current = window.setTimeout(() => setOpen(true), 1500)
+    delayRef.current = window.setTimeout(() => setOpen(true), 500)
   }
 
   function cancelOpenDelayAndClose() {
@@ -62,7 +67,21 @@ export function Tooltip({ title, description, shortcut, children }: TooltipProps
         <div className="tooltip-content" role="tooltip" style={{ position: 'fixed', top: coords.top, left: coords.left }}>
           <div className="tooltip-title-row">
             <span className="tooltip-title">{title}</span>
-            {shortcut ? <kbd className="tooltip-keycap">{shortcut}</kbd> : null}
+            {shortcut ? (
+              <span className="tooltip-shortcut">
+                {shortcut
+                  .split(/\s*\+\s*|\s+/)
+                  .filter(Boolean)
+                  .map((part, idx) => (
+                    <kbd
+                      className={`tooltip-keycap${isCommandKey(part) ? ' tooltip-keycap-command' : ''}`}
+                      key={`${part}-${idx}`}
+                    >
+                      {part}
+                    </kbd>
+                  ))}
+              </span>
+            ) : null}
           </div>
           {description ? <div className="tooltip-description">{description}</div> : null}
         </div>,
