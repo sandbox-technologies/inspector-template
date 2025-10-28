@@ -61,7 +61,7 @@ function ActionCard({ title, description, icon: Icon }: { title: string; descrip
 
 function ProjectPill({ title, meta }: { title: string; meta?: string }) {
   return (
-    <button className="w-full rounded-lg px-3 py-2 -ml-3 transition-colors bg-transparent hover:bg-black/5 dark:hover:bg-white/5">
+    <button className="w-full rounded-lg px-3 py-2 -ml-3 transition-colors bg-transparent hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer">
       <div className="flex items-center justify-between">
         <span>{title}</span>
         {meta && <span className="opacity-80">{meta}</span>}
