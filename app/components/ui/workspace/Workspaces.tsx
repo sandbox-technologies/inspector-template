@@ -1,5 +1,6 @@
 import Workspace from '@/app/components/ui/workspace/Workspace'
 import { useTabs } from '@/app/components/window/TabsContext'
+import WelcomeScreen from '@/app/components/welcome/WelcomeScreen'
 
 export default function Workspaces() {
   const { tabs, activeTabId } = useTabs()
@@ -8,7 +9,7 @@ export default function Workspaces() {
     <div className="w-full h-full">
       {tabs.map((tab) => (
         <div key={tab.id} style={{ display: tab.id === activeTabId ? 'block' : 'none' }} className="w-full h-full">
-          <Workspace tab={tab} />
+          {tab.kind === 'welcome' ? <WelcomeScreen /> : <Workspace tab={tab} />}
         </div>
       ))}
     </div>

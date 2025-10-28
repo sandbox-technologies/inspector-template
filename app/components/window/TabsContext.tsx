@@ -5,6 +5,12 @@ export type Tab = {
   title: string
   url?: string
   partitionId: string
+  /**
+   * Tab kind controls which view is rendered for this tab.
+   * - 'workspace' shows the standard browser + chat layout
+   * - 'welcome' shows the special welcome screen
+   */
+  kind?: 'workspace' | 'welcome'
 }
 
 interface TabsContextProps {
@@ -23,7 +29,7 @@ const TabsContext = createContext<TabsContextProps | undefined>(undefined)
 
 export const TabsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [tabs, setTabs] = useState<Tab[]>([
-    { id: 't1', title: 'New Tab', url: '', partitionId: 'persist:tab-t1' }
+    { id: 't1', title: 'Welcome to Inspector', url: '', partitionId: 'persist:tab-t1', kind: 'welcome' }
   ])
   const [activeTabId, setActiveTabId] = useState<string>('t1')
 
@@ -32,7 +38,8 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
       id: `t${Date.now()}`,
       title: 'New Tab',
       url: '',
-      partitionId: '' // placeholder; set after id is known
+      partitionId: '', // placeholder; set after id is known
+      kind: 'workspace'
     }
     // Ensure stable partition derived from ID
     newTab.partitionId = `persist:tab-${newTab.id}`
@@ -77,7 +84,7 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
     setActiveTabId(tabs[prevIndex].id)
   }, [tabs, activeTabId])
 
-  const updateTab = useCallback((id: string, updates: Partial<Pick<Tab, 'title' | 'url'>>) => {
+  const updateTab = useCallback((id: string, updates: Partial<Pick<Tab, 'title' | 'url' | 'kind'>>) => {
     setTabs(prev => prev.map(tab => (tab.id === id ? { ...tab, ...updates } : tab)))
   }, [])
 

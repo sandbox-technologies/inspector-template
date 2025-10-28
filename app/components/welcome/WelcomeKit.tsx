@@ -1,105 +1,23 @@
-import { useEffect, useState } from 'react'
-import EraShape from './EraShape'
-import EraContent from './contents/EraContent'
-import ElectronContent from './contents/ElectronContent'
-import ReactContent from './contents/ReactContent'
-import ViteContent from './contents/ViteContent'
-import ShadContent from './contents/ShadContent'
-import TailwindContent from './contents/TailwindContent'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Badge } from '../ui/badge'
-import './styles.css'
+import logo from '../../assets/logo.png'
 
 export default function WelcomeKit() {
-  const [activePath, setActivePath] = useState<number>(5)
-
-  const handlePathHover = (index: number) => {
-    setActivePath(index)
-  }
-
-  const handlePathReset = () => {
-    setActivePath(5)
-  }
-
-  const content = () => {
-    switch (activePath) {
-      case 0:
-        return <ElectronContent />
-      case 1:
-        return <ReactContent />
-      case 2:
-        return <ViteContent />
-      case 3:
-        return <ShadContent />
-      case 4:
-        return <TailwindContent />
-      case 5:
-        return <EraContent />
-      default:
-        return <EraContent />
-    }
-  }
-
   return (
-    <div className="welcome-content flex flex-col gap-5">
-      <div className="flex gap-5 items-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={'content-' + activePath}
-            style={{ zIndex: 2, flex: 1 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 0.2,
-              ease: 'easeInOut',
-            }}
-          >
-            {content()}
-          </motion.div>
-        </AnimatePresence>
-        <EraShape onPathHover={handlePathHover} onPathReset={handlePathReset} />
+    <div className="relative w-full h-[460px] sm:h-[520px]">
+      <div className="absolute inset-0 flex flex-col gap-4">
+        <div className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight">
+          <div>Welcome to a new way to</div>
+          <div className="mt-4 space-y-1">
+            <div className="line-through text-black/50 dark:text-white/50">design</div>
+            <div className="line-through text-black/50 dark:text-white/50">engineer</div>
+            <div>designgineer</div>
+          </div>
+        </div>
       </div>
-      <div className="flex justify-center items-center gap-4 opacity-50 hover:opacity-80 transition-opacity">
-        <DarkModeToggle />
-        <TwoPaneToggle />
+
+      <div className="absolute bottom-0 right-0 flex items-center gap-3">
+        <img src={logo} alt="Inspector logo" className="w-16 h-16 object-contain" />
+        <div className="text-4xl sm:text-5xl">Inspector</div>
       </div>
-    </div>
-  )
-}
-
-const DarkModeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
-
-  useEffect(() => {
-    setIsDarkMode(document.documentElement.classList.contains('dark'))
-  }, [])
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark')
-    setIsDarkMode(!isDarkMode)
-  }
-
-  return (
-    <div className="flex justify-center items-center gap-2 text-sm cursor-pointer">
-      <Badge variant="secondary" onClick={toggleDarkMode}>
-        {isDarkMode ? 'Dark Mode' : 'Light Mode'}
-      </Badge>
-    </div>
-  )
-}
-
-const TwoPaneToggle = () => {
-  const handleClick = () => {
-    const event = new CustomEvent('navigate-screen', { detail: 'twopane' })
-    window.dispatchEvent(event)
-  }
-
-  return (
-    <div className="flex justify-center items-center gap-2 text-sm cursor-pointer">
-      <Badge variant="secondary" onClick={handleClick}>
-        Two Pane Layout
-      </Badge>
     </div>
   )
 }
