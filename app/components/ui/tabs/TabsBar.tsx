@@ -56,7 +56,7 @@ export const TabsBar = () => {
             >
               <Tooltip 
                 title={tab.title || 'New Tab'} 
-                description={tab.url && tab.url.length > 0 ? tab.url : 'Your Chat with Dia'}
+                description={tab.url && tab.url.length > 0 ? tab.url : ''}
                 fullWidth
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', width: '100%', minWidth: 0 }}>
