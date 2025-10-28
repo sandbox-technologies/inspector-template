@@ -62,19 +62,21 @@ export default function AddressBar({ url, isLoading = false, progress = 0, onSub
   return (
     <div className="relative w-full h-7 flex items-center rounded-md bg-[var(--window-c-surface-elevated)] hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors overflow-hidden">
       {!isEditing && (
-        <div className="absolute inset-0 flex items-center px-3 select-none pointer-events-none text-sm">
-          {segments.scheme && (
-            <span className="text-neutral-400">{segments.scheme}</span>
-          )}
-          {segments.host && (
-            <span className="text-neutral-800 dark:text-neutral-100">{segments.host}</span>
-          )}
-          {segments.port && (
-            <span className="text-neutral-400">{segments.port}</span>
-          )}
-          {(segments.path || segments.query || segments.hash) && (
-            <span className="text-neutral-400">{`${segments.path}${segments.query}${segments.hash}`}</span>
-          )}
+        <div className="absolute inset-0 flex items-center px-3 select-none pointer-events-none text-sm overflow-hidden">
+          <div className="min-w-0 truncate text-neutral-400 dark:text-neutral-400">
+            {segments.scheme && (
+              <span className="text-neutral-400">{segments.scheme}</span>
+            )}
+            {segments.host && (
+              <span className="text-neutral-800 dark:text-neutral-100">{segments.host}</span>
+            )}
+            {segments.port && (
+              <span className="text-neutral-400">{segments.port}</span>
+            )}
+            {(segments.path || segments.query || segments.hash) && (
+              <span className="text-neutral-400">{`${segments.path}${segments.query}${segments.hash}`}</span>
+            )}
+          </div>
         </div>
       )}
       <input
