@@ -15,7 +15,7 @@ interface BrowserTopBarProps {
   onChange?: (value: string) => void
 }
 
-export default function BrowserTopBar({ url = 'http://localhost:3000', onBack, onForward, onReload, onStop, isLoading = false, progress = 0, onSubmit, onChange }: BrowserTopBarProps) {
+export default function BrowserTopBar({ url = 'http://localhost:3000', onBack, onForward, onReload, isLoading = false, progress = 0, onSubmit, onChange }: BrowserTopBarProps) {
   return (
     <div className="w-full border-b py-1" style={{ borderColor: 'var(--window-c-separator)' }}>
       <div className="flex items-center gap-1 pl-1">
