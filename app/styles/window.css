@@ -5,12 +5,12 @@
   --window-titlebar-height: 40px;
   --window-titlebar-font-size: 13px;
   --window-scrollbar-width: 12px;
-  --window-mac-titlebar-controls-margin: 85px; /* Increased to move tabs right */
+  --window-mac-titlebar-controls-margin: 85px;
   --window-background-transition-duration: 0.3s;
   --window-c-popup-font-weight: normal;
 
-  --window-c-background: #1c1c1c;
-  --window-c-titlebar-background: #282828;
+  --window-c-background: rgba(255, 255, 255, 0.05);
+  --window-c-titlebar-background: transparent;
   --window-c-titlebar-border: transparent;
   --window-c-text: #ffffffc8;
   --window-c-hover: #3c3c3c;
@@ -30,6 +30,7 @@
   --window-c-tab-active-text: #000;
   --window-c-tab-favicon-bg: #3c3c3c;
   --window-c-tab-active-favicon-bg: rgba(0, 0, 0, 0.1);
+  --window-c-tab-hover-bg: #F6F6F5; /* slightly lighter than #3c3c3c for hover */
 }
 
 :root:not(.dark) {
@@ -37,8 +38,8 @@
   --window-titlebar-font-weight: 500;
   --window-c-popup-font-weight: 500;
 
-  --window-c-background: #fff;
-  --window-c-titlebar-background: #fff;
+  --window-c-background: rgba(255, 255, 255, 0.35);
+  --window-c-titlebar-background: rgba(255, 255, 255, 0.35);
   --window-c-titlebar-border: #8080801a;
   --window-c-text: #000000c8;
   --window-c-hover: #ececec;
@@ -55,10 +56,11 @@
   --window-c-text-shadow: transparent;
   
   /* Tab-specific colors for light mode */
-  --window-c-tab-active-bg: #e6e6e6;
+  --window-c-tab-active-bg: #FCFCFB;
   --window-c-tab-active-text: #000;
   --window-c-tab-favicon-bg: #d0d0d0;
   --window-c-tab-active-favicon-bg: rgba(0, 0, 0, 0.08);
+  --window-c-tab-hover-bg: #F6F6F5; /* lighter hover than general hover */
 }
 
 .window-frame {
@@ -67,6 +69,11 @@
   user-select: none;
   background-color: var(--window-c-background);
   transition: background-color var(--window-background-transition-duration) ease;
+  -webkit-backdrop-filter: saturate(1.5);
+  -webkit-font-smoothing: antialiased;
+  backdrop-filter: saturate(1.5);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.30);
 }
 
 .window-content {
@@ -74,10 +81,11 @@
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  padding: 1px 6px 6px 6px;
 }
 
-/* Assign last children to use full height of window content */
-.window-content div:last-child {
+/* Assign only the direct last child to take full height of window content */
+.window-content > div:last-child {
   height: 100%;
 }
 
@@ -245,7 +253,7 @@
   padding: 0 8px;
   border-radius: 6px;
   background: var(--window-c-titlebar-background);
-  color: var(--window-c-text);
+  color: var(--window-c-tab-active-text);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -264,7 +272,7 @@
 }
 
 .tab:hover:not([data-active='true']) {
-  background: var(--window-c-hover);
+  background: var(--window-c-tab-hover-bg);
 }
 
 .tab-add {
@@ -356,4 +364,35 @@
 
 .tab[data-active='true'] .tab-close:hover {
   background: var(--window-c-tab-active-favicon-bg);
+}
+
+/* Themed surface for pane-based layouts (e.g., TwoPaneLayout) */
+.pane-surface {
+  background: var(--window-c-tab-active-bg);
+  color: var(--window-c-tab-active-text);
+}
+
+/* Themed resize bar within pane layouts */
+.pane-resize-bar {
+  background: var(--window-c-tab-active-bg);
+}
+
+.chat-input-scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.chat-input-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-input-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(115,115,115,0.5);
+  border-radius: 6px;
+  border: 4px solid transparent; /* creates gap against transparent track */
+  background-clip: content-box;
+}
+
+.chat-input-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(115,115,115,0.5) transparent; /* Firefox */
 }

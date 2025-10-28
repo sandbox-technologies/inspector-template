@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useWindowContext } from './WindowContext'
 import { useTitlebarContext } from './TitlebarContext'
 import { TitlebarMenu } from './TitlebarMenu'
-import { TabsBar } from './TabsBar'
+import { TabsBar } from '../ui/tabs/TabsBar'
 import { useTabs } from './TabsContext'
 import { useConveyor } from '@/app/hooks/use-conveyor'
 

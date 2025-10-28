@@ -62,6 +62,7 @@ export default function WelcomeKit() {
       </div>
       <div className="flex justify-center items-center gap-4 opacity-50 hover:opacity-80 transition-opacity">
         <DarkModeToggle />
+        <TwoPaneToggle />
       </div>
     </div>
   )
@@ -83,6 +84,21 @@ const DarkModeToggle = () => {
     <div className="flex justify-center items-center gap-2 text-sm cursor-pointer">
       <Badge variant="secondary" onClick={toggleDarkMode}>
         {isDarkMode ? 'Dark Mode' : 'Light Mode'}
+      </Badge>
+    </div>
+  )
+}
+
+const TwoPaneToggle = () => {
+  const handleClick = () => {
+    const event = new CustomEvent('navigate-screen', { detail: 'twopane' })
+    window.dispatchEvent(event)
+  }
+
+  return (
+    <div className="flex justify-center items-center gap-2 text-sm cursor-pointer">
+      <Badge variant="secondary" onClick={handleClick}>
+        Two Pane Layout
       </Badge>
     </div>
   )

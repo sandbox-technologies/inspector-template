@@ -6,9 +6,12 @@ import ViteContent from '@/app/components/welcome/contents/ViteContent'
 import ShadContent from '@/app/components/welcome/contents/ShadContent'
 import TailwindContent from '@/app/components/welcome/contents/TailwindContent'
 import EraContent from '@/app/components/welcome/contents/EraContent'
+import TwoPaneLayout from '@/app/components/ui/chat/TwoPaneLayout'
+import { ChatWindow } from '@/app/components/ChatWindow'
 import './styles/app.css'
+import BrowserTopBar from './components/ui/browser/BrowserTopBar'
 
-export type ScreenType = 'electron' | 'react' | 'vite' | 'shadcn' | 'tailwind' | 'era' | 'welcome'
+export type ScreenType = 'electron' | 'react' | 'vite' | 'shadcn' | 'tailwind' | 'era' | 'welcome' | 'twopane'
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<ScreenType>('welcome')
@@ -66,6 +69,8 @@ export default function App() {
             <EraContent />
           </div>
         )
+      case 'twopane':
+        return <TwoPaneLayout rightContent={<ChatWindow />} leftContent={<BrowserTopBar />} />
       default:
         return <WelcomeKit />
     }

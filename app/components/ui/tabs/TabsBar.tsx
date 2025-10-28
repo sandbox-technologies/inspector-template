@@ -1,5 +1,5 @@
 import { LayoutGroup, Reorder, motion } from 'framer-motion'
-import { useTabs } from './TabsContext'
+import { useTabs } from '../../window/TabsContext'
 import { useState } from 'react'
 
 export const TabsBar = () => {
