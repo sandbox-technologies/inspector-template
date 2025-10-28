@@ -1,6 +1,7 @@
 import { LayoutGroup, Reorder, motion } from 'framer-motion'
 import { useTabs } from '../../window/TabsContext'
 import { useState } from 'react'
+import Tooltip from '../tooltip'
 
 export const TabsBar = () => {
   const { tabs, activeTabId, addTab, setActiveTab, reorderTabs, removeTab } = useTabs()
@@ -49,20 +50,25 @@ export const TabsBar = () => {
                 zIndex: 1,
                 pointerEvents: 'auto',
                 cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
                 width: '100%',
                 minWidth: 0
               }}
             >
-              <div className="tab-favicon">
-                {/* Placeholder favicon - you can replace with actual favicon */}
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-                  <circle cx="5" cy="5" r="4" opacity="0.3"/>
-                </svg>
-              </div>
-              <span className="tab-title">{tab.title}</span>
+              <Tooltip 
+                title={tab.title || 'New Tab'} 
+                description={tab.url && tab.url.length > 0 ? tab.url : 'Your Chat with Dia'}
+                fullWidth
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', width: '100%', minWidth: 0 }}>
+                  <div className="tab-favicon">
+                    {/* Placeholder favicon - you can replace with actual favicon */}
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+                      <circle cx="5" cy="5" r="4" opacity="0.3"/>
+                    </svg>
+                  </div>
+                  <span className="tab-title">{tab.title}</span>
+                </div>
+              </Tooltip>
               {hoveredTabId === tab.id && tabs.length > 1 && (
                 <button 
                   className="tab-close"

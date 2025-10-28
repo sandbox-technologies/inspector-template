@@ -1,6 +1,12 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
+// Track global tooltip state to allow instant switching between tooltips
+let openTooltipsCount = 0
+let lastTooltipCloseAt = 0
+const RECENT_CLOSE_MS = 300 // small grace window to allow quick switching
+const HOVER_OPEN_DELAY_MS = 500
+
 type TooltipProps = {
   /** Primary title text shown in bold (e.g., "Click to go back") */
   title: string
@@ -12,13 +18,16 @@ type TooltipProps = {
   children: React.ReactNode
   /** Optional placement; only supports top for now but kept for extensibility */
   placement?: 'top'
+  /** If true, the trigger element will span full available width */
+  fullWidth?: boolean
 }
 
-export function Tooltip({ title, description, shortcut, children }: TooltipProps) {
+export function Tooltip({ title, description, shortcut, children, fullWidth }: TooltipProps) {
   const [open, setOpen] = React.useState(false)
   const triggerRef = React.useRef<HTMLDivElement | null>(null)
   const [coords, setCoords] = React.useState<{ top: number; left: number } | null>(null)
   const delayRef = React.useRef<number | null>(null)
+  const wasOpenRef = React.useRef(false)
 
   function isCommandKey(part: string) {
     const lower = part.toLowerCase()
@@ -45,7 +54,12 @@ export function Tooltip({ title, description, shortcut, children }: TooltipProps
 
   function beginOpenDelay() {
     if (delayRef.current) window.clearTimeout(delayRef.current)
-    delayRef.current = window.setTimeout(() => setOpen(true), 500)
+    // If another tooltip is open (or one just closed), open immediately
+    if (openTooltipsCount > 0 || (Date.now() - lastTooltipCloseAt) < RECENT_CLOSE_MS) {
+      setOpen(true)
+      return
+    }
+    delayRef.current = window.setTimeout(() => setOpen(true), HOVER_OPEN_DELAY_MS)
   }
 
   function cancelOpenDelayAndClose() {
@@ -58,9 +72,28 @@ export function Tooltip({ title, description, shortcut, children }: TooltipProps
     if (delayRef.current) window.clearTimeout(delayRef.current)
   }, [])
 
+  // Maintain global open counter and last-close timestamp
+  React.useEffect(() => {
+    if (open && !wasOpenRef.current) {
+      openTooltipsCount += 1
+      wasOpenRef.current = true
+    } else if (!open && wasOpenRef.current) {
+      openTooltipsCount = Math.max(0, openTooltipsCount - 1)
+      wasOpenRef.current = false
+      lastTooltipCloseAt = Date.now()
+    }
+    return () => {
+      if (wasOpenRef.current) {
+        openTooltipsCount = Math.max(0, openTooltipsCount - 1)
+        wasOpenRef.current = false
+        lastTooltipCloseAt = Date.now()
+      }
+    }
+  }, [open])
+
   return (
-    <div className="tooltip-root" onMouseEnter={beginOpenDelay} onMouseLeave={cancelOpenDelayAndClose} onFocus={beginOpenDelay} onBlur={cancelOpenDelayAndClose}>
-      <div ref={triggerRef} className="inline-flex">
+    <div className="tooltip-root" onMouseEnter={beginOpenDelay} onMouseLeave={cancelOpenDelayAndClose} onFocus={beginOpenDelay} onBlur={cancelOpenDelayAndClose} style={fullWidth ? { display: 'block', width: '100%' } : undefined}>
+      <div ref={triggerRef} className={fullWidth ? undefined : 'inline-flex'} style={fullWidth ? { display: 'block', width: '100%' } : undefined}>
         {children}
       </div>
       {open && coords && createPortal(
