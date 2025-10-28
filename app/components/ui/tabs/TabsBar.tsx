@@ -60,11 +60,14 @@ export const TabsBar = () => {
                 fullWidth
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', width: '100%', minWidth: 0 }}>
-                  <div className="tab-favicon">
-                    {/* Placeholder favicon - you can replace with actual favicon */}
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-                      <circle cx="5" cy="5" r="4" opacity="0.3"/>
-                    </svg>
+                  <div className="tab-favicon" data-has-image={tab.favicon ? 'true' : 'false'}>
+                    {tab.favicon ? (
+                      <img src={tab.favicon} alt="" style={{ width: 12, height: 12, objectFit: 'cover', borderRadius: 2 }} />
+                    ) : (
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+                        <circle cx="5" cy="5" r="4" opacity="0.3"/>
+                      </svg>
+                    )}
                   </div>
                   <span className="tab-title">{tab.title}</span>
                 </div>
