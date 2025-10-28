@@ -64,6 +64,17 @@ export const ChatInput: React.FC<ChatInputProps> = ({
     el.style.overflowY = el.scrollHeight > MAX_HEIGHT_PX ? 'auto' : 'hidden'
   }
 
+  const cycleMode = (direction: 1 | -1 = 1) => {
+    if (!modes || modes.length === 0) return
+    const currentIndex = modes.indexOf(mode)
+    const nextIndex = currentIndex === -1
+      ? 0
+      : (currentIndex + direction + modes.length) % modes.length
+    const nextMode = modes[nextIndex]
+    setMode(nextMode)
+    onModeChange?.(nextMode)
+  }
+
   React.useEffect(() => {
     autoResize()
   }, [value])
@@ -90,6 +101,20 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   }, [])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    // Cycle agent modes with Shift+Tab (previous)
+    if (e.key === 'Tab' && e.shiftKey) {
+      e.preventDefault()
+      cycleMode(-1)
+      return
+    }
+
+    // Cycle agent modes with Cmd+. (next) on macOS
+    if (e.key === '.' && e.metaKey) {
+      e.preventDefault()
+      cycleMode(1)
+      return
+    }
+
     if (e.key === 'Enter' && !e.shiftKey && value.trim()) {
       e.preventDefault()
       onSend?.()
