@@ -1,14 +1,18 @@
 import React from 'react'
 import BrowserTopBar from './BrowserTopBar'
+import { useTabs } from '@/app/components/window/TabsContext'
 
 interface BrowserViewProps {
   initialUrl?: string
   heightClassName?: string
+  partitionId: string
+  tabId: string
 }
 
-export default function BrowserFrame({ initialUrl = 'http://localhost:3000', heightClassName = 'h-full' }: BrowserViewProps) {
+export default function BrowserFrame({ initialUrl = 'http://localhost:3000', heightClassName = 'h-full', partitionId, tabId }: BrowserViewProps) {
   const [url, setUrl] = React.useState<string>(initialUrl)
   const webviewRef = React.useRef<Electron.WebviewTag | null>(null)
+  const { updateTab } = useTabs()
 
   const handleBack = () => {
     const view = webviewRef.current
@@ -30,21 +34,29 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
     setUrl(next)
     const view = webviewRef.current
     if (view) view.setAttribute('src', next)
+    updateTab(tabId, { url: next })
   }
 
   React.useEffect(() => {
     const view = webviewRef.current
     if (!view) return
-    const syncUrl = () => setUrl(view.getURL())
+    const syncUrl = () => {
+      const current = view.getURL()
+      setUrl(current)
+      updateTab(tabId, { url: current })
+    }
+    const syncTitle = () => {
+      updateTab(tabId, { title: view.getTitle() })
+    }
     view.addEventListener('did-navigate', syncUrl)
     view.addEventListener('did-navigate-in-page', syncUrl)
-    view.addEventListener('page-title-updated', syncUrl)
+    view.addEventListener('page-title-updated', syncTitle)
     return () => {
       view.removeEventListener('did-navigate', syncUrl)
       view.removeEventListener('did-navigate-in-page', syncUrl)
-      view.removeEventListener('page-title-updated', syncUrl)
+      view.removeEventListener('page-title-updated', syncTitle)
     }
-  }, [])
+  }, [tabId, updateTab])
 
   return (
     <div className="flex flex-col w-full h-full">
@@ -60,6 +72,7 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
         <webview
           ref={webviewRef as unknown as React.RefObject<any>}
           src={url}
+          partition={partitionId}
           style={{ width: '100%', height: '100%' }}
           allowpopups
         />

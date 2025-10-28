@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './styles/app.css'
-import Workspace from './components/ui/workspace/Workspace'
+import Workspaces from './components/ui/workspace/Workspaces'
 
 export type ScreenType = 'electron' | 'react' | 'vite' | 'shadcn' | 'tailwind' | 'era' | 'welcome' | 'twopane'
 
@@ -23,7 +23,7 @@ export default function App() {
   const renderScreen = () => {
     switch (activeScreen) {
       default:
-        return <Workspace />
+        return <Workspaces />
     }
   }
 

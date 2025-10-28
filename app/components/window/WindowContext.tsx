@@ -43,8 +43,8 @@ export const WindowContextProvider = ({
         <TitlebarContextProvider>
           <Titlebar />
         </TitlebarContextProvider>
+        <div className="window-content">{children}</div>
       </TabsContextProvider>
-      <div className="window-content">{children}</div>
     </WindowContext.Provider>
   )
 }

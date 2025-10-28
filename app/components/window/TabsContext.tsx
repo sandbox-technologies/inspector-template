@@ -3,7 +3,8 @@ import { createContext, useContext, useState, useCallback } from 'react'
 export type Tab = { 
   id: string
   title: string
-  url?: string 
+  url?: string
+  partitionId: string
 }
 
 interface TabsContextProps {
@@ -15,13 +16,14 @@ interface TabsContextProps {
   reorderTabs: (newOrder: Tab[]) => void
   nextTab: () => void
   prevTab: () => void
+  updateTab: (id: string, updates: Partial<Pick<Tab, 'title' | 'url'>>) => void
 }
 
 const TabsContext = createContext<TabsContextProps | undefined>(undefined)
 
 export const TabsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [tabs, setTabs] = useState<Tab[]>([
-    { id: 't1', title: 'New Tab', url: '' }
+    { id: 't1', title: 'New Tab', url: '', partitionId: 'persist:tab-t1' }
   ])
   const [activeTabId, setActiveTabId] = useState<string>('t1')
 
@@ -29,8 +31,11 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
     const newTab: Tab = {
       id: `t${Date.now()}`,
       title: 'New Tab',
-      url: ''
+      url: '',
+      partitionId: '' // placeholder; set after id is known
     }
+    // Ensure stable partition derived from ID
+    newTab.partitionId = `persist:tab-${newTab.id}`
     setTabs(prev => [...prev, newTab])
     setActiveTabId(newTab.id)
   }, [])
@@ -72,6 +77,10 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
     setActiveTabId(tabs[prevIndex].id)
   }, [tabs, activeTabId])
 
+  const updateTab = useCallback((id: string, updates: Partial<Pick<Tab, 'title' | 'url'>>) => {
+    setTabs(prev => prev.map(tab => (tab.id === id ? { ...tab, ...updates } : tab)))
+  }, [])
+
   return (
     <TabsContext.Provider
       value={{
@@ -82,7 +91,8 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
         setActiveTab,
         reorderTabs,
         nextTab,
-        prevTab
+        prevTab,
+        updateTab
       }}
     >
       {children}

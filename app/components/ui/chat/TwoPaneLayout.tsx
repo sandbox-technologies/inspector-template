@@ -20,7 +20,7 @@ export default function TwoPaneLayout({
   )
 }: TwoPaneLayoutProps) {
   return (
-    <div className="rounded-md overflow-hidden pane-surface">
+    <div className="rounded-md overflow-hidden pane-surface h-full">
       <PanelGroup direction="horizontal">
         <Panel defaultSize={50} minSize={20}>
           <div className="h-full rounded-l-md">
