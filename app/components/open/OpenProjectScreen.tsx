@@ -1,7 +1,23 @@
 import logo from '@/app/assets/logo/logo.png'
 import { CopyPlus, FolderOpen } from 'lucide-react'
+import { useState } from 'react'
+import ProjectDetectionScreen from '@/app/components/open/project_detection_screen/ProjectDetectionScreen'
 
 export default function OpenProjectScreen() {
+  const [selectedProjectPath, setSelectedProjectPath] = useState<string | null>(null)
+
+  const handleOpenProject = async () => {
+    const result = await (window as any).conveyor.app.selectProject() as { success: boolean; path: string | null }
+    if (result.success && result.path) {
+      setSelectedProjectPath(result.path)
+    }
+  }
+
+  // If a project is selected, show the detection screen
+  if (selectedProjectPath) {
+    return <ProjectDetectionScreen projectPath={selectedProjectPath} onBack={() => setSelectedProjectPath(null)} />
+  }
+
   return (
     <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
       <div className="max-w-2xl w-full">
@@ -20,7 +36,7 @@ export default function OpenProjectScreen() {
 
         {/* Quick actions */}
         <div className="flex gap-4 mb-10 flex-wrap items-start">
-          <ActionCard title="Open project" description="" icon={FolderOpen} />
+          <ActionCard title="Open project" description="" icon={FolderOpen} onClick={handleOpenProject} />
           <ActionCard title="Clone repo" description="" icon={CopyPlus} />
         </div>
 
@@ -43,9 +59,9 @@ export default function OpenProjectScreen() {
   )
 }
 
-function ActionCard({ title, description, icon: Icon }: { title: string; description?: string; icon: React.ComponentType<any> }) {
+function ActionCard({ title, description, icon: Icon, onClick }: { title: string; description?: string; icon: React.ComponentType<any>; onClick?: () => void }) {
   return (
-    <button className="group relative rounded-lg text-left bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors box-border w-[185px] h-[85px] px-4 py-3 cursor-pointer">
+    <button onClick={onClick} className="group relative rounded-lg text-left bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors box-border w-[185px] h-[85px] px-4 py-3 cursor-pointer">
       <div className="flex flex-col items-start gap-2 h-full">
         <div className="flex items-center justify-center text-black/70 dark:text-white/70">
           <Icon size={20} strokeWidth={1.75} />
