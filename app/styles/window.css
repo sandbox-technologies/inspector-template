@@ -285,7 +285,7 @@
   -webkit-app-region: no-drag;
   cursor: pointer;
   background: transparent;
-  color: var(--window-c-text);
+  color: var(--window-c-tab-active-text);
   border: none;
   font-size: 20px;
   font-weight: 300;
@@ -296,7 +296,7 @@
 }
 
 .tab-add:hover {
-  background: var(--window-c-hover);
+  background: var(--window-c-control-hover);
 }
 
 /* Active tab background animation */
