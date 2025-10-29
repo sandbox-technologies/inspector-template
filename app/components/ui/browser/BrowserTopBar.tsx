@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChevronLeft, ChevronRight, RotateCcw, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, RotateCcw, X, SquareTerminal, GitPullRequestArrow } from 'lucide-react'
 import AddressBar from './AddressBar'
 import Tooltip from '../../ui/tooltip'
 
@@ -50,6 +50,18 @@ export default function BrowserTopBar({ url = 'http://localhost:3000', onBack, o
         <div className="flex-1 min-w-0">
           <AddressBar url={url ?? ''} isLoading={isLoading} progress={progress} onSubmit={onSubmit} onChange={onChange} />
         </div>
+        {/* Terminal icon (right of the address bar) */}
+        <Tooltip title="Open terminal" description="" shortcut="⌃ `">
+          <button className="size-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800/70" aria-label="Terminal">
+            <SquareTerminal className="size-4" />
+          </button>
+        </Tooltip>
+        {/* Git pull request icon */}
+        <Tooltip title="Pull request" description="" shortcut="⌘ ⇧ P">
+          <button className="size-8 flex items-center justify-center rounded-md text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800/70" aria-label="Git Pull Request">
+            <GitPullRequestArrow className="size-4" />
+          </button>
+        </Tooltip>
       </div>
     </div>
   )
