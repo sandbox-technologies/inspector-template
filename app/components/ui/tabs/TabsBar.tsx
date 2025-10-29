@@ -86,7 +86,9 @@ export const TabsBar = () => {
             </div>
             </Reorder.Item>
           ))}
-          <button className="tab-add" onClick={addTab}>+</button>
+          <Tooltip title="New tab" description="" shortcut="⌘ T">
+            <button className="tab-add" onClick={addTab}>+</button>
+          </Tooltip>
         </div>
       </Reorder.Group>
     </LayoutGroup>
