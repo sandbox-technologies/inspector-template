@@ -5,12 +5,12 @@ export default function WelcomeKit() {
   const itemVariants = { hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }
 
   return (
-    <motion.div
-      className="relative w-full h-[460px] sm:h-[520px]"
-      initial={{ opacity: 0, y: 16, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.45, ease: 'easeOut' }}
-    >
+      <motion.div
+        className="relative w-full h-[460px] sm:h-[520px]"
+        initial={{ opacity: 0, y: 16, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
+      >
       <div className="absolute inset-0 flex flex-col gap-4">
         <motion.div
           className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight"
