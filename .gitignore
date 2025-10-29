@@ -4,4 +4,5 @@ out
 .DS_Store
 *.log*
 temp
-*.env*.gguf
+*.env
+*.gguf
