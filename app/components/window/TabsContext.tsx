@@ -13,7 +13,7 @@ export type Tab = {
    * - 'welcome' shows the special welcome screen
    * - 'open-project' shows the Open Project launcher screen
    */
-  kind?: 'workspace' | 'welcome' | 'open-project'
+  kind?: 'workspace' | 'welcome' | 'open-project' | 'ai-debugger'
 }
 
 interface TabsContextProps {
@@ -31,10 +31,15 @@ interface TabsContextProps {
 const TabsContext = createContext<TabsContextProps | undefined>(undefined)
 
 export const TabsContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [tabs, setTabs] = useState<Tab[]>([
+  const initialTabs: Tab[] = [
     { id: 't1', title: 'Welcome to Inspector', url: '', partitionId: 'persist:tab-t1', kind: 'welcome', favicon: inspectorFavicon },
     { id: 't2', title: 'Open Project', url: '', partitionId: 'persist:tab-t2', kind: 'open-project', favicon: inspectorFavicon }
-  ])
+  ]
+  // Add dev-only AI Debugger tab on startup
+  if (import.meta.env && import.meta.env.DEV) {
+    initialTabs.push({ id: 't3', title: 'AI Debugger', url: '', partitionId: 'persist:tab-t3', kind: 'ai-debugger', favicon: inspectorFavicon })
+  }
+  const [tabs, setTabs] = useState<Tab[]>(initialTabs)
   const [activeTabId, setActiveTabId] = useState<string>('t1')
 
   const addTab = useCallback(() => {

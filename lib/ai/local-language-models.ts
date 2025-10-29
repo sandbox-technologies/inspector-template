@@ -6,8 +6,16 @@ import type {
   LanguageModelV2Content
 } from '@ai-sdk/provider'
 import { MODELS } from '@/lib/main/llm/config'
+import type { ModelId } from '@/lib/main/llm/config'
+import { ElectronAi } from '@electron/llm'
 
-export function createLocalLanguageModel(modelId: string): LanguageModel {
+declare global {
+  interface Window {
+    electronAi?: ElectronAi
+  }
+}
+
+export function createLocalLanguageModel(modelId: ModelId): LanguageModel {
   const model = MODELS.find(m => m.id === modelId)
   if (!model) throw new Error(`Unknown local model: ${modelId}`)
 
@@ -23,9 +31,7 @@ export function createLocalLanguageModel(modelId: string): LanguageModel {
 
       // Ensure the requested model is ready (idempotent per your runtime)
       await window.electronAi.create({
-        modelAlias: model.alias,
-        systemPrompt: model.systemPrompt,
-        temperature: model.temperature
+        modelAlias: model.alias
       })
 
       const textPrompt = v2PromptToText(options.prompt)
@@ -84,9 +90,7 @@ export function createLocalLanguageModel(modelId: string): LanguageModel {
       if (!window.electronAi) throw new Error('LLM not available')
 
       await window.electronAi.create({
-        modelAlias: model.alias,
-        systemPrompt: model.systemPrompt,
-        temperature: model.temperature
+        modelAlias: model.alias
       })
 
       const textPrompt = v2PromptToText(options.prompt)

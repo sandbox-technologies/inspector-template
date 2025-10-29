@@ -1,6 +1,8 @@
 import { app, BrowserWindow } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { createAppWindow } from './app'
+import { loadElectronLlm } from '@electron/llm'
+import { join, dirname } from 'path'
 
 // Set the app name for the menu bar (especially important on macOS)
 app.setName('Inspector')
@@ -8,10 +10,31 @@ app.setName('Inspector')
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  // Load @electron/llm with model path configuration
+  await loadElectronLlm({
+    getModelPath: (modelAlias: string) => {
+      // Map friendly aliases to actual filenames
+      const aliasToFilename: Record<string, string> = {
+        tinyllama: 'tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf',
+      }
+
+      const resolvedName = aliasToFilename[modelAlias] ?? modelAlias
+
+      if (app.isPackaged) {
+        // In production, models are in userData
+        return join(app.getPath('userData'), 'models', resolvedName)
+      }
+      // In development, models are in app/assets/logo/slm/
+      const projectRoot = join(dirname(dirname(__dirname)))
+      return join(projectRoot, 'app/assets/logo/slm', resolvedName)
+    }
+  })
+
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.inspector.app')
-  // Create app window
+  
+  // NOW create app window after LLM is loaded
   createAppWindow()
 
   // Default open or close DevTools by F12 in development

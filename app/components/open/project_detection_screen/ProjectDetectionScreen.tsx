@@ -1,0 +1,185 @@
+import logo from '@/app/assets/logo/logo.png'
+import { useState, useEffect, useMemo } from 'react'
+import { ChevronLeft } from 'lucide-react'
+import type { DetectResult } from '@/lib/project_detection'
+import { streamText } from 'ai'
+import { createLocalLanguageModel } from '@/lib/ai/local-language-models'
+import { createJokeUserPrompt, jokesSystemPrompt } from '@/lib/main/llm/models/TinyJokes'
+
+interface ProjectDetectionScreenProps {
+  projectPath: string
+  onBack?: () => void
+}
+
+export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectDetectionScreenProps) {
+  const [projectData, setProjectData] = useState<DetectResult | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [showLogo, setShowLogo] = useState(false)
+  const [showName, setShowName] = useState(false)
+  const [showDescription, setShowDescription] = useState(false)
+  const [showFrameworks, setShowFrameworks] = useState(false)
+  const [showGetStarted, setShowGetStarted] = useState(false)
+  const [showCommand, setShowCommand] = useState(false)
+  const model = useMemo(() => createLocalLanguageModel('tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf'), [])
+  const [isStreamingJoke, setIsStreamingJoke] = useState(false)
+  const [jokeText, setJokeText] = useState('')
+
+  const handleStreamJoke = async (name: string | undefined, description: string | undefined, techStack: string[] | undefined) => {
+    if (isStreamingJoke) return;
+    const controller = new AbortController();
+    setIsStreamingJoke(true);
+    setJokeText('');
+    try {
+      const { textStream } = await streamText({
+        model,
+        system: jokesSystemPrompt,
+        prompt: createJokeUserPrompt(name ?? '', description ?? '', techStack ?? []),
+        abortSignal: controller.signal
+      })
+      for await (const delta of textStream) {
+        setJokeText(prev => prev + delta);
+      }
+    } catch (err) {
+      if ((err as any)?.name === 'AbortError') return;
+    } finally {
+      setIsStreamingJoke(false);
+    }
+  }
+
+
+  useEffect(() => {
+    const detectProject = async () => {
+      try {
+        setIsLoading(true)
+        const result = await (window as any).conveyor.app.detectProject(projectPath) as DetectResult
+        setProjectData(result)
+      } catch (err) {
+        console.error('Error detecting project:', err)
+        setError('Failed to detect project details')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    detectProject()
+  }, [projectPath])
+
+  // Animate sections in sequence once data is ready
+  useEffect(() => {
+    if (isLoading || !projectData) return
+
+    // reset
+    setShowLogo(false)
+    setShowName(false)
+    setShowDescription(false)
+    setShowFrameworks(false)
+    setShowGetStarted(false)
+    setShowCommand(false)
+
+    let cancelled = false
+    const timers: number[] = []
+    const schedule = (fn: () => void, delay: number) => {
+      const id = window.setTimeout(() => { if (!cancelled) fn() }, delay)
+      timers.push(id)
+    }
+
+    schedule(() => setShowLogo(true), 0)
+    schedule(() => setShowName(true), 120)
+    schedule(() => setShowDescription(true), 260)
+    schedule(() => setShowFrameworks(true), 380)
+    schedule(() => setShowGetStarted(true), 520)
+    schedule(() => setShowCommand(true), 680)
+    schedule(() => handleStreamJoke(projectData?.name, projectData?.description, projectData?.frameworks.map(f => f.name)), 740)
+
+    return () => {
+      cancelled = true
+      timers.forEach((t) => window.clearTimeout(t))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, projectData])
+
+  if (isLoading) {
+    return (
+      <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+        <div className="max-w-2xl w-full text-center">
+          <div className="text-lg text-black/60 dark:text-white/60">Analyzing project...</div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error || !projectData) {
+    return (
+      <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+        <div className="max-w-2xl w-full text-center">
+          <div className="text-lg text-red-600 dark:text-red-400">{error || 'No project data found'}</div>
+        </div>
+      </div>
+    )
+  }
+
+  // Format frameworks for display
+  const frameworkDisplay = projectData.frameworks.length > 0 
+    ? projectData.frameworks.map(f => f.name).join(', ')
+    : 'No framework detected'
+
+
+  return (
+    <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+      <div className="max-w-2xl w-full">
+        {/* Back button */}
+        {onBack && (
+          <button 
+            onClick={onBack}
+            className="mb-6 flex items-center gap-1 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+          >
+            <ChevronLeft size={16} />
+            <span>Back</span>
+          </button>
+        )}
+
+        {/* Logo */}
+        <div className={`mb-12 flex items-center gap-3 transition-all duration-500 ${showLogo ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <img src={logo} alt="Inspector" className="w-12 h-12 object-contain" />
+          <div className="text-4xl sm:text-5xl font-medium tracking-tight">Inspector</div>
+        </div>
+
+        {/* Framework Detection */}
+        <div className="mb-8 space-y-2">
+          <div className={`text-2xl font-medium transition-all duration-500 ${showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            {projectData.name}
+          </div>
+          {projectData.description && (
+            <div className={`text-sm opacity-80 text-black/70 dark:text-white/70 mt-4 transition-all duration-500 ${showDescription ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+              {projectData.description}
+            </div>
+          )}
+          <div className={`text-sm opacity-80 text-black/70 dark:text-white/70 mt-4 transition-all duration-500 ${showFrameworks ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            {frameworkDisplay}
+          </div>
+        </div>
+
+        {/* Build Section */}
+        <div className="mt-12 space-y-4">
+          <div className={`text-lg font-medium transition-all duration-500 ${showGetStarted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>Get started</div>
+          <div className={`relative bg-black/5 dark:bg-white/5 rounded-lg p-4 pr-16 font-mono text-sm text-left flex items-center transition-all duration-500 ${showCommand ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <span className="flex-1">{projectData.commands.setup}</span>
+            <button 
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black rounded-lg flex items-center justify-center hover:scale-102 transition-all cursor-pointer p-2"
+              title="Run command"
+            >
+              <svg viewBox="0 0 256 233" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                <path d="M232.834 90.9076C257.553 102.143 257.508 137.232 232.762 147.688L47.4717 225.977C23.2269 236.22 -2.29044 213.153 5.40285 187.947L24.2485 126.202C26.5116 118.788 26.4953 110.834 24.2007 103.363L5.90671 43.8016C-1.9232 18.3086 23.7004 -4.15139 48.0087 6.89742L232.834 90.9076Z" fill="white" stroke="black" strokeWidth="8"/>
+              </svg>
+            </button>
+          </div>
+          <div className={`text-sm opacity-80 text-black/70 dark:text-white/70 mt-4 transition-all duration-500 ${showDescription ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+              {jokeText}
+            </div>
+        </div>
+
+      </div>
+    </div>
+  )
+}
