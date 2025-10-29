@@ -1,10 +1,7 @@
 import logo from '@/app/assets/logo/logo.png'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { ChevronLeft } from 'lucide-react'
 import type { DetectResult } from '@/lib/project_detection'
-import { streamText } from 'ai'
-import { createLocalLanguageModel } from '@/lib/ai/local-language-models'
-import { createJokeUserPrompt, jokesSystemPrompt } from '@/lib/main/llm/models/TinyJokes'
 
 interface ProjectDetectionScreenProps {
   projectPath: string
@@ -21,32 +18,6 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
   const [showFrameworks, setShowFrameworks] = useState(false)
   const [showGetStarted, setShowGetStarted] = useState(false)
   const [showCommand, setShowCommand] = useState(false)
-  const model = useMemo(() => createLocalLanguageModel('tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf'), [])
-  const [isStreamingJoke, setIsStreamingJoke] = useState(false)
-  const [jokeText, setJokeText] = useState('')
-
-  const handleStreamJoke = async (name: string | undefined, description: string | undefined, techStack: string[] | undefined) => {
-    if (isStreamingJoke) return;
-    const controller = new AbortController();
-    setIsStreamingJoke(true);
-    setJokeText('');
-    try {
-      const { textStream } = await streamText({
-        model,
-        system: jokesSystemPrompt,
-        prompt: createJokeUserPrompt(name ?? '', description ?? '', techStack ?? []),
-        abortSignal: controller.signal
-      })
-      for await (const delta of textStream) {
-        setJokeText(prev => prev + delta);
-      }
-    } catch (err) {
-      if ((err as any)?.name === 'AbortError') return;
-    } finally {
-      setIsStreamingJoke(false);
-    }
-  }
-
 
   useEffect(() => {
     const detectProject = async () => {
@@ -90,13 +61,11 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
     schedule(() => setShowFrameworks(true), 380)
     schedule(() => setShowGetStarted(true), 520)
     schedule(() => setShowCommand(true), 680)
-    schedule(() => handleStreamJoke(projectData?.name, projectData?.description, projectData?.frameworks.map(f => f.name)), 740)
 
     return () => {
       cancelled = true
       timers.forEach((t) => window.clearTimeout(t))
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading, projectData])
 
   if (isLoading) {
@@ -174,9 +143,6 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
               </svg>
             </button>
           </div>
-          <div className={`text-sm opacity-80 text-black/70 dark:text-white/70 mt-4 transition-all duration-500 ${showDescription ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-              {jokeText}
-            </div>
         </div>
 
       </div>
