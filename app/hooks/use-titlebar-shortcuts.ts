@@ -77,10 +77,9 @@ export function useWindowShortcuts() {
           }).then(result => {
             if (!result.success) {
               console.error('Failed to start workspace:', result.error)
-              // Fall back to open project tab
-              addTab({ kind: 'open-project', title: 'Open Project' })
+              // Tab was already created and converted to Open Project by useStartWorkspace
             }
-            // If successful, the tab will be created and switched to automatically
+            // Tab is created immediately; on success it updates and navigates
           })
         } else {
           // No project has been opened yet, create an open project tab

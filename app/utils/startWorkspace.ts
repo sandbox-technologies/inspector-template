@@ -48,6 +48,14 @@ export function useStartWorkspace() {
   const { addTab, updateTab, beginOpeningTab, endOpeningTab } = useTabs()
 
   const startWorkspace = async ({ projectPath, setupCommand }: StartWorkspaceOptions) => {
+    // Create and activate a new tab immediately so the user switches right away
+    const tabId = addTab({
+      title: 'Starting development server...',
+      url: '',
+      kind: 'workspace' as const
+    })
+    beginOpeningTab(tabId)
+
     try {
       const result = await (window as any).conveyor.workspace.start({
         projectPath,
@@ -59,26 +67,16 @@ export function useStartWorkspace() {
         devUrl: string
       }
 
-      // Create a new workspace tab with all the necessary metadata
-      // Start with a blank page, we'll navigate to the URL after a delay
-      const tabId = addTab({
-        title: 'Starting development server...',
-        url: '', // Start with empty URL
-        kind: 'workspace' as const,
-        workspaceId: result.workspaceId,
-        git: {
-          branch: result.branch,
-          worktreePath: result.worktreePath
-        }
-      })
-      beginOpeningTab(tabId)
-      
-      // Wait a bit for the server to be fully ready, then navigate
-      // This gives frameworks time to compile and start serving
+      // Wait a bit for the server to be fully ready, then update the tab
       setTimeout(() => {
         updateTab(tabId, {
           title: 'Loading...',
-          url: result.devUrl
+          url: result.devUrl,
+          workspaceId: result.workspaceId,
+          git: {
+            branch: result.branch,
+            worktreePath: result.worktreePath
+          }
         })
         endOpeningTab()
       }, 2000)
@@ -90,6 +88,12 @@ export function useStartWorkspace() {
       }
     } catch (error: any) {
       console.error('Failed to start workspace:', error)
+      // Convert the just-created tab into an Open Project tab instead of creating a duplicate
+      updateTab(tabId, {
+        title: 'Open Project',
+        url: '',
+        kind: 'open-project'
+      })
       endOpeningTab()
       return {
         success: false,
