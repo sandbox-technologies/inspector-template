@@ -16,13 +16,13 @@ type TooltipProps = {
   shortcut?: string
   /** Content that triggers the tooltip on hover/focus */
   children: React.ReactNode
-  /** Optional placement; only supports top for now but kept for extensibility */
+  /** Optional placement; supports 'top' (above). Default is below. */
   placement?: 'top'
   /** If true, the trigger element will span full available width */
   fullWidth?: boolean
 }
 
-export function Tooltip({ title, description, shortcut, children, fullWidth }: TooltipProps) {
+export function Tooltip({ title, description, shortcut, children, fullWidth, placement }: TooltipProps) {
   const [open, setOpen] = React.useState(false)
   const triggerRef = React.useRef<HTMLDivElement | null>(null)
   const [coords, setCoords] = React.useState<{ top: number; left: number } | null>(null)
@@ -38,7 +38,13 @@ export function Tooltip({ title, description, shortcut, children, fullWidth }: T
     function updatePosition() {
       if (!triggerRef.current) return
       const r = triggerRef.current.getBoundingClientRect()
-      setCoords({ top: r.bottom + 8, left: r.left })
+      if (placement === 'top') {
+        // Position relative to the top edge and translate by -100% so the bubble sits above
+        setCoords({ top: r.top - 8, left: r.left })
+      } else {
+        // Default: below the trigger
+        setCoords({ top: r.bottom + 8, left: r.left })
+      }
     }
     if (open) {
       updatePosition()
@@ -97,7 +103,7 @@ export function Tooltip({ title, description, shortcut, children, fullWidth }: T
         {children}
       </div>
       {open && coords && createPortal(
-        <div className="tooltip-content" role="tooltip" style={{ position: 'fixed', top: coords.top, left: coords.left }}>
+        <div className="tooltip-content" role="tooltip" style={{ position: 'fixed', top: coords.top, left: coords.left, transform: placement === 'top' ? 'translateY(-100%)' : undefined }}>
           <div className="tooltip-title-row">
             <span className="tooltip-title">{title}</span>
             {shortcut ? (
