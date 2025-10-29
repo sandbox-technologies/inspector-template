@@ -34,6 +34,10 @@ interface TabsContextProps {
   nextTab: () => void
   prevTab: () => void
   updateTab: (id: string, updates: Partial<Tab>) => void
+  openingTabId: string | null
+  isOpeningTab: boolean
+  beginOpeningTab: (id: string) => void
+  endOpeningTab: () => void
 }
 
 const TabsContext = createContext<TabsContextProps | undefined>(undefined)
@@ -49,6 +53,7 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
   }
   const [tabs, setTabs] = useState<Tab[]>(initialTabs)
   const [activeTabId, setActiveTabId] = useState<string>('t1')
+  const [openingTabId, setOpeningTabId] = useState<string | null>(null)
 
   const addTab = useCallback((tabProps?: Partial<Tab>) => {
     const id = `t${Date.now()}`
@@ -131,6 +136,14 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
     }))
   }, [])
 
+  const beginOpeningTab = useCallback((id: string) => {
+    setOpeningTabId(id)
+  }, [])
+
+  const endOpeningTab = useCallback(() => {
+    setOpeningTabId(null)
+  }, [])
+
   return (
     <TabsContext.Provider
       value={{
@@ -142,7 +155,11 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
         reorderTabs,
         nextTab,
         prevTab,
-        updateTab
+        updateTab,
+        openingTabId,
+        isOpeningTab: openingTabId !== null,
+        beginOpeningTab,
+        endOpeningTab
       }}
     >
       {children}

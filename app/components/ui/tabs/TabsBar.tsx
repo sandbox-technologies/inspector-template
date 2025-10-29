@@ -6,29 +6,30 @@ import { useProject } from '@/app/contexts/ProjectContext'
 import { useStartWorkspace } from '@/app/utils/startWorkspace'
 
 export const TabsBar = () => {
-  const { tabs, activeTabId, addTab, setActiveTab, reorderTabs, removeTab } = useTabs()
-  const { selectedProjectPath, lastDetectionResult } = useProject()
+  const { tabs, activeTabId, addTab, setActiveTab, reorderTabs, removeTab, isOpeningTab } = useTabs()
+  const { project } = useProject()
   const startWorkspace = useStartWorkspace()
   const [hoveredTabId, setHoveredTabId] = useState<string | null>(null)
 
   const handleNewTab = async () => {
-    // If we have a selected project and detection result, start a new workspace
-    if (selectedProjectPath && lastDetectionResult) {
+    if (isOpeningTab) return
+
+    // If we have a project set from the Open Project flow, start a new workspace
+    if (project) {
       const result = await startWorkspace({
-        projectPath: lastDetectionResult.packagePath,
-        setupCommand: lastDetectionResult.commands.setup
+        projectPath: project.packagePath,
+        setupCommand: project.commands.setup
       })
       
       if (!result.success) {
         console.error('Failed to start workspace:', result.error)
-        // Fall back to regular tab
-        addTab()
+        // Fall back to open project tab
+          addTab({ kind: 'open-project', title: 'Open Project' })
       }
       // If successful, the tab will be created and switched to automatically
     } else {
-      // No project selected, create a regular new tab
-      console.error('No project selected, creating regular new tab')
-      addTab()
+      // No project has been opened yet, create an open project tab
+      addTab({ kind: 'open-project', title: 'Open Project' })
     }
   }
 
@@ -115,7 +116,7 @@ export const TabsBar = () => {
             </Reorder.Item>
           ))}
           <Tooltip title="New tab" description="" shortcut="⌘ T">
-            <button className="tab-add" onClick={handleNewTab}>+</button>
+            <button className="tab-add" onClick={handleNewTab} disabled={isOpeningTab} aria-disabled={isOpeningTab}>+</button>
           </Tooltip>
         </div>
       </Reorder.Group>

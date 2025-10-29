@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useTitlebarContext } from '@/app/components/window/TitlebarContext'
 import { useTabs } from '@/app/components/window/TabsContext'
+import { useProject } from '@/app/contexts/ProjectContext'
+import { useStartWorkspace } from '@/app/utils/startWorkspace'
 
 export function useMenuToggleShortcut(menuItems?: unknown[]) {
   const { menusVisible, setMenusVisible, closeActiveMenu } = useTitlebarContext()
@@ -20,7 +22,9 @@ export function useMenuToggleShortcut(menuItems?: unknown[]) {
 }
 
 export function useWindowShortcuts() {
-  const { nextTab, prevTab, removeTab, activeTabId, tabs, addTab } = useTabs()
+  const { nextTab, prevTab, removeTab, activeTabId, tabs, addTab, isOpeningTab } = useTabs()
+  const { project } = useProject()
+  const startWorkspace = useStartWorkspace()
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -63,13 +67,31 @@ export function useWindowShortcuts() {
       const isNewTabShortcut = (e.metaKey || e.ctrlKey) && e.key === 't'
       if (isNewTabShortcut && !e.repeat) {
         e.preventDefault()
-        addTab()
+        if (isOpeningTab) return
+        
+        // If we have a project set from the Open Project flow, start a new workspace
+        if (project) {
+          startWorkspace({
+            projectPath: project.packagePath,
+            setupCommand: project.commands.setup
+          }).then(result => {
+            if (!result.success) {
+              console.error('Failed to start workspace:', result.error)
+              // Fall back to open project tab
+              addTab({ kind: 'open-project', title: 'Open Project' })
+            }
+            // If successful, the tab will be created and switched to automatically
+          })
+        } else {
+          // No project has been opened yet, create an open project tab
+          addTab({ kind: 'open-project', title: 'Open Project' })
+        }
       }
     }
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [nextTab, prevTab, removeTab, activeTabId, tabs.length, addTab])
+  }, [nextTab, prevTab, removeTab, activeTabId, tabs.length, addTab, project, startWorkspace, isOpeningTab])
 }
 
 export function useTitlebarShortcuts(menuItems?: unknown[]) {

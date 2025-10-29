@@ -10,7 +10,7 @@ interface ProjectDetectionScreenProps {
 }
 
 export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectDetectionScreenProps) {
-  const { setLastDetectionResult } = useProject()
+  const { setProject } = useProject()
   const startWorkspace = useStartWorkspace()
   const [projectData, setProjectData] = useState<DetectResult | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -30,8 +30,8 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
         setIsLoading(true)
         const result = await (window as any).conveyor.app.detectProject(projectPath) as DetectResult
         setProjectData(result)
-        // Store the detection result for reuse in new tabs
-        setLastDetectionResult(result)
+        // Store the detected project to be used across the app
+        setProject(result)
       } catch (err) {
         console.error('Error detecting project:', err)
         setError('Failed to detect project details')
@@ -41,7 +41,7 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
     }
 
     detectProject()
-  }, [projectPath, setLastDetectionResult])
+  }, [projectPath, setProject])
 
   // Clean up pending exit timer on unmount
   useEffect(() => {
@@ -65,18 +65,18 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
     
     setIsStartingWorkspace(true)
     try {
-      console.log('Starting workspace for project:', projectData.packagePath)
-      console.log('Setup command:', projectData.commands.setup)
+      console.warn('Starting workspace for project:', projectData.packagePath)
+      console.warn('Setup command:', projectData.commands.setup)
       
       const result = await startWorkspace({
         projectPath: projectData.packagePath,
         setupCommand: projectData.commands.setup
       })
       
-      console.log('Workspace start result:', result)
+      console.warn('Workspace start result:', result)
       
       if (result.success && 'workspaceId' in result) {
-        console.log('Workspace started successfully with:', {
+        console.warn('Workspace started successfully with:', {
           workspaceId: result.workspaceId,
           devUrl: result.devUrl,
           tabId: result.tabId

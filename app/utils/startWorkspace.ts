@@ -45,7 +45,7 @@ export async function startWorkspaceForProject({ projectPath, setupCommand }: St
  * Must be used within a React component
  */
 export function useStartWorkspace() {
-  const { addTab, updateTab } = useTabs()
+  const { addTab, updateTab, beginOpeningTab, endOpeningTab } = useTabs()
 
   const startWorkspace = async ({ projectPath, setupCommand }: StartWorkspaceOptions) => {
     try {
@@ -71,6 +71,7 @@ export function useStartWorkspace() {
           worktreePath: result.worktreePath
         }
       })
+      beginOpeningTab(tabId)
       
       // Wait a bit for the server to be fully ready, then navigate
       // This gives frameworks time to compile and start serving
@@ -79,6 +80,7 @@ export function useStartWorkspace() {
           title: 'Loading...',
           url: result.devUrl
         })
+        endOpeningTab()
       }, 2000)
 
       return {
@@ -88,6 +90,7 @@ export function useStartWorkspace() {
       }
     } catch (error: any) {
       console.error('Failed to start workspace:', error)
+      endOpeningTab()
       return {
         success: false,
         error: error.message || 'Failed to start workspace'
