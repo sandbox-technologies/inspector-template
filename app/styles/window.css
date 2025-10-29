@@ -320,6 +320,10 @@
   background: var(--window-c-tab-active-favicon-bg);
 }
 
+/* When an image favicon is present, make the container background transparent */
+.tab-favicon[data-has-image='true'] { background: transparent; }
+.tab[data-active='true'] .tab-favicon[data-has-image='true'] { background: transparent; }
+
 /* Tab title */
 .tab-title {
   flex: 1;
@@ -329,13 +333,13 @@
   white-space: nowrap;
   font-size: 12px;
   min-width: 0;
-  padding-right: 16px;
+  padding-right: 24px;
 }
 
 /* Tab close button */
 .tab-close {
   position: absolute;
-  right: -4px;
+  right: 2px;
   top: 50%;
   transform: translateY(-50%);
   width: 16px;
@@ -356,6 +360,16 @@
 .tab-close:hover {
   opacity: 1;
   background: var(--window-c-control-hover);
+}
+
+/* Match non-active hovered close color to active hovered close color */
+.tab:not([data-active='true']) .tab-close:hover {
+  color: var(--window-c-tab-active-text);
+}
+
+/* When hovering an inactive tab, also apply the correct close icon color */
+.tab:hover:not([data-active='true']) .tab-close {
+  color: var(--window-c-tab-active-text);
 }
 
 .tab[data-active='true'] .tab-close {

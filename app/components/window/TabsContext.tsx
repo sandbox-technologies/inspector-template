@@ -1,16 +1,19 @@
 import { createContext, useContext, useState, useCallback } from 'react'
+import inspectorFavicon from '@/app/assets/logo/favicons/favicon-32x32.png'
 
 export type Tab = { 
   id: string
   title: string
   url?: string
   partitionId: string
+  favicon?: string
   /**
    * Tab kind controls which view is rendered for this tab.
    * - 'workspace' shows the standard browser + chat layout
    * - 'welcome' shows the special welcome screen
+   * - 'open-project' shows the Open Project launcher screen
    */
-  kind?: 'workspace' | 'welcome'
+  kind?: 'workspace' | 'welcome' | 'open-project'
 }
 
 interface TabsContextProps {
@@ -22,14 +25,15 @@ interface TabsContextProps {
   reorderTabs: (newOrder: Tab[]) => void
   nextTab: () => void
   prevTab: () => void
-  updateTab: (id: string, updates: Partial<Pick<Tab, 'title' | 'url'>>) => void
+  updateTab: (id: string, updates: Partial<Tab>) => void
 }
 
 const TabsContext = createContext<TabsContextProps | undefined>(undefined)
 
 export const TabsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [tabs, setTabs] = useState<Tab[]>([
-    { id: 't1', title: 'Welcome to Inspector', url: '', partitionId: 'persist:tab-t1', kind: 'welcome' }
+    { id: 't1', title: 'Welcome to Inspector', url: '', partitionId: 'persist:tab-t1', kind: 'welcome', favicon: inspectorFavicon },
+    { id: 't2', title: 'Open Project', url: '', partitionId: 'persist:tab-t2', kind: 'open-project', favicon: inspectorFavicon }
   ])
   const [activeTabId, setActiveTabId] = useState<string>('t1')
 
@@ -84,8 +88,15 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
     setActiveTabId(tabs[prevIndex].id)
   }, [tabs, activeTabId])
 
-  const updateTab = useCallback((id: string, updates: Partial<Pick<Tab, 'title' | 'url' | 'kind'>>) => {
-    setTabs(prev => prev.map(tab => (tab.id === id ? { ...tab, ...updates } : tab)))
+  const updateTab = useCallback((id: string, updates: Partial<Tab>) => {
+    setTabs(prev => prev.map(tab => {
+      if (tab.id !== id) return tab
+      const next = { ...tab, ...updates }
+      if (typeof updates.kind !== 'undefined' && updates.kind !== 'workspace') {
+        next.favicon = inspectorFavicon
+      }
+      return next
+    }))
   }, [])
 
   return (

@@ -129,24 +129,52 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
       }, 100)
     }
     const handleDomReady = () => setProgress((p) => (p < 0.9 ? 0.9 : p))
+    const handleFaviconUpdated = (e: any) => {
+      const rawFavicons: string[] = Array.isArray(e?.favicons) ? e.favicons : []
+      const baseHref = (() => {
+        try { return view.getURL() } catch { return undefined }
+      })()
+      // Resolve relative favicon URLs against the current page URL
+      const resolvedFavicons = rawFavicons.map((u) => {
+        try {
+          if (/^data:/i.test(u)) return u
+          return new URL(u, baseHref).href
+        } catch {
+          return u
+        }
+      })
+      // Prefer common sizes or svg, otherwise first available
+      const pick = resolvedFavicons.find((u) => /(32x32|favicon-32|apple-touch-icon|android-chrome-192x192|\.svg($|\?))/i.test(u))
+        || resolvedFavicons.find((u) => /(16x16|favicon-16)/i.test(u))
+        || resolvedFavicons[0]
+      if (pick) updateTab(tabId, { favicon: pick })
+    }
     view.addEventListener('did-navigate', syncUrl)
     view.addEventListener('did-navigate-in-page', syncUrl)
     view.addEventListener('page-title-updated', syncTitle)
+    // Reset favicon on main-frame navigation start until we get an updated one
+    const resetFaviconOnNav = (e: any) => {
+      if (e && e.isMainFrame) updateTab(tabId, { favicon: undefined })
+    }
     const handleDidStartNavigation = (e: any) => {
       if (e && e.isMainFrame) handleStartLoading()
     }
     view.addEventListener('did-start-navigation', handleDidStartNavigation)
+    view.addEventListener('did-start-navigation', resetFaviconOnNav)
     view.addEventListener('did-stop-loading', handleStopLoading)
     view.addEventListener('did-fail-load', handleFailLoad)
     view.addEventListener('dom-ready', handleDomReady)
+    view.addEventListener('page-favicon-updated', handleFaviconUpdated as any)
     return () => {
       view.removeEventListener('did-navigate', syncUrl)
       view.removeEventListener('did-navigate-in-page', syncUrl)
       view.removeEventListener('page-title-updated', syncTitle)
       view.removeEventListener('did-start-navigation', handleDidStartNavigation)
+      view.removeEventListener('did-start-navigation', resetFaviconOnNav)
       view.removeEventListener('did-stop-loading', handleStopLoading)
       view.removeEventListener('did-fail-load', handleFailLoad)
       view.removeEventListener('dom-ready', handleDomReady)
+      view.removeEventListener('page-favicon-updated', handleFaviconUpdated as any)
       stopTicker()
       if (pendingStopTimerRef.current !== null) {
         window.clearTimeout(pendingStopTimerRef.current)

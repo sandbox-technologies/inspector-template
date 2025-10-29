@@ -1,0 +1,18 @@
+{
+  "packagePath": "/Users/dev/my-vite-react-app",
+  "frameworks": [
+    { "name": "Vite", "signals": ["dep: vite", "config: vite.config.ts"] },
+    { "name": "React", "signals": ["dep: react", "dep: react-dom"] },
+    { "name": "TypeScript", "signals": ["config: tsconfig.json"] },
+    { "name": "Tailwind CSS", "signals": ["dep: tailwindcss", "config: tailwind.config.js"] }
+  ],
+  "packageManagers": ["pnpm"],
+  "name": "my-vite-react-app",
+  "description": "A modern web application built with Vite and React",
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm run dev",
+    "setup": "pnpm install && pnpm run dev",
+    "build": "pnpm run build"
+  }
+}
