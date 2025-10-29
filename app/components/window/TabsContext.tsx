@@ -14,12 +14,20 @@ export type Tab = {
    * - 'open-project' shows the Open Project launcher screen
    */
   kind?: 'workspace' | 'welcome' | 'open-project' | 'ai-debugger'
+  /**
+   * Workspace-specific data for tabs running dev servers
+   */
+  workspaceId?: string
+  git?: {
+    branch: string
+    worktreePath: string
+  }
 }
 
 interface TabsContextProps {
   tabs: Tab[]
   activeTabId: string
-  addTab: () => void
+  addTab: (tabProps?: Partial<Tab>) => string
   removeTab: (id: string) => void
   setActiveTab: (id: string) => void
   reorderTabs: (newOrder: Tab[]) => void
@@ -42,21 +50,40 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
   const [tabs, setTabs] = useState<Tab[]>(initialTabs)
   const [activeTabId, setActiveTabId] = useState<string>('t1')
 
-  const addTab = useCallback(() => {
+  const addTab = useCallback((tabProps?: Partial<Tab>) => {
+    const id = `t${Date.now()}`
     const newTab: Tab = {
-      id: `t${Date.now()}`,
+      id,
       title: 'New Tab',
       url: '',
-      partitionId: '', // placeholder; set after id is known
-      kind: 'workspace'
+      partitionId: `persist:tab-${id}`,
+      kind: 'workspace',
+      ...tabProps, // Apply any provided properties
     }
-    // Ensure stable partition derived from ID
-    newTab.partitionId = `persist:tab-${newTab.id}`
+    // If custom ID was provided, update the partitionId accordingly
+    if (tabProps?.id && tabProps.id !== id) {
+      newTab.partitionId = `persist:tab-${tabProps.id}`
+    }
     setTabs(prev => [...prev, newTab])
     setActiveTabId(newTab.id)
+    return newTab.id
   }, [])
 
-  const removeTab = useCallback((id: string) => {
+  const removeTab = useCallback(async (id: string) => {
+    // Find the tab to check if it has a workspace
+    const tabToRemove = tabs.find(tab => tab.id === id)
+    
+    // If it's a workspace tab, stop the workspace
+    if (tabToRemove?.workspaceId) {
+      try {
+        await (window as any).conveyor.workspace.stop({ 
+          workspaceId: tabToRemove.workspaceId 
+        })
+      } catch (error) {
+        console.error('Failed to stop workspace:', error)
+      }
+    }
+    
     setTabs(prev => {
       const newTabs = prev.filter(tab => tab.id !== id)
       
@@ -69,7 +96,7 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
       
       return newTabs
     })
-  }, [activeTabId])
+  }, [activeTabId, tabs])
 
   const setActiveTab = useCallback((id: string) => {
     if (tabs.some(tab => tab.id === id)) {

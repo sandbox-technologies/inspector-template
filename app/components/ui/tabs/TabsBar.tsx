@@ -2,10 +2,35 @@ import { LayoutGroup, Reorder, motion } from 'framer-motion'
 import { useTabs } from '../../window/TabsContext'
 import { useState } from 'react'
 import Tooltip from '../tooltip'
+import { useProject } from '@/app/contexts/ProjectContext'
+import { useStartWorkspace } from '@/app/utils/startWorkspace'
 
 export const TabsBar = () => {
   const { tabs, activeTabId, addTab, setActiveTab, reorderTabs, removeTab } = useTabs()
+  const { selectedProjectPath, lastDetectionResult } = useProject()
+  const startWorkspace = useStartWorkspace()
   const [hoveredTabId, setHoveredTabId] = useState<string | null>(null)
+
+  const handleNewTab = async () => {
+    // If we have a selected project and detection result, start a new workspace
+    if (selectedProjectPath && lastDetectionResult) {
+      const result = await startWorkspace({
+        projectPath: lastDetectionResult.packagePath,
+        setupCommand: lastDetectionResult.commands.setup
+      })
+      
+      if (!result.success) {
+        console.error('Failed to start workspace:', result.error)
+        // Fall back to regular tab
+        addTab()
+      }
+      // If successful, the tab will be created and switched to automatically
+    } else {
+      // No project selected, create a regular new tab
+      console.error('No project selected, creating regular new tab')
+      addTab()
+    }
+  }
 
   return (
     <LayoutGroup id="tabs">
@@ -90,7 +115,7 @@ export const TabsBar = () => {
             </Reorder.Item>
           ))}
           <Tooltip title="New tab" description="" shortcut="⌘ T">
-            <button className="tab-add" onClick={addTab}>+</button>
+            <button className="tab-add" onClick={handleNewTab}>+</button>
           </Tooltip>
         </div>
       </Reorder.Group>

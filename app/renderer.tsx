@@ -9,11 +9,11 @@ import App from './app'
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <WindowContextProvider titlebar={{ title: '', icon: appIcon, menuItems }}>
-        <ProjectProvider>
-        <App />
-        </ProjectProvider>
-      </WindowContextProvider>
+      <ProjectProvider>
+        <WindowContextProvider titlebar={{ title: '', icon: appIcon, menuItems }}>
+          <App />
+        </WindowContextProvider>
+      </ProjectProvider>
     </ErrorBoundary>
   </React.StrictMode>
 )

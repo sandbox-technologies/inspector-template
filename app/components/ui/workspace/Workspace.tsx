@@ -11,7 +11,7 @@ export default function Workspace({ tab }: { tab: Tab }) {
         <BrowserFrame
           tabId={tab.id}
           partitionId={tab.partitionId}
-          initialUrl={tab.url && tab.url.length > 0 ? tab.url : 'http://localhost:3000'}
+          initialUrl={tab.url && tab.url.length > 0 ? tab.url : ''}
         />
       }
     />

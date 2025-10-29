@@ -12,7 +12,8 @@ interface BrowserViewProps {
 export default function BrowserFrame({ initialUrl = 'http://localhost:3000', heightClassName = 'h-full', partitionId, tabId }: BrowserViewProps) {
   const [url, setUrl] = React.useState<string>(initialUrl)
   const webviewRef = React.useRef<Electron.WebviewTag | null>(null)
-  const { updateTab } = useTabs()
+  const { updateTab, tabs } = useTabs()
+  const currentTab = tabs.find(t => t.id === tabId)
   const [progress, setProgress] = React.useState<number>(0)
   const loadingTickerRef = React.useRef<number | null>(null)
   const pendingStopTimerRef = React.useRef<number | null>(null)
@@ -48,6 +49,17 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
     if (view) view.setAttribute('src', next)
     updateTab(tabId, { url: next })
   }
+
+  // Handle tab URL updates
+  React.useEffect(() => {
+    if (currentTab?.url && currentTab.url !== url && currentTab.url !== '') {
+      setUrl(currentTab.url)
+      const view = webviewRef.current
+      if (view) {
+        view.setAttribute('src', currentTab.url)
+      }
+    }
+  }, [currentTab?.url, url])
 
   React.useEffect(() => {
     const view = webviewRef.current
@@ -203,7 +215,7 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
       <div className={`flex-1 min-h-0 ${heightClassName}`}>
         <webview
           ref={webviewRef as unknown as React.RefObject<any>}
-          src={url}
+          src={url || 'about:blank'}
           partition={partitionId}
           style={{ width: '100%', height: '100%' }}
           allowpopups
