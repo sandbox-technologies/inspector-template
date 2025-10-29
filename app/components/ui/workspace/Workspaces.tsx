@@ -1,7 +1,7 @@
 import Workspace from '@/app/components/ui/workspace/Workspace'
 import { useTabs } from '@/app/components/window/TabsContext'
 import WelcomeScreen from '@/app/components/welcome/WelcomeScreen'
-import OpenProjectScreen from '@/app/components/open/OpenProjectScreen'
+import OpenProjectFlow from '@/app/components/open/OpenProjectFlow'
 import LocalLanguageModelsDebugger from '@/app/components/dev/LocalLanguageModelsDebugger'
 
 export default function Workspaces() {
@@ -14,7 +14,7 @@ export default function Workspaces() {
         {tab.kind === 'welcome' ? (
             <WelcomeScreen />
           ) : tab.kind === 'open-project' ? (
-            <OpenProjectScreen />
+            <OpenProjectFlow />
           ) : tab.kind === 'ai-debugger' ? (
             <LocalLanguageModelsDebugger />
           ) : (

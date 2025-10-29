@@ -1,5 +1,5 @@
 import logo from '@/app/assets/logo/logo.png'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ChevronLeft } from 'lucide-react'
 import type { DetectResult } from '@/lib/project_detection'
 
@@ -12,12 +12,14 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
   const [projectData, setProjectData] = useState<DetectResult | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [isExiting, setIsExiting] = useState(false)
   const [showLogo, setShowLogo] = useState(false)
   const [showName, setShowName] = useState(false)
   const [showDescription, setShowDescription] = useState(false)
   const [showFrameworks, setShowFrameworks] = useState(false)
   const [showGetStarted, setShowGetStarted] = useState(false)
   const [showCommand, setShowCommand] = useState(false)
+  const exitTimeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
     const detectProject = async () => {
@@ -35,6 +37,23 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
 
     detectProject()
   }, [projectPath])
+
+  // Clean up pending exit timer on unmount
+  useEffect(() => {
+    return () => {
+      if (exitTimeoutRef.current != null) {
+        window.clearTimeout(exitTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  const handleBackClick = () => {
+    if (!onBack || isExiting) return
+    setIsExiting(true)
+    exitTimeoutRef.current = window.setTimeout(() => {
+      onBack?.()
+    }, 300)
+  }
 
   // Animate sections in sequence once data is ready
   useEffect(() => {
@@ -70,7 +89,7 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
 
   if (isLoading) {
     return (
-      <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+      <div className="h-full w-full flex items-center justify-center p-16">
         <div className="max-w-2xl w-full text-center">
           <div className="text-lg text-black/60 dark:text-white/60">Analyzing project...</div>
         </div>
@@ -80,7 +99,7 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
 
   if (error || !projectData) {
     return (
-      <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+      <div className="h-full w-full flex items-center justify-center p-16">
         <div className="max-w-2xl w-full text-center">
           <div className="text-lg text-red-600 dark:text-red-400">{error || 'No project data found'}</div>
         </div>
@@ -95,24 +114,18 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
 
 
   return (
-    <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+    <div className={`h-full w-full flex items-center justify-center p-16 transition-opacity duration-300 ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
       <div className="max-w-2xl w-full">
         {/* Back button */}
         {onBack && (
           <button 
-            onClick={onBack}
+            onClick={handleBackClick}
             className="mb-6 flex items-center gap-1 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
           >
             <ChevronLeft size={16} />
             <span>Back</span>
           </button>
         )}
-
-        {/* Logo */}
-        <div className={`mb-12 flex items-center gap-3 transition-all duration-500 ${showLogo ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <img src={logo} alt="Inspector" className="w-12 h-12 object-contain" />
-          <div className="text-4xl sm:text-5xl font-medium tracking-tight">Inspector</div>
-        </div>
 
         {/* Framework Detection */}
         <div className="mb-8 space-y-2">
@@ -143,6 +156,9 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
               </svg>
             </button>
           </div>
+        <div className="text-xs opacity-60 mt-2" style={{ fontSize: '11px' }}>
+        Inspector runs this command to create a new development environment and Git branch each time you open a new tab, letting you work on multiple front-end features at once in isolation.
+        </div>
         </div>
 
       </div>

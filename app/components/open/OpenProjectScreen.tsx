@@ -1,10 +1,9 @@
 import logo from '@/app/assets/logo/logo.png'
 import { CopyPlus, FolderOpen } from 'lucide-react'
-import { useState } from 'react'
-import ProjectDetectionScreen from '@/app/components/open/project_detection_screen/ProjectDetectionScreen'
+import { useProject } from '@/app/contexts/ProjectContext'
 
 export default function OpenProjectScreen() {
-  const [selectedProjectPath, setSelectedProjectPath] = useState<string | null>(null)
+  const { setSelectedProjectPath } = useProject()
 
   const handleOpenProject = async () => {
     const result = await (window as any).conveyor.app.selectProject() as { success: boolean; path: string | null }
@@ -13,13 +12,8 @@ export default function OpenProjectScreen() {
     }
   }
 
-  // If a project is selected, show the detection screen
-  if (selectedProjectPath) {
-    return <ProjectDetectionScreen projectPath={selectedProjectPath} onBack={() => setSelectedProjectPath(null)} />
-  }
-
   return (
-    <div className="pane-surface h-full w-full rounded-md flex items-center justify-center p-16">
+    <div className="h-full w-full flex items-center justify-center p-16">
       <div className="max-w-2xl w-full">
         {/* Brand */}
         <div className="mb-8">
