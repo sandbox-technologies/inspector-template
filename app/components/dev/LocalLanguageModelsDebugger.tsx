@@ -18,6 +18,12 @@ export default function LocalLanguageModelsDebugger() {
   const [streamResult, setStreamResult] = useState('')
   const [streamError, setStreamError] = useState<string | null>(null)
   const [streamController, setStreamController] = useState<AbortController | null>(null)
+  const [systemPrompt, setSystemPrompt] = useState(
+    'You are a playful, concise assistant that keeps replies short and friendly.'
+  )
+  const [userMessage, setUserMessage] = useState(
+    'Say hello from the AI Debugger in one short playful sentence.'
+  )
   const model = useMemo(() => createLocalLanguageModel(selectedModelId), [selectedModelId])
 
   const handleGenerate = async () => {
@@ -27,7 +33,10 @@ export default function LocalLanguageModelsDebugger() {
     try {
       const { text } = await generateText({
         model,
-        prompt: 'Say hello from the AI Debugger in one short playful sentence.'
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userMessage }
+        ]
       })
       setResult(text)
     } catch (err) {
@@ -49,7 +58,10 @@ export default function LocalLanguageModelsDebugger() {
     try {
       const { textStream } = await streamText({
         model,
-        prompt: 'Stream a short hello message from the AI Debugger.',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userMessage }
+        ],
         abortSignal: controller.signal
       })
       for await (const delta of textStream) {
@@ -118,6 +130,28 @@ export default function LocalLanguageModelsDebugger() {
                   />
                   <Button variant="ghost" onClick={clearAll}>Clear</Button>
                 </div>
+              </div>
+
+              {/* System prompt editor */}
+              <div className="p-4 rounded-lg pane-surface border border-black/5 dark:border-white/5">
+                <label className="block text-xs font-medium opacity-70 mb-2">System prompt</label>
+                <textarea
+                  className="w-full h-24 resize-y rounded-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-2 text-sm"
+                  value={systemPrompt}
+                  onChange={(e) => setSystemPrompt(e.target.value)}
+                  placeholder="Set the system behavior here..."
+                />
+              </div>
+
+              {/* User message editor */}
+              <div className="p-4 rounded-lg pane-surface border border-black/5 dark:border-white/5">
+                <label className="block text-xs font-medium opacity-70 mb-2">User message</label>
+                <textarea
+                  className="w-full h-24 resize-y rounded-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-2 text-sm"
+                  value={userMessage}
+                  onChange={(e) => setUserMessage(e.target.value)}
+                  placeholder="Type the message you want to send to the model..."
+                />
               </div>
 
               {activeTab === 'run' ? (
