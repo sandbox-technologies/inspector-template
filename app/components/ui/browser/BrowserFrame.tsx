@@ -14,7 +14,7 @@ interface BrowserViewProps {
 export default function BrowserFrame({ initialUrl = 'http://localhost:3000', heightClassName = 'h-full', partitionId, tabId }: BrowserViewProps) {
   const [url, setUrl] = React.useState<string>(initialUrl)
   const webviewRef = React.useRef<Electron.WebviewTag | null>(null)
-  const { updateTab, tabs, openingTabId } = useTabs()
+  const { updateTab, tabs, openingTabId, endOpeningTab } = useTabs()
   const currentTab = tabs.find(t => t.id === tabId)
   const [progress, setProgress] = React.useState<number>(0)
   const loadingTickerRef = React.useRef<number | null>(null)
@@ -124,7 +124,11 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
         if (showDelayTimerRef.current) window.clearTimeout(showDelayTimerRef.current)
         setShowLoadingUI(false)
         showDelayTimerRef.current = window.setTimeout(() => {
-          if (activeLoadIdRef.current === loadId) setShowLoadingUI(true)
+          if (activeLoadIdRef.current === loadId) {
+            setShowLoadingUI(true)
+            // Handoff overlay control from "opening tab" to webview loading without a gap
+            if (openingTabId === tabId) endOpeningTab()
+          }
         }, 150)
         startTicker(loadId)
       } else {
@@ -215,7 +219,7 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
         showDelayTimerRef.current = null
       }
     }
-  }, [tabId, updateTab])
+  }, [tabId, updateTab, endOpeningTab, openingTabId])
 
   return (
     <div className="flex flex-col w-full h-full">

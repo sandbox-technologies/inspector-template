@@ -80,7 +80,6 @@ export function useStartWorkspace() {
             worktreePath: result.worktreePath
           }
         })
-        endOpeningTab()
       }, 2000)
 
       return {
