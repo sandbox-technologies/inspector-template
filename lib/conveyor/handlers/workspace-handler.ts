@@ -1,8 +1,8 @@
-import { type App } from 'electron'
+import { type App, webContents } from 'electron'
 import { handle } from '@/lib/main/shared'
 import { spawn, type ChildProcess } from 'child_process'
 import { mkdirSync, existsSync } from 'fs'
-import { join, resolve, basename } from 'path'
+import { resolve, basename } from 'path'
 import { execSync } from 'child_process'
 import { detect } from '@/lib/project_detection'
 import { generateBranchName } from '@/lib/main/utils/branchNaming'
@@ -20,7 +20,7 @@ interface WorkspaceInfo {
 const activeWorkspaces = new Map<string, WorkspaceInfo>()
 
 export const registerWorkspaceHandlers = (app: App) => {
-  handle('workspace-start', async ({ projectPath, setupCommand, branchBase = 'main' }) => {
+  handle('workspace-start', async ({ projectPath, setupCommand, branchBase = 'main', clientRequestId }) => {
     const workspaceId = `ws-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
     
     try {
@@ -54,7 +54,17 @@ export const registerWorkspaceHandlers = (app: App) => {
         mkdirSync(worktreeParent, { recursive: true })
       }
 
+      // Broadcast helper
+      const broadcast = (payload: any) => {
+        try {
+          webContents.getAllWebContents().forEach((wc) => wc.send('workspace-progress', payload))
+        } catch {
+          return
+        }
+      }
+
       // 4. Create git worktree
+      broadcast({ step: 'creating_worktree', clientRequestId, message: 'Creating git worktree', data: { branchName } })
       try {
         execSync(`git -C "${projectPath}" worktree add -b "${branchName}" "${worktreePath}" ${baseBranch}`, {
           stdio: 'pipe',
@@ -65,6 +75,8 @@ export const registerWorkspaceHandlers = (app: App) => {
         throw new Error(`Failed to create git worktree: ${error.message}`)
       }
 
+      broadcast({ step: 'worktree_created', clientRequestId, data: { worktreePath, branchName } })
+
       // 5. Get setup command if not provided
       if (!setupCommand) {
         const detection = await detect(worktreePath)
@@ -73,6 +85,7 @@ export const registerWorkspaceHandlers = (app: App) => {
 
       console.log(`Starting workspace ${workspaceId} in ${worktreePath}`)
       console.log(`Setup command: ${setupCommand}`)
+      broadcast({ step: 'starting_dev', clientRequestId, data: { setupCommand } })
 
       // 6. Spawn the development process
       const child = spawn(setupCommand, [], {
@@ -136,6 +149,7 @@ export const registerWorkspaceHandlers = (app: App) => {
               // Add a small delay to ensure the server is ready
               setTimeout(() => {
                 console.log(`Resolving workspace with URL: ${url}`)
+                broadcast({ step: 'dev_ready', clientRequestId, workspaceId, data: { devUrl: url } })
                 resolve({
                   workspaceId,
                   branch: branchName,

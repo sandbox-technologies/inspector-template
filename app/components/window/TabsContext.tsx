@@ -8,6 +8,11 @@ export type Tab = {
   partitionId: string
   favicon?: string
   /**
+   * Optional setup command shown while a new workspace is spinning up.
+   * Used to communicate to the user what command is running under the hood.
+   */
+  setupCommand?: string
+  /**
    * Tab kind controls which view is rendered for this tab.
    * - 'workspace' shows the standard browser + chat layout
    * - 'welcome' shows the special welcome screen

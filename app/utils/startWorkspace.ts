@@ -52,14 +52,16 @@ export function useStartWorkspace() {
     const tabId = addTab({
       title: 'Starting development server...',
       url: '',
-      kind: 'workspace' as const
+      kind: 'workspace' as const,
+      setupCommand
     })
     beginOpeningTab(tabId)
 
     try {
       const result = await (window as any).conveyor.workspace.start({
         projectPath,
-        setupCommand
+        setupCommand,
+        clientRequestId: tabId
       }) as {
         workspaceId: string
         branch: string

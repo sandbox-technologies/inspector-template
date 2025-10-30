@@ -13,4 +13,11 @@ export abstract class ConveyorApi {
     // Validation happens on the main process side
     return this.renderer.invoke(channel, ...args) as Promise<ChannelReturn<T>>
   }
+
+  // Lightweight event subscription helper. Returns an unsubscribe function.
+  on = (channel: string, listener: (...args: any[]) => void) => {
+    const wrapped = (_event: any, ...rest: any[]) => listener(...rest)
+    const off = this.renderer.on(channel, wrapped)
+    return off
+  }
 }

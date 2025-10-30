@@ -1,6 +1,8 @@
 import React from 'react'
 import BrowserTopBar from './BrowserTopBar'
 import { useTabs } from '@/app/components/window/TabsContext'
+import WorkspaceLoadingSteps from '@/app/components/ui/browser/skeletons/WorkspaceLoadingSteps'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface BrowserViewProps {
   initialUrl?: string
@@ -12,7 +14,7 @@ interface BrowserViewProps {
 export default function BrowserFrame({ initialUrl = 'http://localhost:3000', heightClassName = 'h-full', partitionId, tabId }: BrowserViewProps) {
   const [url, setUrl] = React.useState<string>(initialUrl)
   const webviewRef = React.useRef<Electron.WebviewTag | null>(null)
-  const { updateTab, tabs } = useTabs()
+  const { updateTab, tabs, openingTabId } = useTabs()
   const currentTab = tabs.find(t => t.id === tabId)
   const [progress, setProgress] = React.useState<number>(0)
   const loadingTickerRef = React.useRef<number | null>(null)
@@ -21,6 +23,7 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
   const [showLoadingUI, setShowLoadingUI] = React.useState<boolean>(false)
   const activeLoadIdRef = React.useRef<number>(0)
   const sessionActiveRef = React.useRef<boolean>(false)
+  const [steps, setSteps] = React.useState({ setup: false, branch: false, start: false, connect: false })
 
   const handleBack = () => {
     const view = webviewRef.current
@@ -60,6 +63,21 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
       }
     }
   }, [currentTab?.url, url])
+
+  // Subscribe to real-time workspace progress events for this tab
+  React.useEffect(() => {
+    const api = (window as any).conveyor?.workspace
+    if (!api || !api.onProgress) return
+    const unsubscribe = api.onProgress((payload: any) => {
+      if (payload?.clientRequestId !== tabId) return
+      const step: string | undefined = payload?.step
+      if (step === 'creating_worktree') setSteps((s) => ({ ...s, setup: true }))
+      if (step === 'worktree_created') setSteps((s) => ({ ...s, branch: true }))
+      if (step === 'starting_dev') setSteps((s) => ({ ...s, start: true }))
+      if (step === 'dev_ready') setSteps((s) => ({ ...s, connect: true }))
+    })
+    return () => { if (typeof unsubscribe === 'function') unsubscribe() }
+  }, [tabId])
 
   React.useEffect(() => {
     const view = webviewRef.current
@@ -212,7 +230,8 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
         onSubmit={handleSubmit}
         onChange={() => {}}
       />
-      <div className={`flex-1 min-h-0 ${heightClassName}`}>
+      <div className={`flex-1 min-h-0 ${heightClassName} relative`}>
+        {/* Webview */}
         <webview
           ref={webviewRef as unknown as React.RefObject<any>}
           src={url || 'about:blank'}
@@ -220,6 +239,36 @@ export default function BrowserFrame({ initialUrl = 'http://localhost:3000', hei
           style={{ width: '100%', height: '100%' }}
           allowpopups
         />
+
+        {/* Loading overlay when opening a new workspace */}
+        {(() => {
+          const containerVisible = openingTabId === tabId || showLoadingUI
+          const visible = {
+            setup: steps.setup,
+            branch: steps.branch,
+            start: steps.start,
+            connect: steps.connect && showLoadingUI,
+          }
+          return (
+            <AnimatePresence>
+              {containerVisible && (
+                <motion.div
+                  key="workspace-loading-overlay"
+                  className="absolute inset-0 bg-white dark:bg-neutral-900 pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <WorkspaceLoadingSteps
+                    setupCommand={currentTab?.setupCommand}
+                    visible={visible}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          )
+        })()}
       </div>
     </div>
   )

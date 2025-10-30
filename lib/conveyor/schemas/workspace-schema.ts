@@ -7,6 +7,8 @@ export const workspaceIpcSchema = {
         projectPath: z.string(),
         setupCommand: z.string().optional(),
         branchBase: z.string().default('main'),
+        // Used by renderer to correlate progress events to a specific tab
+        clientRequestId: z.string().optional(),
       }),
     ]),
     return: z.object({
