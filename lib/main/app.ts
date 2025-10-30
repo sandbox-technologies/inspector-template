@@ -5,6 +5,7 @@ import { registerResourcesProtocol } from './protocols'
 import { registerWindowHandlers } from '@/lib/conveyor/handlers/window-handler'
 import { registerAppHandlers } from '@/lib/conveyor/handlers/app-handler'
 import { registerWorkspaceHandlers } from '@/lib/conveyor/handlers/workspace-handler'
+import { registerAgentHandlers } from '@/lib/conveyor/handlers/agent-handler'
 
 export function createAppWindow(): void {
   // Register custom protocol for resources
@@ -37,6 +38,7 @@ export function createAppWindow(): void {
   registerWindowHandlers(mainWindow)
   registerAppHandlers(app)
   registerWorkspaceHandlers(app)
+  registerAgentHandlers(app)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()

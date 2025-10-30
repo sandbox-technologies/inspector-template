@@ -6,7 +6,7 @@ import type { Tab } from '@/app/components/window/TabsContext'
 export default function Workspace({ tab }: { tab: Tab }) {
   return (
     <TwoPaneLayout
-      rightContent={<ChatWindow />}
+      rightContent={<ChatWindow tab={tab} />}
       leftContent={
         <BrowserFrame
           tabId={tab.id}
