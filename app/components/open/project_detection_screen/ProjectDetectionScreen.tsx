@@ -3,6 +3,7 @@ import { ChevronLeft } from 'lucide-react'
 import type { DetectResult } from '@/lib/project_detection'
 import { useProject } from '@/app/contexts/ProjectContext'
 import { useStartWorkspace } from '@/app/utils/startWorkspace'
+import { useTabs } from '@/app/components/window/TabsContext'
 
 interface ProjectDetectionScreenProps {
   projectPath: string
@@ -12,6 +13,7 @@ interface ProjectDetectionScreenProps {
 export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectDetectionScreenProps) {
   const { setProject } = useProject()
   const startWorkspace = useStartWorkspace()
+  const { activeTabId, removeTab, tabs } = useTabs()
   const [projectData, setProjectData] = useState<DetectResult | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -65,6 +67,13 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
     
     setIsStartingWorkspace(true)
     try {
+      // Capture and close the current Open Project tab immediately
+      const openProjectTabId = activeTabId
+      const isOpenProjectTab = tabs.find(t => t.id === openProjectTabId)?.kind === 'open-project'
+      if (isOpenProjectTab) {
+        await removeTab(openProjectTabId)
+      }
+
       console.warn('Starting workspace for project:', projectData.packagePath)
       console.warn('Setup command:', projectData.commands.setup)
       
@@ -81,8 +90,11 @@ export default function ProjectDetectionScreen({ projectPath, onBack }: ProjectD
           devUrl: result.devUrl,
           tabId: result.tabId
         })
+        // No-op: Open Project tab was already closed immediately above
       } else if (!result.success) {
         console.error('Failed to start workspace:', result.error)
+        // When startWorkspace fails, the newly created tab is converted
+        // into an Open Project tab by useStartWorkspace, effectively "reopening" it
         // TODO: Show error to user
       }
       // If successful, the tab will be created and switched to automatically
