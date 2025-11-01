@@ -29,3 +29,8 @@ declare module '*.web' {
   const content: string
   export default content
 }
+
+declare module '*.ndjson?raw' {
+  const content: string
+  export default content
+}

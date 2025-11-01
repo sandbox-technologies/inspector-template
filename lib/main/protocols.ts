@@ -25,6 +25,7 @@ export function registerAIProtocol() {
   protocol.handle('ai', async (request) => {
     console.warn('[ai-protocol] request url =', request.url, 'method =', request.method)
     const url = new URL(request.url)
+    // TODO: fix this and just have the ONE correct route rather than this programatic guessing
     const isChatRoute =
       url.pathname === '/chat' ||
       url.pathname === '/chat/' ||

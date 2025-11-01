@@ -226,7 +226,7 @@ export const registerWorkspaceHandlers = (app: App) => {
 
   // Clean up on app quit
   app.on('before-quit', () => {
-    for (const [workspaceId, workspace] of activeWorkspaces) {
+    for (const [_workspaceId, workspace] of activeWorkspaces) {
       if (workspace.child && !workspace.child.killed) {
         workspace.child.kill('SIGTERM')
       }

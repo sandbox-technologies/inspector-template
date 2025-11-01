@@ -82,6 +82,8 @@
   overflow-x: hidden;
   position: relative;
   padding: 1px 6px 6px 6px;
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 /* Assign only the direct last child to take full height of window content */

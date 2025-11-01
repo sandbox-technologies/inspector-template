@@ -18,7 +18,7 @@ export type Tab = {
    * - 'welcome' shows the special welcome screen
    * - 'open-project' shows the Open Project launcher screen
    */
-  kind?: 'workspace' | 'welcome' | 'open-project' | 'ai-debugger'
+  kind?: 'workspace' | 'welcome' | 'open-project' | 'ai-debugger' | 'dev-chat-ui' | 'dev-trace-playback'
   /**
    * Workspace-specific data for tabs running dev servers
    */
@@ -52,6 +52,24 @@ export const TabsContextProvider = ({ children }: { children: React.ReactNode })
     { id: 't1', title: 'Welcome to Inspector', url: '', partitionId: 'persist:tab-t1', kind: 'welcome', favicon: inspectorFavicon },
     { id: 't2', title: 'Open Project', url: '', partitionId: 'persist:tab-t2', kind: 'open-project', favicon: inspectorFavicon }
   ]
+  if (import.meta.env?.DEV) {
+    initialTabs.push({
+      id: 'dev-chat-ui',
+      title: 'Chat UI Gallery',
+      url: '',
+      partitionId: 'persist:tab-dev-chat-ui',
+      kind: 'dev-chat-ui',
+      favicon: inspectorFavicon,
+    })
+    initialTabs.push({
+      id: 'dev-trace-playback',
+      title: 'Trace Playback',
+      url: '',
+      partitionId: 'persist:tab-dev-trace-playback',
+      kind: 'dev-trace-playback',
+      favicon: inspectorFavicon,
+    })
+  }
   // Add dev-only AI Debugger tab on startup
   // if (import.meta.env && import.meta.env.DEV) {
   //   initialTabs.push({ id: 't3', title: 'AI Debugger', url: '', partitionId: 'persist:tab-t3', kind: 'ai-debugger', favicon: inspectorFavicon })

@@ -1,0 +1,666 @@
+{"runId":"t1761820265014-1761820287862","type":"system","message":"CURSOR_API_KEY not set. Please export CURSOR_API_KEY=your_key_here before starting the app."}
+{"type":"system","subtype":"init","apiKeySource":"login","cwd":"/Users/quentinromerolauro/.inspector-worktrees/this-but-meme-remix-app-codebase_20251030-033105","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","model":"GPT-5","permissionMode":"default"}
+{"type":"user","message":{"role":"user","content":[{"type":"text","text":"Create a new file called Poop.tsx"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d"}
+{"type":"thinking","subtype":"delta","text":"**Creating","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303398}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303400}
+{"type":"thinking","subtype":"delta","text":" new","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303404}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303423}
+{"type":"thinking","subtype":"delta","text":"**\n\nI","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303457}
+{"type":"thinking","subtype":"delta","text":" need","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303458}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303472}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303501}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303503}
+{"type":"thinking","subtype":"delta","text":" new","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303510}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303540}
+{"type":"thinking","subtype":"delta","text":" called","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303548}
+{"type":"thinking","subtype":"delta","text":" Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303558}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303584}
+{"type":"thinking","subtype":"delta","text":".ts","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303604}
+{"type":"thinking","subtype":"delta","text":"x","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303635}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303638}
+{"type":"thinking","subtype":"delta","text":" follow","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303645}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303672}
+{"type":"thinking","subtype":"delta","text":" developer","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303676}
+{"type":"thinking","subtype":"delta","text":" instructions","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303683}
+{"type":"thinking","subtype":"delta","text":" regarding","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303709}
+{"type":"thinking","subtype":"delta","text":" tool","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303711}
+{"type":"thinking","subtype":"delta","text":" usage","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303716}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303723}
+{"type":"thinking","subtype":"delta","text":" For","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303739}
+{"type":"thinking","subtype":"delta","text":" simple","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303768}
+{"type":"thinking","subtype":"delta","text":" tasks","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303769}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303785}
+{"type":"thinking","subtype":"delta","text":" we","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303799}
+{"type":"thinking","subtype":"delta","text":" can","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303816}
+{"type":"thinking","subtype":"delta","text":" skip","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303828}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303843}
+{"type":"thinking","subtype":"delta","text":" todo","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303868}
+{"type":"thinking","subtype":"delta","text":" list","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303884}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303897}
+{"type":"thinking","subtype":"delta","text":" but","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303904}
+{"type":"thinking","subtype":"delta","text":" we","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303926}
+{"type":"thinking","subtype":"delta","text":" still","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303938}
+{"type":"thinking","subtype":"delta","text":" need","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303945}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303983}
+{"type":"thinking","subtype":"delta","text":" use","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820303991}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304022}
+{"type":"thinking","subtype":"delta","text":" Write","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304032}
+{"type":"thinking","subtype":"delta","text":" tool","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304036}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304062}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304062}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304088}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304088}
+{"type":"thinking","subtype":"delta","text":" in","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304096}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304128}
+{"type":"thinking","subtype":"delta","text":" correct","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304140}
+{"type":"thinking","subtype":"delta","text":" directory","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304147}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304155}
+{"type":"thinking","subtype":"delta","text":"\n\nThe","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304158}
+{"type":"thinking","subtype":"delta","text":" user","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304171}
+{"type":"thinking","subtype":"delta","text":" hasn","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304177}
+{"type":"thinking","subtype":"delta","text":"’t","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304189}
+{"type":"thinking","subtype":"delta","text":" specified","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304200}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304214}
+{"type":"thinking","subtype":"delta","text":" directory","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304229}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304246}
+{"type":"thinking","subtype":"delta","text":" so","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304252}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304276}
+{"type":"thinking","subtype":"delta","text":" should","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304280}
+{"type":"thinking","subtype":"delta","text":" ask","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304298}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304304}
+{"type":"thinking","subtype":"delta","text":" clar","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304324}
+{"type":"thinking","subtype":"delta","text":"ifying","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304333}
+{"type":"thinking","subtype":"delta","text":" question","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304343}
+{"type":"thinking","subtype":"delta","text":" since","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304356}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304364}
+{"type":"thinking","subtype":"delta","text":" likely","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304400}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304430}
+{"type":"thinking","subtype":"delta","text":" would","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304465}
+{"type":"thinking","subtype":"delta","text":" be","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304499}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304517}
+{"type":"thinking","subtype":"delta","text":" `","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304522}
+{"type":"thinking","subtype":"delta","text":"src","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304552}
+{"type":"thinking","subtype":"delta","text":"/","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304559}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304570}
+{"type":"thinking","subtype":"delta","text":" directory","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304591}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304622}
+{"type":"thinking","subtype":"delta","text":" which","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304653}
+{"type":"thinking","subtype":"delta","text":" contains","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304666}
+{"type":"thinking","subtype":"delta","text":" many","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304684}
+{"type":"thinking","subtype":"delta","text":" `.","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304700}
+{"type":"thinking","subtype":"delta","text":"tsx","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304726}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304744}
+{"type":"thinking","subtype":"delta","text":" files","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304776}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304789}
+{"type":"thinking","subtype":"delta","text":" It","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304810}
+{"type":"thinking","subtype":"delta","text":"’s","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304815}
+{"type":"thinking","subtype":"delta","text":" important","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304829}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304837}
+{"type":"thinking","subtype":"delta","text":" ensure","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304844}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304905}
+{"type":"thinking","subtype":"delta","text":" verify","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304916}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304928}
+{"type":"thinking","subtype":"delta","text":" directory","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304947}
+{"type":"thinking","subtype":"delta","text":" exists","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304961}
+{"type":"thinking","subtype":"delta","text":" first","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304968}
+{"type":"thinking","subtype":"delta","text":"!","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820304985}
+{"type":"thinking","subtype":"delta","text":"\n**Creating","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309541}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309558}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309595}
+{"type":"thinking","subtype":"delta","text":"**\n\nThe","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309673}
+{"type":"thinking","subtype":"delta","text":" developer","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309674}
+{"type":"thinking","subtype":"delta","text":"'s","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309729}
+{"type":"thinking","subtype":"delta","text":" instructions","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309736}
+{"type":"thinking","subtype":"delta","text":" are","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309754}
+{"type":"thinking","subtype":"delta","text":" clear","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309764}
+{"type":"thinking","subtype":"delta","text":":","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309771}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309815}
+{"type":"thinking","subtype":"delta","text":" need","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309862}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309865}
+{"type":"thinking","subtype":"delta","text":" state","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309900}
+{"type":"thinking","subtype":"delta","text":" my","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309914}
+{"type":"thinking","subtype":"delta","text":" assumptions","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309917}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309936}
+{"type":"thinking","subtype":"delta","text":" continue","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309943}
+{"type":"thinking","subtype":"delta","text":" without","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820309984}
+{"type":"thinking","subtype":"delta","text":" waiting","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310036}
+{"type":"thinking","subtype":"delta","text":" for","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310088}
+{"type":"thinking","subtype":"delta","text":" approval","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310089}
+{"type":"thinking","subtype":"delta","text":" unless","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310117}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310128}
+{"type":"thinking","subtype":"delta","text":"’m","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310205}
+{"type":"thinking","subtype":"delta","text":" blocked","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310244}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310276}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310300}
+{"type":"thinking","subtype":"delta","text":"’ll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310345}
+{"type":"thinking","subtype":"delta","text":" go","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310390}
+{"type":"thinking","subtype":"delta","text":" with","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310418}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310438}
+{"type":"thinking","subtype":"delta","text":" sensible","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310488}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310516}
+{"type":"thinking","subtype":"delta","text":" path","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310544}
+{"type":"thinking","subtype":"delta","text":" of","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310579}
+{"type":"thinking","subtype":"delta","text":" `","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310619}
+{"type":"thinking","subtype":"delta","text":"src","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310634}
+{"type":"thinking","subtype":"delta","text":"/","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310671}
+{"type":"thinking","subtype":"delta","text":"Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310700}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310725}
+{"type":"thinking","subtype":"delta","text":".ts","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310752}
+{"type":"thinking","subtype":"delta","text":"x","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310786}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310817}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310843}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310884}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310968}
+{"type":"thinking","subtype":"delta","text":" basic","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820310991}
+{"type":"thinking","subtype":"delta","text":" React","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311004}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311040}
+{"type":"thinking","subtype":"delta","text":" placeholder","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311073}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311085}
+{"type":"thinking","subtype":"delta","text":" \n\nThe","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311098}
+{"type":"thinking","subtype":"delta","text":" code","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311138}
+{"type":"thinking","subtype":"delta","text":" style","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311152}
+{"type":"thinking","subtype":"delta","text":" calls","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311186}
+{"type":"thinking","subtype":"delta","text":" for","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311202}
+{"type":"thinking","subtype":"delta","text":" high","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311204}
+{"type":"thinking","subtype":"delta","text":" verbosity","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311211}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311216}
+{"type":"thinking","subtype":"delta","text":" explicit","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311222}
+{"type":"thinking","subtype":"delta","text":" names","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311229}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311230}
+{"type":"thinking","subtype":"delta","text":" so","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311233}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311247}
+{"type":"thinking","subtype":"delta","text":"’ll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311247}
+{"type":"thinking","subtype":"delta","text":" ensure","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311254}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311266}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311267}
+{"type":"thinking","subtype":"delta","text":" is","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311274}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311278}
+{"type":"thinking","subtype":"delta","text":" simple","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311288}
+{"type":"thinking","subtype":"delta","text":" functional","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311300}
+{"type":"thinking","subtype":"delta","text":" one","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311312}
+{"type":"thinking","subtype":"delta","text":" that","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311321}
+{"type":"thinking","subtype":"delta","text":" exports","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311323}
+{"type":"thinking","subtype":"delta","text":" by","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311337}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311339}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311353}
+{"type":"thinking","subtype":"delta","text":" The","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311353}
+{"type":"thinking","subtype":"delta","text":" user","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311363}
+{"type":"thinking","subtype":"delta","text":" didn","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311364}
+{"type":"thinking","subtype":"delta","text":"’t","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311371}
+{"type":"thinking","subtype":"delta","text":" specify","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311386}
+{"type":"thinking","subtype":"delta","text":" content","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311390}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311393}
+{"type":"thinking","subtype":"delta","text":" but","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311401}
+{"type":"thinking","subtype":"delta","text":" I'll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311410}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311415}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311422}
+{"type":"thinking","subtype":"delta","text":" minimal","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311429}
+{"type":"thinking","subtype":"delta","text":" runnable","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311439}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311448}
+{"type":"thinking","subtype":"delta","text":" that","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311450}
+{"type":"thinking","subtype":"delta","text":" could","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311502}
+{"type":"thinking","subtype":"delta","text":" include","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311502}
+{"type":"thinking","subtype":"delta","text":" an","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311555}
+{"type":"thinking","subtype":"delta","text":" interface","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311560}
+{"type":"thinking","subtype":"delta","text":" for","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311577}
+{"type":"thinking","subtype":"delta","text":" props","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311642}
+{"type":"thinking","subtype":"delta","text":" as","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311648}
+{"type":"thinking","subtype":"delta","text":" needed","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311654}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820311679}
+{"type":"thinking","subtype":"delta","text":"\n**Final","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312687}
+{"type":"thinking","subtype":"delta","text":"izing","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312697}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312705}
+{"type":"thinking","subtype":"delta","text":" exports","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312714}
+{"type":"thinking","subtype":"delta","text":"**\n\nWith","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312738}
+{"type":"thinking","subtype":"delta","text":" Next","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312781}
+{"type":"thinking","subtype":"delta","text":".js","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312786}
+{"type":"thinking","subtype":"delta","text":"'s","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312805}
+{"type":"thinking","subtype":"delta","text":" new","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312814}
+{"type":"thinking","subtype":"delta","text":" automatic","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312827}
+{"type":"thinking","subtype":"delta","text":" inclusion","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312834}
+{"type":"thinking","subtype":"delta","text":" of","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312838}
+{"type":"thinking","subtype":"delta","text":" \"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312847}
+{"type":"thinking","subtype":"delta","text":"react","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312926}
+{"type":"thinking","subtype":"delta","text":"/js","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312944}
+{"type":"thinking","subtype":"delta","text":"x","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312954}
+{"type":"thinking","subtype":"delta","text":"-runtime","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312969}
+{"type":"thinking","subtype":"delta","text":",\"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820312984}
+{"type":"thinking","subtype":"delta","text":" importing","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313007}
+{"type":"thinking","subtype":"delta","text":" is","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313024}
+{"type":"thinking","subtype":"delta","text":" still","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313039}
+{"type":"thinking","subtype":"delta","text":" allowed","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313055}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313062}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313084}
+{"type":"thinking","subtype":"delta","text":"’m","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313090}
+{"type":"thinking","subtype":"delta","text":" thinking","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313114}
+{"type":"thinking","subtype":"delta","text":" of","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313115}
+{"type":"thinking","subtype":"delta","text":" including","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313131}
+{"type":"thinking","subtype":"delta","text":" both","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313139}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313156}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313182}
+{"type":"thinking","subtype":"delta","text":" named","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313199}
+{"type":"thinking","subtype":"delta","text":" exports","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313209}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313227}
+{"type":"thinking","subtype":"delta","text":" but","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313248}
+{"type":"thinking","subtype":"delta","text":" perhaps","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313255}
+{"type":"thinking","subtype":"delta","text":" having","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313268}
+{"type":"thinking","subtype":"delta","text":" just","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313278}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313289}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313317}
+{"type":"thinking","subtype":"delta","text":" export","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313327}
+{"type":"thinking","subtype":"delta","text":" will","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313344}
+{"type":"thinking","subtype":"delta","text":" suffice","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313362}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313373}
+{"type":"thinking","subtype":"delta","text":" \n\nI","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313402}
+{"type":"thinking","subtype":"delta","text":" can","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313417}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313422}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313435}
+{"type":"thinking","subtype":"delta","text":" following","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313449}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313466}
+{"type":"thinking","subtype":"delta","text":":","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313477}
+{"type":"thinking","subtype":"delta","text":"\n\n```","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313484}
+{"type":"thinking","subtype":"delta","text":"typescript","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313500}
+{"type":"thinking","subtype":"delta","text":"\nexport","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313528}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313541}
+{"type":"thinking","subtype":"delta","text":" function","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313553}
+{"type":"thinking","subtype":"delta","text":" Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313569}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313590}
+{"type":"thinking","subtype":"delta","text":"():","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313610}
+{"type":"thinking","subtype":"delta","text":" JSX","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313628}
+{"type":"thinking","subtype":"delta","text":".Element","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313636}
+{"type":"thinking","subtype":"delta","text":" {","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313667}
+{"type":"thinking","subtype":"delta","text":"\n  return","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313716}
+{"type":"thinking","subtype":"delta","text":" &lt;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313721}
+{"type":"thinking","subtype":"delta","text":"div","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313726}
+{"type":"thinking","subtype":"delta","text":"&gt;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313734}
+{"type":"thinking","subtype":"delta","text":"Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313740}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313745}
+{"type":"thinking","subtype":"delta","text":"&lt;/","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313756}
+{"type":"thinking","subtype":"delta","text":"div","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313785}
+{"type":"thinking","subtype":"delta","text":"&gt;;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313790}
+{"type":"thinking","subtype":"delta","text":"\n}","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313819}
+{"type":"thinking","subtype":"delta","text":"\n``","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313827}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313834}
+{"type":"thinking","subtype":"delta","text":"\n\nIf","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313847}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313857}
+{"type":"thinking","subtype":"delta","text":" want","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313927}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313957}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313981}
+{"type":"thinking","subtype":"delta","text":" could","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820313999}
+{"type":"thinking","subtype":"delta","text":" also","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314009}
+{"type":"thinking","subtype":"delta","text":" add","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314028}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314034}
+{"type":"thinking","subtype":"delta","text":" named","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314095}
+{"type":"thinking","subtype":"delta","text":" export","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314139}
+{"type":"thinking","subtype":"delta","text":" as","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314171}
+{"type":"thinking","subtype":"delta","text":" an","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314178}
+{"type":"thinking","subtype":"delta","text":" alias","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314205}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314210}
+{"type":"thinking","subtype":"delta","text":" but","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314242}
+{"type":"thinking","subtype":"delta","text":" it","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314255}
+{"type":"thinking","subtype":"delta","text":" isn","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314262}
+{"type":"thinking","subtype":"delta","text":"’t","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314269}
+{"type":"thinking","subtype":"delta","text":" strictly","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314279}
+{"type":"thinking","subtype":"delta","text":" necessary","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314311}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314318}
+{"type":"thinking","subtype":"delta","text":" \n\nNow","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314355}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314363}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314369}
+{"type":"thinking","subtype":"delta","text":" need","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314381}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314395}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314413}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314430}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314436}
+{"type":"thinking","subtype":"delta","text":" at","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314447}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314573}
+{"type":"thinking","subtype":"delta","text":" specified","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314591}
+{"type":"thinking","subtype":"delta","text":" path","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314608}
+{"type":"thinking","subtype":"delta","text":" using","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314622}
+{"type":"thinking","subtype":"delta","text":" functions","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314639}
+{"type":"thinking","subtype":"delta","text":".Write","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314648}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314660}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314677}
+{"type":"thinking","subtype":"delta","text":" since","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314691}
+{"type":"thinking","subtype":"delta","text":" we're","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314701}
+{"type":"thinking","subtype":"delta","text":" keeping","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314717}
+{"type":"thinking","subtype":"delta","text":" things","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314727}
+{"type":"thinking","subtype":"delta","text":" simple","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314741}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314758}
+{"type":"thinking","subtype":"delta","text":" we","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314768}
+{"type":"thinking","subtype":"delta","text":" don't","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314784}
+{"type":"thinking","subtype":"delta","text":" need","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314797}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314808}
+{"type":"thinking","subtype":"delta","text":" start","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314832}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314845}
+{"type":"thinking","subtype":"delta","text":" todo","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314853}
+{"type":"thinking","subtype":"delta","text":" list","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314868}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820314891}
+{"type":"thinking","subtype":"delta","text":"\n**Creating","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820315926}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820315950}
+{"type":"thinking","subtype":"delta","text":" documenting","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316011}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316034}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316061}
+{"type":"thinking","subtype":"delta","text":"**\n\nI","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316111}
+{"type":"thinking","subtype":"delta","text":"’ll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316113}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316127}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316157}
+{"type":"thinking","subtype":"delta","text":" `","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316167}
+{"type":"thinking","subtype":"delta","text":"src","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316180}
+{"type":"thinking","subtype":"delta","text":"/","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316191}
+{"type":"thinking","subtype":"delta","text":"Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316213}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316222}
+{"type":"thinking","subtype":"delta","text":".ts","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316237}
+{"type":"thinking","subtype":"delta","text":"x","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316288}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316313}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316322}
+{"type":"thinking","subtype":"delta","text":" with","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316336}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316348}
+{"type":"thinking","subtype":"delta","text":" basic","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316532}
+{"type":"thinking","subtype":"delta","text":" React","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316557}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316557}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316580}
+{"type":"thinking","subtype":"delta","text":" After","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316600}
+{"type":"thinking","subtype":"delta","text":" performing","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316611}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316619}
+{"type":"thinking","subtype":"delta","text":" write","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316658}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316670}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316695}
+{"type":"thinking","subtype":"delta","text":" should","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316705}
+{"type":"thinking","subtype":"delta","text":" provide","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316741}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316748}
+{"type":"thinking","subtype":"delta","text":" status","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316766}
+{"type":"thinking","subtype":"delta","text":" update","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316784}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316802}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316815}
+{"type":"thinking","subtype":"delta","text":" summary","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316827}
+{"type":"thinking","subtype":"delta","text":" stating","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316844}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316858}
+{"type":"thinking","subtype":"delta","text":" new","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316873}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316893}
+{"type":"thinking","subtype":"delta","text":" has","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316903}
+{"type":"thinking","subtype":"delta","text":" been","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316924}
+{"type":"thinking","subtype":"delta","text":" created","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316940}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316958}
+{"type":"thinking","subtype":"delta","text":" It's","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316972}
+{"type":"thinking","subtype":"delta","text":" important","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820316996}
+{"type":"thinking","subtype":"delta","text":" not","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317010}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317034}
+{"type":"thinking","subtype":"delta","text":" show","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317042}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317052}
+{"type":"thinking","subtype":"delta","text":" code","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317065}
+{"type":"thinking","subtype":"delta","text":" unless","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317074}
+{"type":"thinking","subtype":"delta","text":" specifically","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317106}
+{"type":"thinking","subtype":"delta","text":" asked","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317119}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317153}
+{"type":"thinking","subtype":"delta","text":" since","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317170}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317185}
+{"type":"thinking","subtype":"delta","text":" \"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317203}
+{"type":"thinking","subtype":"delta","text":"making","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317215}
+{"type":"thinking","subtype":"delta","text":"_code","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317222}
+{"type":"thinking","subtype":"delta","text":"_changes","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317239}
+{"type":"thinking","subtype":"delta","text":"\"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317254}
+{"type":"thinking","subtype":"delta","text":" guideline","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317269}
+{"type":"thinking","subtype":"delta","text":" says","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317282}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317305}
+{"type":"thinking","subtype":"delta","text":" avoid","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317320}
+{"type":"thinking","subtype":"delta","text":" output","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317327}
+{"type":"thinking","subtype":"delta","text":"ting","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317334}
+{"type":"thinking","subtype":"delta","text":" code","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317355}
+{"type":"thinking","subtype":"delta","text":" unless","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317393}
+{"type":"thinking","subtype":"delta","text":" requested","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317401}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317443}
+{"type":"thinking","subtype":"delta","text":" \n\nFor","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317468}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317476}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317492}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317502}
+{"type":"thinking","subtype":"delta","text":" I'll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317556}
+{"type":"thinking","subtype":"delta","text":" keep","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317556}
+{"type":"thinking","subtype":"delta","text":" it","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317563}
+{"type":"thinking","subtype":"delta","text":" minimal","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317593}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317617}
+{"type":"thinking","subtype":"delta","text":" possibly","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317647}
+{"type":"thinking","subtype":"delta","text":" including","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317648}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317657}
+{"type":"thinking","subtype":"delta","text":" functional","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317701}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317701}
+{"type":"thinking","subtype":"delta","text":" that","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317730}
+{"type":"thinking","subtype":"delta","text":" accepts","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317736}
+{"type":"thinking","subtype":"delta","text":" optional","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317765}
+{"type":"thinking","subtype":"delta","text":" `","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317768}
+{"type":"thinking","subtype":"delta","text":"children","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317772}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317792}
+{"type":"thinking","subtype":"delta","text":" or","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317809}
+{"type":"thinking","subtype":"delta","text":" `","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317834}
+{"type":"thinking","subtype":"delta","text":"class","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317883}
+{"type":"thinking","subtype":"delta","text":"Name","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820317949}
+{"type":"thinking","subtype":"delta","text":"`.","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318233}
+{"type":"thinking","subtype":"delta","text":" Including","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318233}
+{"type":"thinking","subtype":"delta","text":" `'","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318233}
+{"type":"thinking","subtype":"delta","text":"use","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318233}
+{"type":"thinking","subtype":"delta","text":" client","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318233}
+{"type":"thinking","subtype":"delta","text":"';","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318236}
+{"type":"thinking","subtype":"delta","text":"`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318243}
+{"type":"thinking","subtype":"delta","text":" may","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318253}
+{"type":"thinking","subtype":"delta","text":" not","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318259}
+{"type":"thinking","subtype":"delta","text":" be","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318265}
+{"type":"thinking","subtype":"delta","text":" necessary","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318335}
+{"type":"thinking","subtype":"delta","text":" unless","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318335}
+{"type":"thinking","subtype":"delta","text":" used","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318339}
+{"type":"thinking","subtype":"delta","text":" in","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318352}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318361}
+{"type":"thinking","subtype":"delta","text":" server","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318372}
+{"type":"thinking","subtype":"delta","text":" context","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318411}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820318427}
+{"type":"thinking","subtype":"delta","text":"\n**Final","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820319665}
+{"type":"thinking","subtype":"delta","text":"izing","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820319677}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820319679}
+{"type":"thinking","subtype":"delta","text":" setup","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820319682}
+{"type":"thinking","subtype":"delta","text":"**\n\nSome","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820319814}
+{"type":"thinking","subtype":"delta","text":" ESL","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820319824}
+{"type":"thinking","subtype":"delta","text":"int","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820320041}
+{"type":"thinking","subtype":"delta","text":" configurations","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820320254}
+{"type":"thinking","subtype":"delta","text":" might","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820320267}
+{"type":"thinking","subtype":"delta","text":" flag","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820320470}
+{"type":"thinking","subtype":"delta","text":" React","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820320725}
+{"type":"thinking","subtype":"delta","text":" imports","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820320940}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321174}
+{"type":"thinking","subtype":"delta","text":" so","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321181}
+{"type":"thinking","subtype":"delta","text":" I'll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321211}
+{"type":"thinking","subtype":"delta","text":" avoid","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321250}
+{"type":"thinking","subtype":"delta","text":" importing","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321263}
+{"type":"thinking","subtype":"delta","text":" React","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321285}
+{"type":"thinking","subtype":"delta","text":" and","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321325}
+{"type":"thinking","subtype":"delta","text":" rely","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321341}
+{"type":"thinking","subtype":"delta","text":" on","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321346}
+{"type":"thinking","subtype":"delta","text":" automatic","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321358}
+{"type":"thinking","subtype":"delta","text":" runtime","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321361}
+{"type":"thinking","subtype":"delta","text":" instead","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321389}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321390}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321410}
+{"type":"thinking","subtype":"delta","text":"’ll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321413}
+{"type":"thinking","subtype":"delta","text":" return","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321424}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321435}
+{"type":"thinking","subtype":"delta","text":" simple","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321449}
+{"type":"thinking","subtype":"delta","text":" `&lt;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321463}
+{"type":"thinking","subtype":"delta","text":"div","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321467}
+{"type":"thinking","subtype":"delta","text":"&gt;`","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321478}
+{"type":"thinking","subtype":"delta","text":" with","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321499}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321513}
+{"type":"thinking","subtype":"delta","text":" text","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321522}
+{"type":"thinking","subtype":"delta","text":" \"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321531}
+{"type":"thinking","subtype":"delta","text":"Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321539}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321558}
+{"type":"thinking","subtype":"delta","text":"\"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321575}
+{"type":"thinking","subtype":"delta","text":" in","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321589}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321618}
+{"type":"thinking","subtype":"delta","text":" component","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321618}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321663}
+{"type":"thinking","subtype":"delta","text":" It","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321688}
+{"type":"thinking","subtype":"delta","text":"’s","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321728}
+{"type":"thinking","subtype":"delta","text":" fine","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321739}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321759}
+{"type":"thinking","subtype":"delta","text":" have","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321763}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321780}
+{"type":"thinking","subtype":"delta","text":" named","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321783}
+{"type":"thinking","subtype":"delta","text":" function","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321799}
+{"type":"thinking","subtype":"delta","text":" with","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321820}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321957}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321971}
+{"type":"thinking","subtype":"delta","text":" export","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321982}
+{"type":"thinking","subtype":"delta","text":" as","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820321987}
+{"type":"thinking","subtype":"delta","text":" follows","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322001}
+{"type":"thinking","subtype":"delta","text":":","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322009}
+{"type":"thinking","subtype":"delta","text":"\n\n```","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322015}
+{"type":"thinking","subtype":"delta","text":"typescript","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322021}
+{"type":"thinking","subtype":"delta","text":"\nexport","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322043}
+{"type":"thinking","subtype":"delta","text":" default","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322055}
+{"type":"thinking","subtype":"delta","text":" function","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322075}
+{"type":"thinking","subtype":"delta","text":" Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322078}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322088}
+{"type":"thinking","subtype":"delta","text":"():","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322105}
+{"type":"thinking","subtype":"delta","text":" JSX","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322122}
+{"type":"thinking","subtype":"delta","text":".Element","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322137}
+{"type":"thinking","subtype":"delta","text":" {","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322151}
+{"type":"thinking","subtype":"delta","text":"\n  return","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322188}
+{"type":"thinking","subtype":"delta","text":" &lt;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322205}
+{"type":"thinking","subtype":"delta","text":"div","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322216}
+{"type":"thinking","subtype":"delta","text":"&gt;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322221}
+{"type":"thinking","subtype":"delta","text":"Po","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322249}
+{"type":"thinking","subtype":"delta","text":"op","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322262}
+{"type":"thinking","subtype":"delta","text":"&lt;/","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322278}
+{"type":"thinking","subtype":"delta","text":"div","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322296}
+{"type":"thinking","subtype":"delta","text":"&gt;;","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322317}
+{"type":"thinking","subtype":"delta","text":"\n}","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322324}
+{"type":"thinking","subtype":"delta","text":"\n```","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322338}
+{"type":"thinking","subtype":"delta","text":" \n\nI'll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322351}
+{"type":"thinking","subtype":"delta","text":" use","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322371}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322376}
+{"type":"thinking","subtype":"delta","text":" Write","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322388}
+{"type":"thinking","subtype":"delta","text":" tool","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322407}
+{"type":"thinking","subtype":"delta","text":" with","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322478}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322499}
+{"type":"thinking","subtype":"delta","text":" absolute","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322574}
+{"type":"thinking","subtype":"delta","text":" path","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322614}
+{"type":"thinking","subtype":"delta","text":" to","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322667}
+{"type":"thinking","subtype":"delta","text":" create","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322719}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322768}
+{"type":"thinking","subtype":"delta","text":" file","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322834}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322952}
+{"type":"thinking","subtype":"delta","text":" Also","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820322956}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323001}
+{"type":"thinking","subtype":"delta","text":" since","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323043}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323113}
+{"type":"thinking","subtype":"delta","text":" initial","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323170}
+{"type":"thinking","subtype":"delta","text":" git","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323229}
+{"type":"thinking","subtype":"delta","text":" status","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323292}
+{"type":"thinking","subtype":"delta","text":" shows","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323411}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323476}
+{"type":"thinking","subtype":"delta","text":" modified","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323539}
+{"type":"thinking","subtype":"delta","text":" package","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323608}
+{"type":"thinking","subtype":"delta","text":"-lock","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323685}
+{"type":"thinking","subtype":"delta","text":".json","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323741}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323805}
+{"type":"thinking","subtype":"delta","text":" we","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323874}
+{"type":"thinking","subtype":"delta","text":" won","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820323946}
+{"type":"thinking","subtype":"delta","text":"’t","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324016}
+{"type":"thinking","subtype":"delta","text":" commit","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324079}
+{"type":"thinking","subtype":"delta","text":" anything","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324118}
+{"type":"thinking","subtype":"delta","text":",","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324152}
+{"type":"thinking","subtype":"delta","text":" as","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324190}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324224}
+{"type":"thinking","subtype":"delta","text":" user","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324258}
+{"type":"thinking","subtype":"delta","text":" didn","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324313}
+{"type":"thinking","subtype":"delta","text":"’t","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324338}
+{"type":"thinking","subtype":"delta","text":" request","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324380}
+{"type":"thinking","subtype":"delta","text":" that","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324410}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324445}
+{"type":"thinking","subtype":"delta","text":" I","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324481}
+{"type":"thinking","subtype":"delta","text":"’ll","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324532}
+{"type":"thinking","subtype":"delta","text":" provide","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324563}
+{"type":"thinking","subtype":"delta","text":" a","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324598}
+{"type":"thinking","subtype":"delta","text":" brief","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324640}
+{"type":"thinking","subtype":"delta","text":" status","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324677}
+{"type":"thinking","subtype":"delta","text":" update","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324711}
+{"type":"thinking","subtype":"delta","text":" before","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324749}
+{"type":"thinking","subtype":"delta","text":" proceeding","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324779}
+{"type":"thinking","subtype":"delta","text":" with","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324818}
+{"type":"thinking","subtype":"delta","text":" the","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324850}
+{"type":"thinking","subtype":"delta","text":" Write","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324889}
+{"type":"thinking","subtype":"delta","text":" tool","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324913}
+{"type":"thinking","subtype":"delta","text":".","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820324950}
+{"type":"thinking","subtype":"delta","text":"","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325050}
+{"type":"thinking","subtype":"completed","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325059}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"I'll"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325059}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" create"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325067}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" `"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325067}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"src"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325075}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"/"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325075}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"Po"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325082}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"op"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325091}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":".ts"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325099}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"x"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325106}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"`"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325114}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" with"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325115}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" a"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325123}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" minimal"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325126}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" React"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325132}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" component"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325137}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" so"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325141}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" it"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325144}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" comp"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325150}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"iles"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325152}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" clean"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325156}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"ly"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325157}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"."}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820325178}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"I'll create `src/Poop.tsx` with a minimal React component so it compiles cleanly."}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","model_call_id":"12e2d49c-58db-4b10-980f-f5799965b46c","timestamp_ms":1761820326161}
+{"type":"tool_call","subtype":"started","call_id":"call_QldTaSjdI8cGlTdrEIUxPu8k\nfc_0e34187a9904d84e0169033ea51f84819ab061de7c0d92badc","tool_call":{"editToolCall":{"args":{"path":"/Users/quentinromerolauro/.inspector-worktrees/this-but-meme-remix-app-codebase_20251030-033105/src/Poop.tsx"}}},"model_call_id":"12e2d49c-58db-4b10-980f-f5799965b46c","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820326162}
+{"type":"tool_call","subtype":"completed","call_id":"call_QldTaSjdI8cGlTdrEIUxPu8k\nfc_0e34187a9904d84e0169033ea51f84819ab061de7c0d92badc","tool_call":{"editToolCall":{"args":{"path":"/Users/quentinromerolauro/.inspector-worktrees/this-but-meme-remix-app-codebase_20251030-033105/src/Poop.tsx"},"result":{"success":{"path":"/Users/quentinromerolauro/.inspector-worktrees/this-but-meme-remix-app-codebase_20251030-033105/src/Poop.tsx","resultForModel":"Wrote contents to /Users/quentinromerolauro/.inspector-worktrees/this-but-meme-remix-app-codebase_20251030-033105/src/Poop.tsx","linesAdded":5,"linesRemoved":1,"diffString":"- \n+ export default function Poop(): JSX.Element {\n+   return (\n+     &lt;div&gt;Poop&lt;/div&gt;\n+   );\n+ }","afterFullFileContent":"export default function Poop(): JSX.Element {\n  return (\n    &lt;div&gt;Poop&lt;/div&gt;\n  );\n}\n"}}}},"model_call_id":"12e2d49c-58db-4b10-980f-f5799965b46c","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820326336}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"-"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327797}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" Created"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327799}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" `"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327801}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"src"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327868}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"/"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327868}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"Po"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327873}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"op"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327874}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":".ts"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327892}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"x"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327906}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"`"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327929}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" with"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327950}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" a"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327976}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" minimal"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327977}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":","}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820327995}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" default"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328055}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"-export"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328081}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"ed"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328081}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" React"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328081}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" component"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328103}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":".\n\n"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328103}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"If"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328103}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" you"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328119}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" want"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328142}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" props"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328162}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":","}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328184}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" styles"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328209}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":","}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328229}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" or"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328247}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" server"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328268}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"/client"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328288}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" designation"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328317}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" added"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328331}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":","}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328393}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" tell"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328395}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" me"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328401}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" how"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328401}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" you"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328421}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"’d"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328435}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" like"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328457}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" it"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328485}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" to"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328485}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":" behave"}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328499}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"."}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","timestamp_ms":1761820328591}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"- Created `src/Poop.tsx` with a minimal, default-exported React component.\n\nIf you want props, styles, or server/client designation added, tell me how you’d like it to behave."}]},"session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d"}
+{"type":"result","subtype":"success","duration_ms":39740,"duration_api_ms":39740,"is_error":false,"result":"I'll create `src/Poop.tsx` with a minimal React component so it compiles cleanly.- Created `src/Poop.tsx` with a minimal, default-exported React component.\n\nIf you want props, styles, or server/client designation added, tell me how you’d like it to behave.","session_id":"786a61bc-95b0-44ea-b496-fb46e4e8093d","request_id":"65cbd5c2-3244-4805-91bc-25f45b86b042"}
+
+
+
+

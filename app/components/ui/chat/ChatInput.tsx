@@ -1,10 +1,11 @@
 import React from 'react'
 import { Button } from '../button'
-import { 
-  Plus, 
-  Camera, 
+import {
+  Plus,
+  Camera,
   ArrowUp,
-  AtSign
+  AtSign,
+  Pause,
 } from 'lucide-react'
 import { ModeSelector } from './ModeSelector'
 import { ModelSelector } from './ModelSelector'
@@ -14,6 +15,7 @@ interface ChatInputProps {
   onChange: (value: string) => void
   placeholder?: string
   disabled?: boolean
+  sendDisabled?: boolean
   onSend?: () => void
   // Optional model/mode selections
   modes?: string[]
@@ -22,6 +24,8 @@ interface ChatInputProps {
   defaultModel?: string
   onModeChange?: (mode: string) => void
   onModelChange?: (model: string) => void
+  isStreaming?: boolean
+  onStop?: () => void
 }
 
 export const ChatInput: React.FC<ChatInputProps> = ({
@@ -29,6 +33,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   onChange,
   placeholder = "Plan, @ for context, / for commands",
   disabled = false,
+  sendDisabled = false,
   onSend,
   modes = ['Agent', 'Plan', 'Ask'],
   models = ['gpt-5', 'gpt-4.1', 'gpt-4o-mini'],
@@ -36,6 +41,8 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   defaultModel = 'gpt-5',
   onModeChange,
   onModelChange,
+  isStreaming = false,
+  onStop,
 }) => {
   const textareaRef = React.useRef<HTMLTextAreaElement | null>(null)
   const containerRef = React.useRef<HTMLDivElement | null>(null)
@@ -115,10 +122,21 @@ export const ChatInput: React.FC<ChatInputProps> = ({
       return
     }
 
-    if (e.key === 'Enter' && !e.shiftKey && value.trim()) {
+    if (e.key === 'Enter' && !e.shiftKey && value.trim() && !isStreaming && !sendDisabled && !disabled) {
       e.preventDefault()
       onSend?.()
     }
+  }
+
+  const actionIsStop = isStreaming && typeof onStop === 'function'
+  const actionDisabled = actionIsStop ? false : disabled || sendDisabled || !value.trim()
+  const handleActionClick = () => {
+    if (actionIsStop) {
+      onStop?.()
+      return
+    }
+    if (!value.trim()) return
+    onSend?.()
   }
 
   return (
@@ -193,10 +211,11 @@ export const ChatInput: React.FC<ChatInputProps> = ({
               <Button 
                 size="icon"
                 className="size-8 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200"
-                disabled={!value.trim() || disabled}
-                onClick={onSend}
+                disabled={actionDisabled}
+                onClick={handleActionClick}
+                aria-label={actionIsStop ? 'Stop run' : 'Send message'}
               >
-                <ArrowUp className="size-4" />
+                {actionIsStop ? <Pause className="size-4" /> : <ArrowUp className="size-4" />}
               </Button>
             </div>
           </div>

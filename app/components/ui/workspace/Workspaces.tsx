@@ -14,8 +14,7 @@ export default function Workspaces() {
         {tab.kind === 'welcome' ? (
             <WelcomeScreen />
           ) : tab.kind === 'open-project' ? (
-            <OpenProjectFlow />
-          ) 
+            <OpenProjectFlow /> )
           // UNCOMMENT FOR DEV IF YOU WANT TO DEBUG A LOCAL LANGUAGE MODEL
           // : tab.kind === 'ai-debugger' ? (
           //   <LocalLanguageModelsDebugger />
@@ -28,5 +27,3 @@ export default function Workspaces() {
     </div>
   )
 }
-
-

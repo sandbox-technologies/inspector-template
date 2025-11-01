@@ -88,3 +88,12 @@
     --chart-5: hsl(340 75% 55%);
   }
 }
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

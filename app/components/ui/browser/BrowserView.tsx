@@ -14,13 +14,17 @@ export default function BrowserView({ initialUrl = 'http://localhost:3000', heig
     // Best-effort back: delegate to iframe if same-origin; otherwise ignore
     try {
       iframeRef.current?.contentWindow?.history.back()
-    } catch {}
+    } catch {
+      // Ignore cross-origin errors
+    }
   }
 
   const handleForward = () => {
     try {
       iframeRef.current?.contentWindow?.history.forward()
-    } catch {}
+    } catch {
+      // Ignore cross-origin errors
+    }
   }
 
   const handleReload = () => {

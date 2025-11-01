@@ -30,7 +30,7 @@ export const LsTreeView: React.FC<LsTreeViewProps> = ({ data, isActive }) => {
   const title = active ? 'Listing' : 'Listed'
 
   return (
-    <div className="mb-3 p-3">
+    <div>
       {active ? (
         <header className="mb-2 text-xs text-neutral-600 dark:text-neutral-400">
           <span
@@ -72,7 +72,6 @@ export const LsTreeView: React.FC<LsTreeViewProps> = ({ data, isActive }) => {
                   {totalFiles} {totalFiles === 1 ? 'file' : 'files'} in {directoryName}
                 </span>
               </span>
-              <span className="transition-transform group-open:rotate-180 flex-shrink-0 ml-2">▾</span>
             </header>
           </summary>
           <div className="mt-2 max-h-64 overflow-auto text-xs text-neutral-800 dark:text-neutral-100" style={{ backgroundColor: 'transparent' }}>
