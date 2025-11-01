@@ -1,6 +1,6 @@
 import React from 'react'
 import { Infinity as InfinityIcon, GitBranch, MessageSquare, ChevronDown, Check } from 'lucide-react'
-import Tooltip from '../tooltip'
+import Tooltip from '../../../tooltip'
 
 interface ModeSelectorProps {
   value: string

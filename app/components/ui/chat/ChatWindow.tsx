@@ -1,20 +1,20 @@
 import React from 'react'
 import { Settings, History, LogOut } from 'lucide-react'
 
-import type { Tab } from './window/TabsContext'
+import type { Tab } from '../../window/TabsContext'
 import type { InspectorUIMessage } from '@/app/ai/types'
 import { useInspectorChat } from '@/app/hooks/use-inspector-chat'
 
-import { ChatInput } from './ui/chat/ChatInput'
-import { SentMessage } from './ui/chat/SentMessage'
-import { Button } from './ui/button'
+import { ChatInput } from './user/input/ChatInput'
+import { SentMessage } from './user/input/SentMessage'
+import { Button } from '../button'
 
 import {
   buildAgentItems,
   collectAgentEvents,
   renderAgentItem,
-} from './ui/chat/agentEventHelpers'
-import { PlaceholderPlanning } from './ui/chat/PlaceholderPlanning'
+} from './agent/agentEventHelpers'
+import { PlanningView } from './agent/PlanningView'
 
 export type ChatWindowController = Pick<
   ReturnType<typeof useInspectorChat>,
@@ -214,7 +214,7 @@ const ChatWindowContent: React.FC<ChatWindowContentProps> = ({
       {agentItems.map(item => (
         <div key={item.key}>{renderAgentItem(item)}</div>
       ))}
-      {showPlaceholder && <PlaceholderPlanning />}
+      {showPlaceholder && <PlanningView />}
       <div ref={messagesEndRef} />
     </>
   )

@@ -12,7 +12,7 @@ type ThinkingStreamSnapshot = {
   lastDelta?: string
 }
 
-type ThinkingTraceProps = {
+type ThinkingViewProps = {
   data?: InspectorDataParts['thinkingFinal']
   delta?: InspectorDataParts['thinking']
   text?: string
@@ -24,7 +24,7 @@ type ThinkingTraceProps = {
   streamState?: ThinkingStreamSnapshot
 }
 
-export const ThinkingTrace: React.FC<ThinkingTraceProps> = ({
+export const ThinkingView: React.FC<ThinkingViewProps> = ({
   data,
   delta,
   text,

@@ -1,13 +1,13 @@
 import React from 'react'
 
 import type { InspectorSystemNoticeLevel, InspectorUIMessage } from '@/app/ai/types'
-import { ThinkingTrace } from '@/app/components/ui/chat/ThinkingTrace'
-import { AssistantText } from '@/app/components/ui/chat/AssistantText'
-import { ToolEventView } from '@/app/components/ui/chat/tools/ToolEventView'
-import { ToolItem } from '@/app/components/ui/chat/tools/types'
-import { SystemNoticeView, type SystemItem } from '@/app/components/ui/chat/SystemNoticeView'
-import { ErrorEventView, type ErrorItem } from '@/app/components/ui/chat/ErrorEventView'
-import { LogEventView, type LogItem } from '@/app/components/ui/chat/LogEventView'
+import { ThinkingView } from '@/app/components/ui/chat/agent/ThinkingView'
+import { TextView } from '@/app/components/ui/chat/agent/TextView'
+import { ToolEventView } from '@/app/components/ui/chat/agent/tools/ToolEventView'
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types'
+import { SystemNoticeView, type SystemItem } from '@/app/components/ui/chat/agent/SystemNoticeView'
+import { ErrorEventView, type ErrorItem } from '@/app/components/ui/chat/agent/ErrorEventView'
+import { LogEventView, type LogItem } from '@/app/components/ui/chat/agent/LogEventView'
 
 import type { CursorAgentEvent } from '@/lib/ai/cursor-agent-types'
 import {
@@ -39,10 +39,10 @@ type AssistantItem = {
   isFinal: boolean
 }
 
-export type { ToolItem } from '@/app/components/ui/chat/tools/types'
-export type { SystemItem } from '@/app/components/ui/chat/SystemNoticeView'
-export type { ErrorItem } from '@/app/components/ui/chat/ErrorEventView'
-export type { LogItem } from '@/app/components/ui/chat/LogEventView'
+export type { ToolItem } from '@/app/components/ui/chat/agent/tools/types'
+export type { SystemItem } from '@/app/components/ui/chat/agent/SystemNoticeView'
+export type { ErrorItem } from '@/app/components/ui/chat/agent/ErrorEventView'
+export type { LogItem } from '@/app/components/ui/chat/agent/LogEventView'
 
 export type AgentEventItem =
   | ThinkingItem
@@ -289,7 +289,7 @@ export function renderAgentItem(item: AgentEventItem): React.ReactNode {
   switch (item.kind) {
     case 'thinking': {
       return (
-        <ThinkingTrace
+        <ThinkingView
           text={item.text}
           isActive={!item.isComplete}
           startedAtMs={item.startedAtMs}
@@ -300,7 +300,7 @@ export function renderAgentItem(item: AgentEventItem): React.ReactNode {
     }
     case 'assistant': {
       return (
-        <AssistantText
+        <TextView
           data={{
             runId: item.runId,
             segmentId: item.segmentId,

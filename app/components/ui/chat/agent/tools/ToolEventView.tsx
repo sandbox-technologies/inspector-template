@@ -1,12 +1,12 @@
 import React from 'react'
 import { TerminalView } from './TerminalView'
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
 import { GenericView } from './GenericView'
 import { ReadView } from './ReadView'
 import { EditView } from './EditView'
 import { LsView } from './LsView'
 import { GrepView } from './GrepView'
-import { detectToolType } from '@/app/components/ui/chat/tools/helpers'
+import { detectToolType } from '@/app/components/ui/chat/agent/tools/helpers'
 
 
 export const ToolEventView: React.FC<{ item: ToolItem }> = ({ item }) => {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from 'react'
+import React, { createContext, useContext, useState, useCallback } from 'react'
 import inspectorFavicon from '@/app/assets/logo/favicons/favicon-32x32.png'
 
 export type Tab = { 

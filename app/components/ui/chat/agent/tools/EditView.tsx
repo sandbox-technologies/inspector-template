@@ -1,10 +1,10 @@
 // Edit-specific rendering
 import React from 'react'
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
-import { getFileName } from '@/app/components/ui/chat/tools/helpers'
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
+import { getFileName } from '@/app/components/ui/chat/agent/tools/helpers'
 import { getLanguageIconData } from '@/app/utils/languageIcon'
 import { languageFromPath } from '@/app/utils/agentStreamHelpers'
-import { CodeBlock } from '@/app/components/ui/chat/CodeBlock'
+import { CodeBlock } from '@/app/components/ui/chat/agent/CodeBlock'
 
 export const EditView: React.FC<{ item: ToolItem; payload: any }> = ({ item, payload }) => {
     const active = item.status === 'started'

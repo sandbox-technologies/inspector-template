@@ -1,6 +1,6 @@
 import React from 'react'
-import { getDirectoryName } from '@/app/components/ui/chat/tools/helpers'
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
+import { getDirectoryName } from '@/app/components/ui/chat/agent/tools/helpers'
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
 import { getLanguageIconData } from '@/app/utils/languageIcon';
 
 // LS-specific rendering

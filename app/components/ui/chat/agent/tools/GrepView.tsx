@@ -1,6 +1,6 @@
 import React from 'react'
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
-import { getDirectoryPath, getFileName } from '@/app/components/ui/chat/tools/helpers'
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
+import { getDirectoryPath, getFileName } from '@/app/components/ui/chat/agent/tools/helpers'
 import { getLanguageIconData } from '@/app/utils/languageIcon'
 
 

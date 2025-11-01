@@ -1,7 +1,7 @@
 import React from 'react'
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
 import { getLanguageIconData } from '@/app/utils/languageIcon'
-import { getFileName } from '@/app/components/ui/chat/tools/helpers'
+import { getFileName } from '@/app/components/ui/chat/agent/tools/helpers'
 
 // Read-specific rendering
 export const ReadView: React.FC<{ item: ToolItem; payload: any }> = ({ item, payload }) => {

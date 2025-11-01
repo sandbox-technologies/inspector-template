@@ -4,11 +4,11 @@ import remarkGfm from 'remark-gfm'
 
 import type { InspectorDataParts } from '@/app/ai/types'
 
-type AssistantTextProps = {
+type TextViewProps = {
   data: InspectorDataParts['agentText']
 }
 
-export const AssistantText: React.FC<AssistantTextProps> = ({ data }) => {
+export const TextView: React.FC<TextViewProps> = ({ data }) => {
   const incomingText = data?.text ?? ''
   const segmentId = data?.segmentId ?? data?.runId ?? 'default'
 

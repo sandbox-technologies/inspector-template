@@ -1,4 +1,4 @@
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
 import { ExternalLink, Maximize2, Check, ChevronDown } from 'lucide-react'
 
 export const TerminalView: React.FC<{ item: ToolItem; payload: any }> = ({ item, payload }) => {

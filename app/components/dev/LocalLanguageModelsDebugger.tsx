@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { Button } from '@/app/components/ui/button'
 import { generateText, streamText } from 'ai'
 import { createLocalLanguageModel } from '@/lib/ai/local-language-models'
-import { ModelSelector } from '@/app/components/ui/chat/ModelSelector'
+import { ModelSelector } from '@/app/components/ui/chat/user/input/ModelSelector'
 import { MODELS } from '@/lib/main/llm/config'
 import type { ModelId } from '@/lib/main/llm/config'
 

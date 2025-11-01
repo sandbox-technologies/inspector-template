@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PlaceholderPlanning: React.FC = () => {
+export const PlanningView: React.FC = () => {
   return (
     <div className="py-2">
       <details

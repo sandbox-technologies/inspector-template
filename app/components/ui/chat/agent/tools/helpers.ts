@@ -1,4 +1,4 @@
-import { ToolType } from '@/app/components/ui/chat/tools/types';
+import { ToolType } from '@/app/components/ui/chat/agent/tools/types';
 
 export const getFileName = (filePath?: string): string => {
     if (!filePath) return 'Unknown file'

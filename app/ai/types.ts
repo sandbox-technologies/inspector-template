@@ -171,11 +171,3 @@ export interface InspectorMessageMetadata {
 }
 
 export type InspectorUIMessage = UIMessage<InspectorMessageMetadata, InspectorDataParts>
-
-export type InspectorMessageDataPart = InspectorUIMessage['parts'][number]
-
-export type InspectorThinkingDataPart = Extract<
-  InspectorMessageDataPart,
-  { type: 'data-thinking' }
->
-

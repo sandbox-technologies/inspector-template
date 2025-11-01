@@ -1,5 +1,5 @@
 import React from 'react'
-import { ToolItem } from '@/app/components/ui/chat/tools/types';
+import { ToolItem } from '@/app/components/ui/chat/agent/tools/types';
 
 // Generic/unknown tool rendering
 export const GenericView: React.FC<{ item: ToolItem; payload: any }> = ({ item, payload }) => {

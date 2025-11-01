@@ -1,6 +1,6 @@
 import BrowserFrame from '@/app/components/ui/browser/BrowserFrame'
-import { ChatWindow } from '@/app/components/ChatWindow'
-import TwoPaneLayout from '@/app/components/ui/chat/TwoPaneLayout'
+import { ChatWindow } from '@/app/components/ui/chat/ChatWindow'
+import TwoPaneLayout from '@/app/components/ui/layouts/TwoPaneLayout'
 import type { Tab } from '@/app/components/window/TabsContext'
 
 export default function Workspace({ tab }: { tab: Tab }) {
