@@ -1,8 +1,9 @@
-import { app, BrowserWindow, protocol } from 'electron'
+import { app, BrowserWindow, protocol, nativeImage } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { createAppWindow } from './app'
 import { loadElectronLlm } from '@electron/llm'
 import { join, dirname } from 'path'
+import appIconPath from '@/resources/build/icon.png?asset'
 
 // Set the app name for the menu bar (especially important on macOS)
 app.setName('Inspector')
@@ -46,6 +47,11 @@ app.whenReady().then(async () => {
 
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.inspector.app')
+
+  if (process.platform === 'darwin' && app.dock) {
+    const dockIcon = nativeImage.createFromPath(appIconPath)
+    if (!dockIcon.isEmpty()) app.dock.setIcon(dockIcon)
+  }
   
   // NOW create app window after LLM is loaded
   createAppWindow()
