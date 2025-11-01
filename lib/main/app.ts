@@ -1,7 +1,7 @@
 import { BrowserWindow, shell, app } from 'electron'
 import { join } from 'path'
 import appIcon from '@/resources/build/icon.png?asset'
-import { registerResourcesProtocol } from './protocols'
+import { registerResourcesProtocol, registerAIProtocol } from './protocols'
 import { registerWindowHandlers } from '@/lib/conveyor/handlers/window-handler'
 import { registerAppHandlers } from '@/lib/conveyor/handlers/app-handler'
 import { registerWorkspaceHandlers } from '@/lib/conveyor/handlers/workspace-handler'
@@ -10,6 +10,8 @@ import { registerAgentHandlers } from '@/lib/conveyor/handlers/agent-handler'
 export function createAppWindow(): void {
   // Register custom protocol for resources
   registerResourcesProtocol()
+  // Register AI SDK-compatible UI message stream endpoint
+  registerAIProtocol()
 
   // Create the main window.
   const mainWindow = new BrowserWindow({
@@ -29,6 +31,7 @@ export function createAppWindow(): void {
     resizable: true,
     webPreferences: {
       preload: join(__dirname, '../preload/preload.js'),
+      contextIsolation: true,
       sandbox: false,
       webviewTag: true,
     },

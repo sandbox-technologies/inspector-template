@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, protocol } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { createAppWindow } from './app'
 import { loadElectronLlm } from '@electron/llm'
@@ -6,6 +6,19 @@ import { join, dirname } from 'path'
 
 // Set the app name for the menu bar (especially important on macOS)
 app.setName('Inspector')
+
+// Register custom protocol privileges BEFORE app is ready so fetch() can use them
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: 'ai',
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true,
+      corsEnabled: true,
+    },
+  },
+])
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
